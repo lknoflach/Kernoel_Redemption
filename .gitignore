@@ -47,4 +47,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-*/Plugins/Github*
+*Assets/Plugins/GitHub/*
+Kernoel_Redemption3d/Assets/Plugins/GitHub/*
+Kernoel_Redemption3d/Assets/ProCore/*
