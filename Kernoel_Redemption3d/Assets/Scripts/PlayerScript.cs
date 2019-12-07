@@ -8,13 +8,14 @@ public class PlayerScript : MonoBehaviour
 
     public float movementSpeed;
     public GameObject camera;
-
-    //Methods
-
-
+    public GameObject PlayerObj;
+    public GameObject bulletSpwanPoint;
+    public float waitTime;
+    public GameObject bullet;
     // Update is called once per frame
     void Update()
     {
+        //Mouse Focus
         Plane playerPlane = new Plane(Vector3.up, transform.position);
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitDist = 0.0f;
@@ -25,9 +26,9 @@ public class PlayerScript : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
             targetRotation.x = 0;
             targetRotation.z = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
+            PlayerObj.transform.rotation = Quaternion.Slerp(PlayerObj.transform.rotation, targetRotation, 7f * Time.deltaTime);
         }
-
+        // Movement
         if(Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
@@ -45,5 +46,15 @@ public class PlayerScript : MonoBehaviour
             transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
         }
 
+        //Shooting
+        if(Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(bullet.transform, bulletSpwanPoint.transform.position, bulletSpwanPoint.transform.rotation);
     }
 }
