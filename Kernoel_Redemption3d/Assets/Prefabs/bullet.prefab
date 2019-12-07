@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1296273916464854518}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8422717245507381765}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 5e43708e1339c2f44ad5caa45521b012, type: 3}
 --- !u!23 &8422717245507381767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59,7 +59,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc4b64a0f3ba4c341b6abe8dd19e3b34, type: 2}
+  - {fileID: 2100000, guid: 428977e9edebddd47a13edc009c36c1c, type: 2}
+  - {fileID: 2100000, guid: 428977e9edebddd47a13edc009c36c1c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,4 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxDistance: 3
+  maxDistance: 4
+  damage: 1

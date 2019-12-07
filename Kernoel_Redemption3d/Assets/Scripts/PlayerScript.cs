@@ -12,6 +12,9 @@ public class PlayerScript : MonoBehaviour
     public GameObject bulletSpwanPoint;
     public float waitTime;
     public GameObject bullet;
+    private Transform bulletSpawn;
+    public float maxHealth;
+    public float health = 0;
     // Update is called once per frame
     void Update()
     {
@@ -55,6 +58,12 @@ public class PlayerScript : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bullet.transform, bulletSpwanPoint.transform.position, bulletSpwanPoint.transform.rotation);
+        bulletSpawn = Instantiate(bullet.transform, bulletSpwanPoint.transform.position, bulletSpwanPoint.transform.rotation);
+        bulletSpawn.rotation = bulletSpwanPoint.transform.rotation;  
+    }
+
+    void Die()
+    {
+
     }
 }
