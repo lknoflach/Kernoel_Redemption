@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
@@ -19,12 +17,12 @@ public class BulletScript : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-    void Update()
+    private void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
         maxDistance += 1 * Time.deltaTime;
 
-        if(maxDistance >= 5)
+        if (maxDistance >= 5)
         {
             Destroy(this.gameObject);
         }
@@ -32,14 +30,14 @@ public class BulletScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
             triggeringEnemy = other.gameObject;
             triggeringEnemy.GetComponent<EnemyScript>().health -= damage;
             Destroy(this.gameObject);
         }
 
-        if(other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             player = other.gameObject;
             player.GetComponent<PlayerScript>().health -= damage;

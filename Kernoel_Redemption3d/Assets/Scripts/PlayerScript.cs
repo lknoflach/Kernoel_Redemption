@@ -1,69 +1,82 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     //Variables 
 
     public float movementSpeed;
-    public GameObject camera;
-    public GameObject PlayerObj;
-    public GameObject bulletSpwanPoint;
+    public new GameObject camera;
+    public GameObject playerObj;
+    public GameObject bulletSpawnPoint;
     public float waitTime;
     public GameObject bullet;
     private Transform bulletSpawn;
     public float maxHealth;
+
     public float health = 0;
+    private Camera mainCamera;
+
     // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
+    private void Update()
     {
         //Mouse Focus
-        Plane playerPlane = new Plane(Vector3.up, transform.position);
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        float hitDist = 0.0f;
+        var playerPlane = new Plane(Vector3.up, transform.position);
+        if (mainCamera)
+        {
+            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        if(playerPlane.Raycast(ray, out hitDist))
-        {
-            Vector3 targetPoint = ray.GetPoint(hitDist);
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            PlayerObj.transform.rotation = Quaternion.Slerp(PlayerObj.transform.rotation, targetRotation, 7f * Time.deltaTime);
+            if (playerPlane.Raycast(ray, out var hitDist))
+            {
+                var targetPoint = ray.GetPoint(hitDist);
+                var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+                targetRotation.x = 0;
+                targetRotation.z = 0;
+                playerObj.transform.rotation =
+                    Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 7f * Time.deltaTime);
+            }
         }
+
         // Movement
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+            transform.Translate(Time.deltaTime * movementSpeed * Vector3.forward);
         }
+
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
+            transform.Translate(Time.deltaTime * movementSpeed * Vector3.back);
         }
+
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+            transform.Translate(Time.deltaTime * movementSpeed * Vector3.left);
         }
+
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
+            transform.Translate(Time.deltaTime * movementSpeed * Vector3.right);
         }
 
         //Shooting
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        bulletSpawn = Instantiate(bullet.transform, bulletSpwanPoint.transform.position, bulletSpwanPoint.transform.rotation);
-        bulletSpawn.rotation = bulletSpwanPoint.transform.rotation;  
+        var rotation = bulletSpawnPoint.transform.rotation;
+        bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, rotation);
+        bulletSpawn.rotation = rotation;
     }
 
     void Die()
     {
-
     }
 }

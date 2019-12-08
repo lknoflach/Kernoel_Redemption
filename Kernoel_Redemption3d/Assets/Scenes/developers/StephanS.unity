@@ -1712,6 +1712,12 @@ Transform:
   m_Father: {fileID: 1334412503}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &333251660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1482212087617368493, guid: 57b48a7a22e183b4faabd103b47e5c70,
+    type: 3}
+  m_PrefabInstance: {fileID: 1482212087457318554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &357999033
 Mesh:
   m_ObjectHideFlags: 0
@@ -4048,7 +4054,7 @@ GameObject:
   - component: {fileID: 668838279}
   - component: {fileID: 668838278}
   m_Layer: 0
-  m_Name: bullte spwan point
+  m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7712,7 +7718,6 @@ GameObject:
   - component: {fileID: 1409774678}
   - component: {fileID: 1409774677}
   - component: {fileID: 1409774676}
-  - component: {fileID: 1409774679}
   - component: {fileID: 1409774680}
   m_Layer: 0
   m_Name: Main Camera
@@ -7786,18 +7791,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
---- !u!114 &1409774679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409774675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 591bc8ece1e19c24ca9f2d2ebe56118f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1409774680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8882,6 +8875,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1733772001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1482212086230973883, guid: 57b48a7a22e183b4faabd103b47e5c70,
+    type: 3}
+  m_PrefabInstance: {fileID: 1482212087457318554}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1911395904
 Mesh:
   m_ObjectHideFlags: 0
@@ -10026,6 +10025,11 @@ PrefabInstance:
       propertyPath: waittime
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1106981908444972197, guid: 54b3f5acb63e4524b8d0a716e12d7d6b,
+        type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 668838276}
     - target: {fileID: 1106981908444972198, guid: 54b3f5acb63e4524b8d0a716e12d7d6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10495,6 +10499,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1482212086230973883, guid: 57b48a7a22e183b4faabd103b47e5c70,
+        type: 3}
+      propertyPath: m_Name
+      value: BulletSpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 1482212087189044812, guid: 57b48a7a22e183b4faabd103b47e5c70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10555,6 +10564,16 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1409774675}
+    - target: {fileID: 1482212087189044813, guid: 57b48a7a22e183b4faabd103b47e5c70,
+        type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 1733772001}
+    - target: {fileID: 1482212087189044813, guid: 57b48a7a22e183b4faabd103b47e5c70,
+        type: 3}
+      propertyPath: playerObj
+      value: 
+      objectReference: {fileID: 333251660}
     - target: {fileID: 1482212087189044814, guid: 57b48a7a22e183b4faabd103b47e5c70,
         type: 3}
       propertyPath: m_Name

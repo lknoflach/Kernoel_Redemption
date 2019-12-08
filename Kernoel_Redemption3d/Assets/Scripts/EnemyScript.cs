@@ -6,55 +6,55 @@ public class EnemyScript : MonoBehaviour
 {
     public float health;
     public GameObject player;
-    public float waittime;
-    private float currentwait;
+    public float waitTime;
+    private float currentWait;
     private bool shot;
     public GameObject bullet;
-    public GameObject bulletSpwanPoint;
+    public GameObject bulletSpawnPoint;
     private Transform bulletSpawn;
+
     public void Start()
     {
         player = GameObject.FindWithTag("Player");
 
-        bulletSpwanPoint = GameObject.Find("GundHolder/bullte spwan point");
-      
+        // bulletSpawnPoint = GameObject.Find("GunHolder");
     }
 
     public void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }
+
         this.transform.LookAt(player.transform);
 
-        if(currentwait == 0)
+        if (currentWait == 0)
         {
-            shoot();
+            Shoot();
         }
-        if(shot && currentwait < waittime)
+
+        if (shot && currentWait < waitTime)
         {
-            currentwait += 1 * Time.deltaTime;
+            currentWait += 1 * Time.deltaTime;
         }
-        if(currentwait >= waittime)
+
+        if (currentWait >= waitTime)
         {
-            currentwait = 0;
+            currentWait = 0;
         }
     }
 
-    public void Die()
+    private void Die()
     {
-      
         Destroy(this.gameObject);
-
     }
 
-    public void shoot()
+    private void Shoot()
     {
-     shot = true;
-  
-        bulletSpawn =  Instantiate(bullet.transform, bulletSpwanPoint.transform.position,Quaternion.identity);
+        shot = true;
+
+        bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
         bulletSpawn.rotation = this.transform.rotation;
     }
-   
 }

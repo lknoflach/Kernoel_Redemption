@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
@@ -17,11 +15,11 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = new Vector3();
-        pos.x = player.position.x;
-        pos.z = player.position.z - 7f;
-        pos.y = player.position.y + height;
+        var pos = new Vector3();
+        var position = player.position;
+        pos.x = position.x;
+        pos.z = position.z - 7f;
+        pos.y = position.y + height;
         transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smooth);
-
     }
 }
