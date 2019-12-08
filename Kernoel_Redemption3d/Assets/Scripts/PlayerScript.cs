@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed;
     private Rigidbody myRigidbody;
 
-    private Vector3 moveInput;
+    public Vector3 moveInput;
     private Vector3 moveVelocity;
 
     private Camera mainCamera;

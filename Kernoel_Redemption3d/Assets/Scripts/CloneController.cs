@@ -7,7 +7,7 @@ using System.Collections;
      public float movementSpeed = 4;
      public bool arivedAtPlayer = false;
         private PlayerScript playerScript; 
- 
+    private CloneController clone;
  
      void Start()
     {
@@ -16,21 +16,19 @@ using System.Collections;
  
  void OnCollisionEnter(Collision col)
      {  
-       //  if(!arivedAtPlayer){
-        /* if(col.gameObject.tag == "Clone"){
-               clone2 = col.gameObject.GetComponent<CloneController>();
-               if(clone2.arivedAtPlayer && arivedAtPlayer == false){   
-                   clone = clone2;             
+         if(!arivedAtPlayer){
+        if(col.gameObject.tag == "Clone"){
+               clone = col.gameObject.GetComponent<CloneController>();
+               if(clone.arivedAtPlayer && arivedAtPlayer == false){   
                     Debug.Log("colider clone");
                 arivedAtPlayer = true;
                    
                }
             }
-  //  }
- */
+        }
+          
          
-         
-         if(col.gameObject.name == "Player"){
+         if(col.gameObject.name == "PlayerCube"){
                 arivedAtPlayer = true;
                     Debug.Log("Test");
          }
@@ -61,8 +59,9 @@ using System.Collections;
   */
      void Update()
      {
-       //Debug.Log(playerScript.move);
-         if( !Mathf.Approximately(playerScript.moveSpeed, 0.0f)){
+       
+       Debug.Log(playerScript.moveInput);
+     if( !Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.z, 0.0f)){
              arivedAtPlayer = false;
             
          } 
