@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482212087189044814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 10, z: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1482212087617368482}
@@ -170,14 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95622aabc057cba47b67dd49f3662eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSpeed: 8
+  gravity: 20
   movementSpeed: 10
   camera: {fileID: 0}
-  PlayerObj: {fileID: 1482212087617368493}
-  bulletSpwanPoint: {fileID: 1482212086230973883}
-  waitTime: 2
-  bullet: {fileID: 8422717245507381765, guid: b96697d1331be474f80edbdc08ead665, type: 3}
-  maxHealth: 0
-  health: 10
 --- !u!54 &1482212087189044815
 Rigidbody:
   m_ObjectHideFlags: 0

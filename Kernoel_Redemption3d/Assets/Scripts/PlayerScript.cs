@@ -1,82 +1,44 @@
-﻿using UnityEngine;
+﻿
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    //Variables 
+    public float moveSpeed;
+    private Rigidbody myRigidbody;
 
-    public float movementSpeed;
-    public new GameObject camera;
-    public GameObject playerObj;
-    public GameObject bulletSpawnPoint;
-    public float waitTime;
-    public GameObject bullet;
-    private Transform bulletSpawn;
-    public float maxHealth;
+    private Vector3 moveInput;
+    private Vector3 moveVelocity;
 
-    public float health = 0;
     private Camera mainCamera;
-
-    // Update is called once per frame
     private void Start()
     {
-        mainCamera = Camera.main;
+        myRigidbody = GetComponent<Rigidbody>();
+        mainCamera = FindObjectOfType<Camera>();
     }
-
     private void Update()
     {
-        //Mouse Focus
-        var playerPlane = new Plane(Vector3.up, transform.position);
-        if (mainCamera)
-        {
-            var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        moveVelocity = moveInput * moveSpeed;
 
-            if (playerPlane.Raycast(ray, out var hitDist))
-            {
-                var targetPoint = ray.GetPoint(hitDist);
-                var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-                targetRotation.x = 0;
-                targetRotation.z = 0;
-                playerObj.transform.rotation =
-                    Quaternion.Slerp(playerObj.transform.rotation, targetRotation, 7f * Time.deltaTime);
-            }
-        }
+        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+        float rayLength;
 
-        // Movement
-        if (Input.GetKey(KeyCode.W))
+        if (groundPlane.Raycast(cameraRay, out rayLength)) ;
         {
-            transform.Translate(Time.deltaTime * movementSpeed * Vector3.forward);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Time.deltaTime * movementSpeed * Vector3.back);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Time.deltaTime * movementSpeed * Vector3.left);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Time.deltaTime * movementSpeed * Vector3.right);
-        }
-
-        //Shooting
-        if (Input.GetMouseButtonDown(0))
-        {
-            Shoot();
+            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+            transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
         }
     }
 
-    private void Shoot()
+
+    private void FixedUpdate()
     {
-        var rotation = bulletSpawnPoint.transform.rotation;
-        bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, rotation);
-        bulletSpawn.rotation = rotation;
+        myRigidbody.velocity = moveVelocity;
     }
 
-    void Die()
-    {
-    }
+
 }
