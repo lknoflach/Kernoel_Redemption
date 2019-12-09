@@ -5,7 +5,7 @@ public class CloneController : MonoBehaviour
 
 
 
-     public GameObject Player;
+     private GameObject Player;
      public float movementSpeed = 10;
      public int live = 50;
      public bool arivedAtPlayer = false;
@@ -15,6 +15,7 @@ public class CloneController : MonoBehaviour
      void Start()
 
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         playerScript = Player.GetComponent<PlayerScript>();
     }
 
@@ -77,7 +78,7 @@ public class CloneController : MonoBehaviour
          } 
          
          if(arivedAtPlayer==false){
-         transform.LookAt(Player.transform);
+         transform.LookAt(Player.transform.position);
          transform.position += transform.forward * movementSpeed * Time.deltaTime;
 
         }
