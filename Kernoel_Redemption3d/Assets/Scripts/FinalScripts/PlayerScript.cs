@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public GameObject playerGun;
-    //private PlayerGunFiring PlayerGunFiringScript;
+    private PlayerGunFiring PlayerGunFiringScript;
     public float moveSpeed;
     private Rigidbody myRigidbody;
     private bool clones;
@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
-        //PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
+        PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -64,18 +64,16 @@ public class PlayerScript : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
         }
-       /* if(Input.GetButtonDown("Fire1")){
-            PlayerGunFiringScript.Shoot();*/
+       if(Input.GetButtonDown("Fire1")){
+            PlayerGunFiringScript.Shoot();
         
         
+        }
     }
-    
-   
 
-    private void FixedUpdate()
+     public void FixedUpdate()
     {
         myRigidbody.velocity = moveVelocity;
     }
-
-
+   
 }

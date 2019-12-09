@@ -5,16 +5,17 @@ public class CloneController : MonoBehaviour
 
 
 
-     public GameObject Player;
+     private GameObject Player;
      public float movementSpeed = 10;
      public int live = 50;
      public bool arivedAtPlayer = false;
      private PlayerScript playerScript; 
-    private CloneController clone;
+     private CloneController clone;
  
      void Start()
 
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         playerScript = Player.GetComponent<PlayerScript>();
     }
 
