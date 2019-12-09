@@ -3,38 +3,40 @@ using System.Collections;
 public class CloneController : MonoBehaviour
 {
 
-    public GameObject Player;
-    public float movementSpeed = 4;
-    public bool arivedAtPlayer = false;
-    private PlayerScript playerScript;
 
 
-    void Start()
+     public GameObject Player;
+     public float movementSpeed = 10;
+     public int live = 50;
+     public bool arivedAtPlayer = false;
+        private PlayerScript playerScript; 
+    private CloneController clone;
+ 
+     void Start()
+
     {
         playerScript = Player.GetComponent<PlayerScript>();
     }
 
-    void OnCollisionEnter(Collision col)
-    {
-        //  if(!arivedAtPlayer){
-        /* if(col.gameObject.tag == "Clone"){
-               clone2 = col.gameObject.GetComponent<CloneController>();
-               if(clone2.arivedAtPlayer && arivedAtPlayer == false){   
-                   clone = clone2;             
+ void OnCollisionEnter(Collision col)
+     {  
+         if(!arivedAtPlayer){
+        if(col.gameObject.tag == "Clone"){
+               clone = col.gameObject.GetComponent<CloneController>();
+               if(clone.arivedAtPlayer){   
                     Debug.Log("colider clone");
                 arivedAtPlayer = true;
                    
                }
             }
-  //  }
- */
-
-
-        if (col.gameObject.name == "Player")
-        {
-            arivedAtPlayer = true;
-            Debug.Log("Test");
         }
+          
+         
+         if(col.gameObject.name == "PlayerCube"){
+                arivedAtPlayer = true;
+                    Debug.Log("Test");
+         }
+
 
         //collisionCount++;
     }
@@ -60,12 +62,23 @@ public class CloneController : MonoBehaviour
          //collisionCount--;
      }
   */
-    void Update()
-    {
-        //Debug.Log(playerScript.move);
-        if (!Mathf.Approximately(playerScript.Player.transform.position.y, 0.0f) || !Mathf.Approximately(playerScript.Player.transform.position.z, 0.0f) || !Mathf.Approximately(playerScript.Player.transform.position.x, 0.0f))
-        {
-            arivedAtPlayer = false;
+
+     void Update()
+     {
+       if(live <= 0){
+         //die 
+         Destroy(gameObject);
+       }
+       
+      // Debug.Log(playerScript.moveInput);
+     if( !Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.z, 0.0f)){
+             arivedAtPlayer = false;
+            
+         } 
+         
+         if(arivedAtPlayer==false){
+         transform.LookAt(Player.transform);
+         transform.position += transform.forward * movementSpeed * Time.deltaTime;
 
         }
 
