@@ -4,7 +4,8 @@ using System.Collections;
  {
 
      public GameObject Player;
-     public float movementSpeed = 4;
+     public float movementSpeed = 10;
+     public int live = 50;
      public bool arivedAtPlayer = false;
         private PlayerScript playerScript; 
     private CloneController clone;
@@ -59,6 +60,10 @@ using System.Collections;
   */
      void Update()
      {
+       if(live <= 0){
+         //die 
+         Destroy(gameObject);
+       }
        
        Debug.Log(playerScript.moveInput);
      if( !Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.z, 0.0f)){

@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 moveInput;
     private Vector3 moveVelocity;
+    public int live = 100; 
 
     private Camera mainCamera;
     private void Start()
@@ -19,6 +20,10 @@ public class PlayerScript : MonoBehaviour
     }
     private void Update()
     {
+        if(live <= 0){
+            //Game Over
+        }
+
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
 
