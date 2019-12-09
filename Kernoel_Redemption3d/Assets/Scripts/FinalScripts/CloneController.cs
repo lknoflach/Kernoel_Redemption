@@ -10,7 +10,7 @@ public class CloneController : MonoBehaviour
      public int live = 50;
      public bool arivedAtPlayer = false;
      private PlayerScript playerScript; 
-    private CloneController clone;
+     private CloneController clone;
  
      void Start()
 
