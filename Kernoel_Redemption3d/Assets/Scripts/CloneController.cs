@@ -65,7 +65,7 @@ using System.Collections;
          Destroy(gameObject);
        }
        
-       Debug.Log(playerScript.moveInput);
+      // Debug.Log(playerScript.moveInput);
      if( !Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||  !Mathf.Approximately(playerScript.moveInput.z, 0.0f)){
              arivedAtPlayer = false;
             
