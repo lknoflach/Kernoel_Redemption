@@ -1,22 +1,22 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
- public class CloneController : MonoBehaviour
- {
+public class CloneController : MonoBehaviour
+{
 
-     public GameObject Player;
-     public float movementSpeed = 4;
-     public bool arivedAtPlayer = false;
-        private PlayerScript playerScript; 
- 
- 
-     void Start()
+    public GameObject Player;
+    public float movementSpeed = 4;
+    public bool arivedAtPlayer = false;
+    private PlayerScript playerScript;
+
+
+    void Start()
     {
-      playerScript = Player.GetComponent<PlayerScript>();
+        playerScript = Player.GetComponent<PlayerScript>();
     }
- 
- void OnCollisionEnter(Collision col)
-     {  
-       //  if(!arivedAtPlayer){
+
+    void OnCollisionEnter(Collision col)
+    {
+        //  if(!arivedAtPlayer){
         /* if(col.gameObject.tag == "Clone"){
                clone2 = col.gameObject.GetComponent<CloneController>();
                if(clone2.arivedAtPlayer && arivedAtPlayer == false){   
@@ -28,16 +28,17 @@ using System.Collections;
             }
   //  }
  */
-         
-         
-         if(col.gameObject.name == "Player"){
-                arivedAtPlayer = true;
-                    Debug.Log("Test");
-         }
+
+
+        if (col.gameObject.name == "Player")
+        {
+            arivedAtPlayer = true;
+            Debug.Log("Test");
+        }
 
         //collisionCount++;
-     }
- 
+    }
+
     /* void OnCollisionExit(Collision col)
      {
 
@@ -59,20 +60,22 @@ using System.Collections;
          //collisionCount--;
      }
   */
-     void Update()
-     {
-       //Debug.Log(playerScript.move);
-         if( !Mathf.Approximately(playerScript.moveSpeed, 0.0f)){
-             arivedAtPlayer = false;
-            
-         } 
-         
-         if(arivedAtPlayer==false){
-         transform.LookAt(Player.transform);
-         transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        }
-        
-     }
-    
+    void Update()
+    {
+        //Debug.Log(playerScript.move);
+        if (!Mathf.Approximately(playerScript.Player.transform.position.y, 0.0f) || !Mathf.Approximately(playerScript.Player.transform.position.z, 0.0f) || !Mathf.Approximately(playerScript.Player.transform.position.x, 0.0f))
+        {
+            arivedAtPlayer = false;
 
- }
+        }
+
+        if (arivedAtPlayer == false)
+        {
+            transform.LookAt(Player.transform);
+            transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        }
+
+    }
+
+
+}
