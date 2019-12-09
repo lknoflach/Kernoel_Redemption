@@ -20,7 +20,7 @@ using System.Collections;
          if(!arivedAtPlayer){
         if(col.gameObject.tag == "Clone"){
                clone = col.gameObject.GetComponent<CloneController>();
-               if(clone.arivedAtPlayer && arivedAtPlayer == false){   
+               if(clone.arivedAtPlayer){   
                     Debug.Log("colider clone");
                 arivedAtPlayer = true;
                    

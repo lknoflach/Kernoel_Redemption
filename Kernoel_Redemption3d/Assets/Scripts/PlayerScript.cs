@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public GameObject playerGun;
+    private PlayerGunFiring PlayerGunFiringScript;
     public float moveSpeed;
     private Rigidbody myRigidbody;
 
@@ -17,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
+        PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
     }
     private void Update()
     {
@@ -37,8 +40,13 @@ public class PlayerScript : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
         }
+        if(Input.GetButtonDown("Fire1")){
+            PlayerGunFiringScript.Shoot();
+        }
+        
     }
-
+    
+   
 
     private void FixedUpdate()
     {
