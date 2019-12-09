@@ -12,10 +12,10 @@ public class TrapDamage : MonoBehaviour
     void OnCollisionEnter(Collision col){
         if(col.gameObject.tag == "Clone"){
             clone = col.gameObject.GetComponent<CloneController>();
-            clone.live = clone.live - damage;
+            clone.health = clone.health - damage;
         }else if(col.gameObject.name == "PlayerCube"){
             player = col.gameObject.GetComponent<PlayerScript>();
-            player.live = player.live - damage;
+            player.health = player.health - damage;
         }
     }
     // Update is called once per frame

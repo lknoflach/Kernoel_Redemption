@@ -1,24 +1,34 @@
-﻿
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
     public GameObject playerGun;
+
     //private PlayerGunFiring PlayerGunFiringScript;
     public float moveSpeed;
     private Rigidbody myRigidbody;
-    private bool clones;
+    
     public Vector3 moveInput;
 
     private Vector3 moveVelocity;
-    public int live = 100; 
+    [FormerlySerializedAs("live")] public int health = 100;
 
     private Camera mainCamera;
-    public GameObject klones;
-    public GameObject Station;
-    public GameObject Player;
+    
+    /** CLONING STUFF **/
+    // enables/disables cloning
+    private bool isCloneable;
+    // the prototype for new clone objects
+    [FormerlySerializedAs("klones")] public GameObject clonePrototype;
+    // the object which enables the cloning
+    [FormerlySerializedAs("Station")] public GameObject cloningCapsule;
+    // the array with all the following clones
+    public GameObject[] clones;
 
     private void Start()
     {
@@ -29,53 +39,56 @@ public class PlayerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "CloningCapsule")
+        if (other.gameObject.CompareTag("CloningCapsule"))
         {
-            clones = true;
-        }   
+            // enable cloning
+            isCloneable = true;
+        }
+
+        if (other.gameObject.CompareTag("Clone"))
+        {
+            // add the clone to the list of clones
+            clones.Append(other.gameObject);
+        }
     }
 
     public void Update()
     {
-
-        
         //cloning Button
-        if (Input.GetKeyDown(KeyCode.E) && clones == true)
+        if (Input.GetKeyDown(KeyCode.E) && isCloneable == true)
         {
-            GameObject.Instantiate(klones, Station.transform.position, Quaternion.identity);
-            clones = false;
+            Instantiate(clonePrototype, cloningCapsule.transform.position, Quaternion.identity);
+            // disable cloning
+            isCloneable = false;
         }
 
-        if(live <= 0)
+        if (health <= 0)
         {
-
+            // we are still alive
         }
 
+        // calculate movement
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput * moveSpeed;
 
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float rayLength;
+        var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        var groundPlane = new Plane(Vector3.up, Vector3.zero);
 
-        if (groundPlane.Raycast(cameraRay, out rayLength));
+        if (groundPlane.Raycast(cameraRay, out var rayLength)) ;
         {
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+            var pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-            transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
+            // look to the cursor
+            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-       /* if(Input.GetButtonDown("Fire1")){
+        /* if(Input.GetButtonDown("Fire1")){
             PlayerGunFiringScript.Shoot();*/
-        
-        
     }
-    
-   
+
 
     private void FixedUpdate()
     {
+        // move
         myRigidbody.velocity = moveVelocity;
     }
-
-
 }
