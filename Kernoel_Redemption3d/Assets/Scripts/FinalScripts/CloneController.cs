@@ -38,7 +38,7 @@ public class CloneController : MonoBehaviour
             }
         }
         
-        if (col.gameObject.name == "PlayerCube")
+        if (col.gameObject.tag == "Player")
         {
             isArrivedAtPlayer = true;
             Debug.Log("Clone is arrived at Player");

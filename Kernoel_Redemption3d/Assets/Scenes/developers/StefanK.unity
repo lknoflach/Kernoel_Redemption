@@ -3379,6 +3379,7 @@ GameObject:
   - component: {fileID: 947346204}
   - component: {fileID: 947346209}
   - component: {fileID: 947346210}
+  - component: {fileID: 947346211}
   m_Layer: 0
   m_Name: IBimsBim
   m_TagString: Untagged
@@ -3487,7 +3488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c90c693e6dfac4ba35c2994b13c7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
 --- !u!114 &947346210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,9 +3500,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b68d4e66f28bf428111bf30165fa27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMarker: {fileID: 2060457653}
-  endMarker: {fileID: 1468676265}
-  speed: 20
+--- !u!114 &947346211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947346203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42bd7e27c56f7c64b879c2cfbaab6b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointA: {fileID: 2060457653}
+  PointB: {fileID: 1468676265}
+  Speed: 10
 --- !u!1 &988855405
 GameObject:
   m_ObjectHideFlags: 0

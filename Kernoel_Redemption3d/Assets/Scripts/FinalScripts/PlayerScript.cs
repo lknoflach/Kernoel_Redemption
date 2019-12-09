@@ -62,6 +62,8 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0)
         {
+            Debug.Log("Dead!!!");
+            Destroy(gameObject);
             // we are still alive
         }
 
