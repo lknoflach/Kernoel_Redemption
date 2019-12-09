@@ -4548,13 +4548,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 764866619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a1594a6ec55d75418fb2fb513549ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 87e378f0000bd1546976b7bdec12defe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firingPoint: {fileID: 126141452}
   projectilePrefab: {fileID: 1836766500320515773, guid: 060535f54cc3bb340ae966d584ac2033,
     type: 3}
-  firingSpeed: 50
+  firingSpeed: 30
 --- !u!65 &764866621
 BoxCollider:
   m_ObjectHideFlags: 0

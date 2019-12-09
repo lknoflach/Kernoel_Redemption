@@ -15,15 +15,15 @@ public class PlayerGunFiring : MonoBehaviour
     [SerializeField]
     float firingSpeed;
 
-    public static PlayerGunFiring Instance;
+    private static PlayerGunFiring instance;
     // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
-        Instance = GetComponent<PlayerGunFiring>();   
+        instance = GetComponent<PlayerGunFiring>();   
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

@@ -3502,7 +3502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMarker: {fileID: 2060457653}
   endMarker: {fileID: 1468676265}
-  speed: 10
+  speed: 20
 --- !u!1 &988855405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5293,7 +5293,8 @@ MonoBehaviour:
   playerGun: {fileID: 1353386697}
   moveInput: {x: 0, y: 0, z: 0}
   moveSpeed: 10
-  clonePrototype: {fileID: 0}
+  clonePrototype: {fileID: 2696698059910077037, guid: 96c9c6b8b2e6ce545aeccdc5c081315a,
+    type: 3}
   cloningCapsule: {fileID: 1702290572}
   clones: []
 --- !u!65 &1181931061
@@ -6914,7 +6915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353386697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a1594a6ec55d75418fb2fb513549ce1, type: 3}
+  m_Script: {fileID: 11500000, guid: 87e378f0000bd1546976b7bdec12defe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firingPoint: {fileID: 157916864}
@@ -10539,95 +10540,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978115653}
   m_Mesh: {fileID: 1797918408}
---- !u!1001 &1998468592
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.8999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -25.71523
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515769, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1836766500320515773, guid: 060535f54cc3bb340ae966d584ac2033,
-        type: 3}
-      propertyPath: m_Name
-      value: ProjectileForTesting
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1836766500320515770, guid: 060535f54cc3bb340ae966d584ac2033, type: 3}
-  m_SourcePrefab: {fileID: 100100000, guid: 060535f54cc3bb340ae966d584ac2033, type: 3}
---- !u!1 &1998468593 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1836766500320515773, guid: 060535f54cc3bb340ae966d584ac2033,
-    type: 3}
-  m_PrefabInstance: {fileID: 1998468592}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1998468594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998468593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4bf0d77dbf7c45498441b15871b744c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSpeed: 50
 --- !u!1 &2044839122
 GameObject:
   m_ObjectHideFlags: 0
