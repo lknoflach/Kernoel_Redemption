@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapDamage : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     private CloneController clone;
     private PlayerScript player;

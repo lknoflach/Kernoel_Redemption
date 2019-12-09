@@ -1,44 +1,48 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.Serialization;
 
 public class CloneController : MonoBehaviour
 {
-    public GameObject Player;
-    public float movementSpeed = 10;
+    /** CHARACTER STUFF **/
     [FormerlySerializedAs("live")] public int health = 50;
-    public bool arivedAtPlayer = false;
-    private PlayerScript playerScript;
-    private CloneController clone;
+    private CloneController cloneController;
+    
+    /** MOVEMENT STUFF **/
+    [FormerlySerializedAs("arivedAtPlayer")] public bool isArrivedAtPlayer = false;
+    public float movementSpeed = 10;
 
-    void Start()
+
+    /** PLAYER STUFF **/
+    private GameObject player;
+    private PlayerScript playerScript;
+
+    private void Start()
 
     {
-        playerScript = Player.GetComponent<PlayerScript>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = player.GetComponent<PlayerScript>();
     }
 
-    void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision col)
     {
-        if (!arivedAtPlayer)
+        if (!isArrivedAtPlayer)
         {
-            if (col.gameObject.tag == "Clone")
+            if (col.gameObject.CompareTag("Clone"))
             {
-                clone = col.gameObject.GetComponent<CloneController>();
-                if (clone.arivedAtPlayer)
+                cloneController = col.gameObject.GetComponent<CloneController>();
+                if (cloneController.isArrivedAtPlayer)
                 {
-                    Debug.Log("colider clone");
-                    arivedAtPlayer = true;
+                    Debug.Log("collider clone");
+                    isArrivedAtPlayer = true;
                 }
             }
         }
-
-
+        
         if (col.gameObject.name == "PlayerCube")
         {
-            arivedAtPlayer = true;
-            Debug.Log("Test");
+            isArrivedAtPlayer = true;
+            Debug.Log("Clone is arrived at Player");
         }
-
 
         //collisionCount++;
     }
@@ -78,13 +82,13 @@ public class CloneController : MonoBehaviour
             !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
             !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
         {
-            arivedAtPlayer = false;
+            isArrivedAtPlayer = false;
         }
 
-        if (arivedAtPlayer == false)
+        if (isArrivedAtPlayer == false)
         {
-            transform.LookAt(Player.transform);
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
+            transform.LookAt(player.transform.position);
+            transform.position += Time.deltaTime * movementSpeed * transform.forward;
         }
     }
 }

@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
-    public GameObject playerGun;
-
-    //private PlayerGunFiring PlayerGunFiringScript;
-    public float moveSpeed;
-    private Rigidbody myRigidbody;
-    
-    public Vector3 moveInput;
-
-    private Vector3 moveVelocity;
+    /** CHARACTER STUFF **/
     [FormerlySerializedAs("live")] public int health = 100;
-
-    private Camera mainCamera;
     
+    /** GUN STUFF **/
+    public GameObject playerGun;
+    private PlayerGunFiring playerGunFiringScript;
+    
+    /** MOVEMENT STUFF **/
+    private Camera mainCamera;
+    public Vector3 moveInput;
+    public float moveSpeed;
+    private Vector3 moveVelocity;
+    private Rigidbody myRigidbody;
+
     /** CLONING STUFF **/
     // enables/disables cloning
     private bool isCloneable;
@@ -34,7 +32,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
-        //PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
+        playerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -81,8 +79,11 @@ public class PlayerScript : MonoBehaviour
             // look to the cursor
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-        /* if(Input.GetButtonDown("Fire1")){
-            PlayerGunFiringScript.Shoot();*/
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            playerGunFiringScript.Shoot();
+        }
     }
 
 
