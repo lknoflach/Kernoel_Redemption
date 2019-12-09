@@ -106,10 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d747f5c45c22eb64eabf742758ef887c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerGun: {fileID: 0}
   moveSpeed: 10
+  moveInput: {x: 0, y: 0, z: 0}
+  live: 100
   klones: {fileID: 5134451001181875402, guid: 96c9c6b8b2e6ce545aeccdc5c081315a, type: 3}
+  Station: {fileID: 3249828552485867132, guid: 5d2a7bc50959cad458e3666222cafb72, type: 3}
   Player: {fileID: 1247691299214071475}
-  target: {fileID: 1247691299214071486}
 --- !u!54 &1247691299214071485
 Rigidbody:
   m_ObjectHideFlags: 0

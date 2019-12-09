@@ -6,14 +6,12 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public GameObject playerGun;
-    private PlayerGunFiring PlayerGunFiringScript;
+    //private PlayerGunFiring PlayerGunFiringScript;
     public float moveSpeed;
     private Rigidbody myRigidbody;
     private bool clones;
-    private Vector3 moveInput;
-
-
     public Vector3 moveInput;
+
     private Vector3 moveVelocity;
     public int live = 100; 
 
@@ -26,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
-        PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
+        //PlayerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -40,14 +38,16 @@ public class PlayerScript : MonoBehaviour
     public void Update()
     {
 
-      
+        
         //cloning Button
         if (Input.GetKeyDown(KeyCode.E) && clones == true)
         {
             GameObject.Instantiate(klones, Station.transform.position, Quaternion.identity);
             clones = false;
+        }
 
-        if(live <= 0){
+        if(live <= 0)
+        {
 
         }
 
@@ -64,9 +64,9 @@ public class PlayerScript : MonoBehaviour
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
         }
-        if(Input.GetButtonDown("Fire1")){
-            PlayerGunFiringScript.Shoot();
-        }
+       /* if(Input.GetButtonDown("Fire1")){
+            PlayerGunFiringScript.Shoot();*/
+        
         
     }
     

@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5134451001181875402}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 3996f5b2101c4b540868d1a093547edf, type: 3}
 --- !u!23 &5134451001181875400
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1247691299214071475, guid: 1279004236903fc4c849d25cd6d3a9fd, type: 3}
   movementSpeed: 3
+  live: 50
   arivedAtPlayer: 0
-  target: {fileID: 1247691299214071486, guid: 1279004236903fc4c849d25cd6d3a9fd, type: 3}
 --- !u!54 &5134451001181875407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,5 +124,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0

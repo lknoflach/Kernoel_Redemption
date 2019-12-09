@@ -9,7 +9,7 @@ public class CloneController : MonoBehaviour
      public float movementSpeed = 10;
      public int live = 50;
      public bool arivedAtPlayer = false;
-        private PlayerScript playerScript; 
+     private PlayerScript playerScript; 
     private CloneController clone;
  
      void Start()
@@ -82,11 +82,7 @@ public class CloneController : MonoBehaviour
 
         }
 
-        if (arivedAtPlayer == false)
-        {
-            transform.LookAt(Player.transform);
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        }
+      
 
     }
 
