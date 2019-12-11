@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2046524687991321627}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: CloningCapsule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4952,7 +4952,7 @@ GameObject:
   - component: {fileID: 4760513846041322171}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: CloningCapsule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

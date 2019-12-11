@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed;
     private Vector3 moveVelocity;
     private Rigidbody myRigidbody;
-
+    private Vector3 stationPosition;
     /** CLONING STUFF **/
     // enables/disables cloning
     private bool isCloneable;
@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
+        cloningCapsule.GetComponent<Transform>();
         playerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
     }
 
@@ -55,7 +56,7 @@ public class PlayerScript : MonoBehaviour
         //cloning Button
         if (Input.GetKeyDown(KeyCode.E) && isCloneable == true)
         {
-            Instantiate(clonePrototype, cloningCapsule.transform.position, Quaternion.identity);
+            Instantiate(clonePrototype, transform.position ,  transform.rotation);
             // disable cloning
             isCloneable = false;
         }

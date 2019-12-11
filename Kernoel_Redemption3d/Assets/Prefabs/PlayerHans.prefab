@@ -130,7 +130,7 @@ MonoBehaviour:
   playerGun: {fileID: 4925104842542379422}
   moveInput: {x: 0, y: 0, z: 0}
   moveSpeed: 10
-  clonePrototype: {fileID: 2696698059910077037, guid: 96c9c6b8b2e6ce545aeccdc5c081315a,
+  clonePrototype: {fileID: 7117063586754187600, guid: bbdfa6ac556930a4299e451327318950,
     type: 3}
   cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
     type: 3}
@@ -149,7 +149,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &13303360449990027
 BoxCollider:
