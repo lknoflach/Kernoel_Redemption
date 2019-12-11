@@ -27,19 +27,22 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
         
-        // Focus on the Player
-        transform.LookAt(player.transform);
-        
-        if (shootCooldown > 0f)
+        if (player != null)
         {
-            // Wait the shootCooldown timer
-            shootCooldown -= Time.deltaTime;
-        }
-        else
-        {
-            // Fire the gun
-            gunFiringScript.Shoot();
-            shootCooldown = shootingRate;
+            // Focus on the Player
+            transform.LookAt(player.transform);
+            
+            if (shootCooldown > 0f)
+            {
+                // Wait the shootCooldown timer
+                shootCooldown -= Time.deltaTime;
+            }
+            else
+            {
+                // Fire the gun
+                gunFiringScript.Shoot();
+                shootCooldown = shootingRate;
+            }
         }
     }
 }
