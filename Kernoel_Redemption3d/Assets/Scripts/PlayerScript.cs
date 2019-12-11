@@ -63,9 +63,7 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Dead!!!");
-            Destroy(gameObject);
-            // we are still alive
+            Die();
         }
 
         // calculate movement
@@ -89,6 +87,10 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 
     private void FixedUpdate()
     {

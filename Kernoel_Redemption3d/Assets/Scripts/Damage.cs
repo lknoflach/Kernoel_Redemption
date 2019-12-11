@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,22 +15,23 @@ public class Damage : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        Debug.Log(gameObject.name + " collides with " + col.gameObject.name);
         if (col.gameObject.CompareTag("Clone"))
         {
             clone = col.gameObject.GetComponent<CloneController>();
             clone.health -= damage;
         }
-        else if (col.gameObject.tag == "Player")
+        else if (col.gameObject.CompareTag("Player"))
         {
             player = col.gameObject.GetComponent<PlayerScript>();
             player.health -= damage;
         }
-        else if (col.gameObject.tag == "Enemy")
+        else if (col.gameObject.CompareTag("Enemy"))
         {
             enemy = col.gameObject.GetComponent<EnemyScript>();
             enemy.health -= damage;
         }
-        else if (col.gameObject.tag == "Zombie")
+        else if (col.gameObject.CompareTag("Zombie"))
         {
             zombie = col.gameObject.GetComponent<ZombieScript>();
             zombie.health -= damage;

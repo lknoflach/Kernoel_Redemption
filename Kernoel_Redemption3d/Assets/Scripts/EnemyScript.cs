@@ -47,7 +47,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     private void Shoot()
