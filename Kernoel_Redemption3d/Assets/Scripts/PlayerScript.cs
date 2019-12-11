@@ -75,7 +75,7 @@ public class PlayerScript : MonoBehaviour
         var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         var groundPlane = new Plane(Vector3.up, Vector3.zero);
 
-        if (groundPlane.Raycast(cameraRay, out var rayLength)) ;
+        if (groundPlane.Raycast(cameraRay, out var rayLength))
         {
             var pointToLook = cameraRay.GetPoint(rayLength);
             Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);

@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 firingPoint;
 
-    [SerializeField] private float projectileSpeed;
+    [SerializeField] float projectileSpeed = 30;
 
     private void Start()
     {
