@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public class CloneController : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    [FormerlySerializedAs("live")] public int health = 50;
+    public int health = 50;
     private CloneController cloneController;
     
     /** MOVEMENT STUFF **/
-    [FormerlySerializedAs("arivedAtPlayer")] public bool isArrivedAtPlayer = false;
+    public bool isArrivedAtPlayer;
     public float movementSpeed = 10;
-
 
     /** PLAYER STUFF **/
     private GameObject player;
@@ -38,7 +36,7 @@ public class CloneController : MonoBehaviour
             }
         }
         
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.CompareTag("Player"))
         {
             isArrivedAtPlayer = true;
             Debug.Log("Clone is arrived at Player");
@@ -69,7 +67,7 @@ public class CloneController : MonoBehaviour
      }
   */
 
-    void Update()
+    private void Update()
     {
         if (health <= 0)
         {

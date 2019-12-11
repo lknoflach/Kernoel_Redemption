@@ -6,11 +6,9 @@
 public class GunFiring : MonoBehaviour
 {
     // Starting Coordinates of the Projectile
-    [SerializeField]
     public Transform firingPoint;
 
     // The Projectile itself
-    [SerializeField]
     public GameObject projectilePrefab;
 
     public void Shoot(){

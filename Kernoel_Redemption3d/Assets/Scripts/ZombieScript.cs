@@ -4,11 +4,11 @@ using UnityEngine.Serialization;
 public class ZombieScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    [FormerlySerializedAs("live")] public int health = 50;
+    public int health = 50;
     private CloneController cloneController;
 
     /** MOVEMENT STUFF **/
-    [FormerlySerializedAs("arivedAtPlayer")] public bool isArrivedAtPlayer = false;
+    public bool isArrivedAtPlayer = false;
     public float movementSpeed = 10;
 
 

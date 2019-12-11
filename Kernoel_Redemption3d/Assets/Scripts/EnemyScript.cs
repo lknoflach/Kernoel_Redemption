@@ -24,7 +24,7 @@ public class EnemyScript : MonoBehaviour
     {
         if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
         
         // Focus on the Player
@@ -41,10 +41,5 @@ public class EnemyScript : MonoBehaviour
             gunFiringScript.Shoot();
             shootCooldown = shootingRate;
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

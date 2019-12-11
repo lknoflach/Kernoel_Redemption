@@ -9,6 +9,9 @@ TagManager:
   - Clone
   - CloningCapsule
   - Zombie
+  - Level
+  - Wall
+  - Ground
   layers:
   - Default
   - TransparentFX

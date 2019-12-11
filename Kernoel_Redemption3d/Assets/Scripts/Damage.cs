@@ -1,46 +1,37 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    private CloneController clone;
-    private PlayerScript player;
-    private EnemyScript enemy;
-    private ZombieScript zombie;
-
+    // Initial Damage
     public int damage = 50;
-    // Start is called before the first frame update
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(gameObject.name + " collides with " + col.gameObject.name);
-        if (col.gameObject.CompareTag("Clone"))
+        switch (other.gameObject.tag)
         {
-            clone = col.gameObject.GetComponent<CloneController>();
-            clone.health -= damage;
+            case "Clone":
+                Debug.Log(gameObject.name + " triggers with " + other.gameObject.name);
+                var clone = other.gameObject.GetComponent<CloneController>();
+                clone.health -= damage;
+                break;
+            
+            case "Enemy":
+                Debug.Log(gameObject.name + " triggers with " + other.gameObject.name);
+                var enemy = other.gameObject.GetComponent<EnemyScript>();
+                enemy.health -= damage;
+                break;
+            
+            case "Player":
+                Debug.Log(gameObject.name + " triggers with " + other.gameObject.name);
+                var player = other.gameObject.GetComponent<PlayerScript>();
+                player.health -= damage;
+                break;
+            
+            case "Zombie":
+                Debug.Log(gameObject.name + " triggers with " + other.gameObject.name);
+                var zombie = other.gameObject.GetComponent<ZombieScript>();
+                zombie.health -= damage;
+                break;
         }
-        else if (col.gameObject.CompareTag("Player"))
-        {
-            player = col.gameObject.GetComponent<PlayerScript>();
-            player.health -= damage;
-        }
-        else if (col.gameObject.CompareTag("Enemy"))
-        {
-            enemy = col.gameObject.GetComponent<EnemyScript>();
-            enemy.health -= damage;
-        }
-        else if (col.gameObject.CompareTag("Zombie"))
-        {
-            zombie = col.gameObject.GetComponent<ZombieScript>();
-            zombie.health -= damage;
-        }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

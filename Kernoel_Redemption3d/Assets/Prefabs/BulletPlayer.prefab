@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6611262163868629667}
   - component: {fileID: 3370328708597970613}
   - component: {fileID: 7169434778465927541}
+  - component: {fileID: 8169916763026454336}
   m_Layer: 0
   m_Name: BulletPlayer
   m_TagString: Bullet
@@ -124,7 +125,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6611262163868629664}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -155,6 +156,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+--- !u!54 &8169916763026454336
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6611262163868629664}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &377559661187099611
 PrefabInstance:
   m_ObjectHideFlags: 0

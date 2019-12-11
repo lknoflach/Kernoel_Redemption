@@ -24,4 +24,18 @@ public class ShotScript : MonoBehaviour
     {
         transform.Translate(Time.deltaTime * projectileSpeed * Vector3.forward);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Destroy Projectile if we hit a Wall or Ground
+        switch (other.gameObject.tag)
+        {
+            case "Ground":
+            case "Wall":
+                Destroy(gameObject);
+                break;
+        }
+        // TODO If a player stands directly in front of a wall, then he can still shoot and the Projectile will go
+        // TODO through because the gun is not part of the player !!!
+    }
 }

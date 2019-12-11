@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MoveObjectAToB : MonoBehaviour
 {
@@ -29,10 +28,10 @@ public class MoveObjectAToB : MonoBehaviour
     void Update()
     {
         // Distance moved equals elapsed time times speed..
-        float distCovered = (Time.time - startTime) * speed;
+        var distCovered = (Time.time - startTime) * speed;
 
         // Fraction of journey completed equals current distance divided by total distance.
-        float fractionOfJourney = distCovered / journeyLength;
+        var fractionOfJourney = distCovered / journeyLength;
 
         // Set our position as a fraction of the distance between the markers.
         transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);

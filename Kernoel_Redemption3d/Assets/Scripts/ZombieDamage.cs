@@ -1,38 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZombieDamage : MonoBehaviour
 {
-    private CloneController clone;
-    private PlayerScript player;
-    private EnemyScript enemy;
-
     public int damage = 50;
+    
     // Start is called before the first frame update
-
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision other)
     {
-        if (col.gameObject.CompareTag("Clone"))
+        switch (other.gameObject.tag)
         {
-            clone = col.gameObject.GetComponent<CloneController>();
-            clone.health -= damage;
+            case "Clone":
+                var clone = other.gameObject.GetComponent<CloneController>();
+                clone.health -= damage;
+                break;
+                
+            case "Player":
+                var player = other.gameObject.GetComponent<PlayerScript>();
+                player.health -= damage;
+                break;
+                
+            case "Enemy":
+                var enemy = other.gameObject.GetComponent<EnemyScript>();
+                enemy.health -= damage;
+                break;
         }
-        else if (col.gameObject.tag == "Player")
-        {
-            player = col.gameObject.GetComponent<PlayerScript>();
-            player.health -= damage;
-        }
-        else if (col.gameObject.tag == "Enemy")
-        {
-            enemy = col.gameObject.GetComponent<EnemyScript>();
-            enemy.health -= damage;
-        }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

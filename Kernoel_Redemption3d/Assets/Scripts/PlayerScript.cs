@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class PlayerScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    [FormerlySerializedAs("live")] public int health = 100;
+    public int health = 100;
     
     /** GUN STUFF **/
     public GameObject playerGun;
@@ -22,9 +21,9 @@ public class PlayerScript : MonoBehaviour
     // enables/disables cloning
     private bool isCloneable;
     // the prototype for new clone objects
-    [FormerlySerializedAs("klones")] public GameObject clonePrototype;
+    public GameObject clonePrototype;
     // the object which enables the cloning
-    [FormerlySerializedAs("Station")] public GameObject cloningCapsule;
+    public GameObject cloningCapsule;
     // the array with all the following clones
     public GameObject[] clones;
 
@@ -38,23 +37,24 @@ public class PlayerScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("CloningCapsule"))
+        switch (other.gameObject.tag)
         {
-            // enable cloning
-            isCloneable = true;
-        }
-
-        if (other.gameObject.CompareTag("Clone"))
-        {
-            // add the clone to the list of clones
-            clones.Append(other.gameObject);
+            case "CloningCapsule":
+                // enable cloning
+                isCloneable = true;
+                break;
+            
+            case "Clone":
+                // add the clone to the list of clones
+                clones.Append(other.gameObject);
+                break;
         }
     }
 
     public void Update()
     {
         //cloning Button
-        if (Input.GetKeyDown(KeyCode.E) && isCloneable == true)
+        if (Input.GetKeyDown(KeyCode.E) && isCloneable)
         {
             Instantiate(clonePrototype, transform.position ,  transform.rotation);
             // disable cloning
@@ -63,7 +63,8 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            Destroy(gameObject);
+            // TODO This causes problems with the Camera !!!
         }
 
         // calculate movement
@@ -85,11 +86,6 @@ public class PlayerScript : MonoBehaviour
         {
             gunFiringScript.Shoot();
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 
     private void FixedUpdate()
