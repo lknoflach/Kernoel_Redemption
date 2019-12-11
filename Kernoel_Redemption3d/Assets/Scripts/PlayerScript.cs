@@ -9,7 +9,7 @@ public class PlayerScript : MonoBehaviour
     
     /** GUN STUFF **/
     public GameObject playerGun;
-    private PlayerGunFiring playerGunFiringScript;
+    private GunFiring gunFiringScript;
     
     /** MOVEMENT STUFF **/
     private Camera mainCamera;
@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed;
     private Vector3 moveVelocity;
     private Rigidbody myRigidbody;
-    private Vector3 stationPosition;
+
     /** CLONING STUFF **/
     // enables/disables cloning
     private bool isCloneable;
@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
         cloningCapsule.GetComponent<Transform>();
-        playerGunFiringScript = playerGun.GetComponent<PlayerGunFiring>();
+        gunFiringScript = playerGun.GetComponent<GunFiring>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -83,7 +83,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            playerGunFiringScript.Shoot();
+            gunFiringScript.Shoot();
         }
     }
 

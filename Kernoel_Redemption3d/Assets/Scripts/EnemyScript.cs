@@ -1,23 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float health;
+    /** CHARACTER STUFF **/
+    public int health = 100;
     public GameObject player;
-    public float waitTime;
-    private float currentWait;
-    private bool shot;
-    public GameObject bullet;
-    public GameObject bulletSpawnPoint;
-    private Transform bulletSpawn;
+    
+    /** GUN STUFF **/
+    public GameObject enemyGun;
+    private GunFiring gunFiringScript;
+    // The current Cooldown for the next shoot
+    private float shootCooldown;
+    // Cooldown in seconds between two shots
+    public float shootingRate = 1f;
 
     public void Start()
     {
         player = GameObject.FindWithTag("Player");
-
-        // bulletSpawnPoint = GameObject.Find("GunHolder");
+        gunFiringScript = enemyGun.GetComponent<GunFiring>();
     }
 
     public void Update()
@@ -26,35 +26,25 @@ public class EnemyScript : MonoBehaviour
         {
             Die();
         }
-
-        this.transform.LookAt(player.transform);
-
-        if (currentWait == 0)
+        
+        // Focus on the Player
+        transform.LookAt(player.transform);
+        
+        if (shootCooldown > 0f)
         {
-            Shoot();
+            // Wait the shootCooldown timer
+            shootCooldown -= Time.deltaTime;
         }
-
-        if (shot && currentWait < waitTime)
+        else
         {
-            currentWait += 1 * Time.deltaTime;
-        }
-
-        if (currentWait >= waitTime)
-        {
-            currentWait = 0;
+            // Fire the gun
+            gunFiringScript.Shoot();
+            shootCooldown = shootingRate;
         }
     }
 
     private void Die()
     {
         Destroy(gameObject);
-    }
-
-    private void Shoot()
-    {
-        shot = true;
-
-        bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        bulletSpawn.rotation = this.transform.rotation;
     }
 }
