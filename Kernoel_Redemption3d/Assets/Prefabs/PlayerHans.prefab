@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3997105012329281108}
   - component: {fileID: 3997105012329281109}
   - component: {fileID: 3997105012329281098}
-  - component: {fileID: 3997105012329281099}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3997105012329281099
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997105012329281096}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2, y: 2.4079309, z: 1}
-  m_Center: {x: -0.6, y: 1.3460345, z: -1}
 --- !u!1 &3997105012425803673
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,9 +91,10 @@ GameObject:
   - component: {fileID: 3997105012425803748}
   - component: {fileID: 3997105012425803672}
   - component: {fileID: 3997105012425803751}
+  - component: {fileID: 13303360449990027}
   m_Layer: 0
   m_Name: PlayerHans
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,6 +151,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &13303360449990027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997105012425803673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.6056116, z: 1}
+  m_Center: {x: 0, y: 0.8028053, z: 0}
 --- !u!1 &3997105012587677906
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3997105012587677906}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.1262445, y: 1.5328, z: -1.917}
+  m_LocalPosition: {x: -1.128, y: 1.594, z: -2.423}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 3997105012329281108}
@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firingPoint: {fileID: 3997105012587677917}
-  projectilePrefab: {fileID: 1836766500320515773, guid: 060535f54cc3bb340ae966d584ac2033,
+  projectilePrefab: {fileID: 6611262163868629664, guid: 796bab1d92bc8bf4eb2db13e101bceef,
     type: 3}
-  firingSpeed: 5
+  firingSpeed: 10
 --- !u!1001 &3997105012823304343
 PrefabInstance:
   m_ObjectHideFlags: 0

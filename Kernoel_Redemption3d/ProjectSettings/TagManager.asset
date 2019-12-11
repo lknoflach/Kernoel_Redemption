@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Clone
   - CloningCapsule
+  - Zombie
   layers:
   - Default
   - TransparentFX

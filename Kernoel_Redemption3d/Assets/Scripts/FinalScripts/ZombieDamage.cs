@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class ZombieDamage : MonoBehaviour
 {
     private CloneController clone;
     private PlayerScript player;
     private EnemyScript enemy;
-    private ZombieScript zombie;
 
     public int damage = 50;
     // Start is called before the first frame update
@@ -28,11 +27,6 @@ public class Damage : MonoBehaviour
         {
             enemy = col.gameObject.GetComponent<EnemyScript>();
             enemy.health -= damage;
-        }
-        else if (col.gameObject.tag == "Zombie")
-        {
-            zombie = col.gameObject.GetComponent<ZombieScript>();
-            zombie.health -= damage;
         }
 
     }
