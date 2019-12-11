@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerGunFiring : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class PlayerGunFiring : MonoBehaviour
 
     
     [SerializeField]
-    float firingSpeed;
+    float firingSpeed = 10;
 
     private static PlayerGunFiring instance;
     // Start is called before the first frame update
