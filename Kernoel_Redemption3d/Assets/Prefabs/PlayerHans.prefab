@@ -149,7 +149,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &13303360449990027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 3997105012587677917}
   m_Layer: 0
   m_Name: FiringPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,10 +280,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerGun-4-4
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: edfbc30f44d27e74f9c06821ca63ccfe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2534866581884222612, guid: edfbc30f44d27e74f9c06821ca63ccfe,
         type: 3}
       propertyPath: m_Name
       value: Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: edfbc30f44d27e74f9c06821ca63ccfe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edfbc30f44d27e74f9c06821ca63ccfe, type: 3}

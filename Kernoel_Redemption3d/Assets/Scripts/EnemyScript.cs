@@ -30,8 +30,10 @@ public class EnemyScript : MonoBehaviour
         if (player != null)
         {
             // Focus on the Player
-            transform.LookAt(player.transform);
+            Debug.DrawLine(transform.position, player.transform.position, Color.red);
             
+            transform.LookAt(player.transform);
+
             if (shootCooldown > 0f)
             {
                 // Wait the shootCooldown timer
