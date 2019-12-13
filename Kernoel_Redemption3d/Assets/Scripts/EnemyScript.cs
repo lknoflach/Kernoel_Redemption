@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour
 
     public void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.Find("PlayerHans");
         gunFiringScript = enemyGun.GetComponent<GunFiring>();
     }
 

@@ -18,7 +18,7 @@ public class ZombieScript : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("PlayerHans");
         if (player) playerScript = player.GetComponent<PlayerScript>();
     }
 
