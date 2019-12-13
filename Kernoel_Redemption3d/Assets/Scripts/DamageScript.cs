@@ -67,13 +67,11 @@ public class DamageScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log(gameObject.name + " triggers on " + other.gameObject.name);
         ApplyDamage(other.gameObject);
     }
     
     private void OnCollisionEnter(Collision other)
     {
-        // Debug.Log(gameObject.name + " triggers on " + other.gameObject.name);
         ApplyDamage(other.gameObject);
     }
 
@@ -88,7 +86,11 @@ public class DamageScript : MonoBehaviour
         {
             // Check if there is a healthScript and apply Damage. 
             var healthScript = target.GetComponent<HealthScript>();
-            if (healthScript) healthScript.Damage(damage);
+            if (healthScript)
+            {
+                Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
+                healthScript.Damage(damage);
+            }
         }
     }
 

@@ -48,19 +48,22 @@ public class CloneScript : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(playerScript.moveInput);
-        if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
+        if (player)
         {
-            isArrivedAtPlayer = false;
-            currentMovementSpeed = movementSpeed;
-        }
-        
-        if (!isArrivedAtPlayer)
-        {
-            transform.LookAt(player.transform.position);
-            transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+            // Debug.Log(playerScript.moveInput);
+            if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
+            {
+                isArrivedAtPlayer = false;
+                currentMovementSpeed = movementSpeed;
+            }
+
+            if (!isArrivedAtPlayer)
+            {
+                transform.LookAt(player.transform.position);
+                transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+            }
         }
     }
 }

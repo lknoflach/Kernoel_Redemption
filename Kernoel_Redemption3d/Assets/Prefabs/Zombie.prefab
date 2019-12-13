@@ -172,6 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArrivedAtPlayer: 0
   movementSpeed: 2
+  moveOnlyOnSight: 1
+  fieldOfViewDegrees: 90
+  visibilityDistance: 200000
 --- !u!114 &-8574216218841495935
 MonoBehaviour:
   m_ObjectHideFlags: 0
