@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2916970645300992873}
   m_Layer: 0
   m_Name: BIM_movement_spawn
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,48 +50,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4298639536511856976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475859960527419180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  damageType: 4
---- !u!114 &4298639536511857070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475859960527419180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1000
-  damageType: 4
---- !u!114 &4298639536007346831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475859961319079280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1000
-  damageType: 4
 --- !u!1 &4298639536787997342
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,11 +89,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298639536958015767}
-  - component: {fileID: 4298639536958015766}
-  - component: {fileID: 4298639536958015765}
+  - component: {fileID: 3390855653585749832}
   m_Layer: 0
   m_Name: 'Bim '
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +113,7 @@ Transform:
   m_Father: {fileID: 3814363706846125859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4298639536958015766
+--- !u!114 &3390855653585749832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,20 +128,6 @@ MonoBehaviour:
   startMarker: {fileID: 4298639536787997341}
   endMarker: {fileID: 4298639537557892811}
   moveSpeed: 100
---- !u!114 &4298639536958015765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298639536958015760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
-  damageType: 4
 --- !u!1 &4298639537557892804
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CompleteBim
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872319207332014466, guid: d0848c77617ba8845ab8ee355e24f6c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trap
       objectReference: {fileID: 0}
     - target: {fileID: 1872319207332014467, guid: d0848c77617ba8845ab8ee355e24f6c0,
         type: 3}
@@ -284,12 +232,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0848c77617ba8845ab8ee355e24f6c0, type: 3}
---- !u!1 &2475859960527419180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1872319207332014466, guid: d0848c77617ba8845ab8ee355e24f6c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4298639536523779758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2475859960527419181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1872319207332014467, guid: d0848c77617ba8845ab8ee355e24f6c0,
@@ -307,6 +249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CompleteBim (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1872319207332014466, guid: d0848c77617ba8845ab8ee355e24f6c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trap
       objectReference: {fileID: 0}
     - target: {fileID: 1872319207332014467, guid: d0848c77617ba8845ab8ee355e24f6c0,
         type: 3}
@@ -365,12 +312,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0848c77617ba8845ab8ee355e24f6c0, type: 3}
---- !u!1 &2475859961319079280 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1872319207332014466, guid: d0848c77617ba8845ab8ee355e24f6c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4298639537315468530}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2475859961319079281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1872319207332014467, guid: d0848c77617ba8845ab8ee355e24f6c0,

@@ -39,7 +39,7 @@ public class DamageScript : MonoBehaviour
                 // An Enemy can hit everyone EXCEPT other Enemies.
                 validCharacterTypes.Add(CharacterTypes.Clone);
                 validCharacterTypes.Add(CharacterTypes.Player);
-                validCharacterTypes.Add(CharacterTypes.Zombie);
+                // validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
             
             case DamageTypes.Player:
@@ -59,7 +59,7 @@ public class DamageScript : MonoBehaviour
             case DamageTypes.Zombie:
                 // A Zombie can hit everyone EXCEPT other Zombies.
                 validCharacterTypes.Add(CharacterTypes.Clone);
-                validCharacterTypes.Add(CharacterTypes.Enemy);
+                // validCharacterTypes.Add(CharacterTypes.Enemy);
                 validCharacterTypes.Add(CharacterTypes.Player);
                 break;
         }
