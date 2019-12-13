@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ZombieScript : MonoBehaviour
 {
-    /** CHARACTER STUFF **/
-    private CloneScript cloneScript;
-
     /** MOVEMENT STUFF **/
-    public bool isArrivedAtPlayer;
+    public bool isArrivedAtPlayer = true;
     public float movementSpeed = 10;
+    public bool moveOnlyOnSight = true;
+    public float fieldOfViewDegrees = 90.0f;
+    public float visibilityDistance = 200000.0f; 
 
 
     /** PLAYER STUFF **/
@@ -15,72 +16,79 @@ public class ZombieScript : MonoBehaviour
     private PlayerScript playerScript;
 
     private void Start()
-
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerScript>();
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionEnter(Collision other)
     {
+        var target = other.gameObject;
         if (!isArrivedAtPlayer)
         {
-            if (col.gameObject.CompareTag("Clone"))
+            switch (target.tag)
             {
-                cloneScript = col.gameObject.GetComponent<CloneScript>();
-                if (cloneScript.isArrivedAtPlayer)
-                {
-                    Debug.Log("collider clone");
+                case "Clone":
+                    var cloneScript = target.GetComponent<CloneScript>();
+                    if (cloneScript && cloneScript.isArrivedAtPlayer)
+                    {
+                        Debug.Log("Zombie is arrived at other Clone");
+                        isArrivedAtPlayer = true;
+                    }
+                    break;
+                
+                case "Player":
+                    Debug.Log("Zombie is arrived at Player");
                     isArrivedAtPlayer = true;
-                }
+                    break;
             }
         }
-
-        if (col.gameObject.tag == "Player")
-        {
-            isArrivedAtPlayer = true;
-            Debug.Log("Clone is arrived at Player");
-        }
-
-        //collisionCount++;
     }
-
-    /* void OnCollisionExit(Collision col)
-     {
-
-         if(col.gameObject == Player ){
-           arivedAtPlayer = false;
-             playerArrClone = false;
-
-            // GetComponent<Rigidbody>().isKinematic = false;
-         }
-     
-     if(clone2 != null){
-        if( col.gameObject.tag == "Clone" && col.gameObject.name == clone2.name){
-          //  Debug.Log("colider exit");
-            arivedAtPlayer = false;
-            clone2 = null;
-            }
-         }
-        // Debug.Log("col exit");
-         //collisionCount--;
-     }
-  */
 
     private void Update()
     {
-        // Debug.Log(playerScript.moveInput);
-        if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
-        {
-            isArrivedAtPlayer = false;
-        }
+        if(moveOnlyOnSight == false){
+            // Debug.Log(playerScript.moveInput);
+            if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
+            {
+                isArrivedAtPlayer = false;
+            }
 
-        if (isArrivedAtPlayer == false)
-        {
-            transform.LookAt(player.transform.position);
-            transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            if (isArrivedAtPlayer == false)
+            {
+                transform.LookAt(player.transform.position);
+                transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            }
         }
+        else
+        {   
+            Debug.Log(CanSeePlayer());
+
+            if(CanSeePlayer()){
+                transform.LookAt(player.transform.position);
+                transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            }
+        }
+    }
+    
+    protected bool CanSeePlayer()
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = player.transform.position - transform.position;
+ 
+        if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
+        {
+            //Debug.Log("test");
+             // Detect if player is within the field of view
+           // if (Physics.Raycast(transform.position, rayDirection, out hit, visibilityDistance))
+           // {
+                return true;
+               // return (hit.transform.CompareTag("Player"));
+           // }
+        }
+ 
+        return false;
     }
 }
