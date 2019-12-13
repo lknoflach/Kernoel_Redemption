@@ -12,6 +12,8 @@ TagManager:
   - Level
   - Wall
   - Ground
+  - Trap
+  - Trigger
   layers:
   - Default
   - TransparentFX

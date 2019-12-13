@@ -1,11 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    /** CHARACTER STUFF **/
-    public int health = 100;
-    
     /** GUN STUFF **/
     public GameObject playerGun;
     private GunFiring gunFiringScript;
@@ -25,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     // the object which enables the cloning
     public GameObject cloningCapsule;
     // the array with all the following clones
-    public GameObject[] clones;
+    public List<GameObject> clones = new List<GameObject>();
 
     private void Start()
     {
@@ -35,18 +34,27 @@ public class PlayerScript : MonoBehaviour
         gunFiringScript = playerGun.GetComponent<GunFiring>();
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        switch (other.gameObject.tag)
+        var target = other.gameObject;
+        switch (target.tag)
+        {
+            case "Clone":
+                // add the clone to the list of clones
+                if (!clones.Contains(target)) clones.Add(target);
+                break;
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var target = other.gameObject;
+        switch (target.tag)
         {
             case "CloningCapsule":
                 // enable cloning
                 isCloneable = true;
-                break;
-            
-            case "Clone":
-                // add the clone to the list of clones
-                clones.Append(other.gameObject);
                 break;
         }
     }
@@ -59,12 +67,6 @@ public class PlayerScript : MonoBehaviour
             Instantiate(clonePrototype, transform.position ,  transform.rotation);
             // disable cloning
             isCloneable = false;
-        }
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-            // TODO This causes problems with the Camera !!!
         }
 
         // calculate movement

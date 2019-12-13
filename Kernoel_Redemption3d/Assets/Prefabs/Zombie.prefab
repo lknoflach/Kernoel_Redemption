@@ -102,8 +102,9 @@ GameObject:
   - component: {fileID: 1426730848515628095}
   - component: {fileID: 1426730848515628092}
   - component: {fileID: 1426730848515628093}
-  - component: {fileID: 3196272208911746945}
   - component: {fileID: 1130597039388518142}
+  - component: {fileID: -8574216218841495935}
+  - component: {fileID: 8666763024600249887}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -157,19 +158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!114 &3196272208911746945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426730848515628090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 862ea0f0777a5224ba6035c854db7542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
 --- !u!114 &1130597039388518142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,9 +170,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c46418363bd60d4fb32e9542f1a5464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
   isArrivedAtPlayer: 0
   movementSpeed: 2
+  moveOnlyOnSight: 1
+  fieldOfViewDegrees: 90
+  visibilityDistance: 200000
+--- !u!114 &-8574216218841495935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426730848515628090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  damageType: 3
+--- !u!114 &8666763024600249887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426730848515628090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 5
+  totalHealth: 5
+  healthSlider: {fileID: 0}
 --- !u!1 &1426730848701258969
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LederHosenZombie-4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 7a0b32decbaae5648bf37b3d37b2bcf4,
+        type: 3}
+      propertyPath: m_Name
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0b32decbaae5648bf37b3d37b2bcf4, type: 3}

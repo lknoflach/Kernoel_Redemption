@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 906077403282946177}
   - component: {fileID: 906077403282946191}
   - component: {fileID: 906077403282946178}
+  - component: {fileID: 3634774964166498196}
   m_Layer: 0
   m_Name: Clone
   m_TagString: Clone
@@ -59,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e11efaa6d094c4fac03de311d2dbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  isArrivedAtPlayer: 0
+  isArrivedAtPlayer: 1
+  currentMovementSpeed: 10
   movementSpeed: 10
 --- !u!54 &906077403282946178
 Rigidbody:
@@ -78,6 +79,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3634774964166498196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906077403282946179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 10
+  totalHealth: 10
+  healthSlider: {fileID: 0}
 --- !u!1001 &906077403646118905
 PrefabInstance:
   m_ObjectHideFlags: 0

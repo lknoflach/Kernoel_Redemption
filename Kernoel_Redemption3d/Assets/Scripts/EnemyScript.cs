@@ -3,7 +3,6 @@
 public class EnemyScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    public int health = 100;
     public GameObject player;
     
     /** GUN STUFF **/
@@ -22,12 +21,7 @@ public class EnemyScript : MonoBehaviour
 
     public void Update()
     {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-        
-        if (player != null)
+        if (player)
         {
             // Focus on the Player
             Debug.DrawLine(transform.position, player.transform.position, Color.red);

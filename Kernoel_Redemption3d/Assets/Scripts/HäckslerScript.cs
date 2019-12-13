@@ -1,24 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HäckslerScript : MonoBehaviour
 {
-    public float x_speed = 5f;
-    public float y_speed = 5f;
-    public float z_speed = 5f;
-    // Start is called before the first frame update
-    void Start()
+    [FormerlySerializedAs("x_speed")] public float xSpeed = 5f;
+    [FormerlySerializedAs("y_speed")] public float ySpeed = 5f;
+    [FormerlySerializedAs("z_speed")] public float zSpeed = 5f;
+
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Rotate(x_speed, y_speed, z_speed);
-            // Rotation amout of raotation per frame
-
-
+        transform.Rotate(xSpeed, ySpeed, zSpeed);
+        // Rotation amount of rotation per frame
     }
 }
