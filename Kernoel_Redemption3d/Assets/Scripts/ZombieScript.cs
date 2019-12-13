@@ -18,7 +18,7 @@ public class ZombieScript : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = player.GetComponent<PlayerScript>();
+        if (player) playerScript = player.GetComponent<PlayerScript>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -47,7 +47,7 @@ public class ZombieScript : MonoBehaviour
 
     private void Update()
     {
-        if(moveOnlyOnSight == false){
+        if(!moveOnlyOnSight){
             // Debug.Log(playerScript.moveInput);
             if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
                 !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
@@ -56,39 +56,45 @@ public class ZombieScript : MonoBehaviour
                 isArrivedAtPlayer = false;
             }
 
-            if (isArrivedAtPlayer == false)
-            {
-                transform.LookAt(player.transform.position);
-                transform.position += Time.deltaTime * movementSpeed * transform.forward;
-            }
+            if (!isArrivedAtPlayer) MoveToPlayer();
         }
         else
         {   
-            Debug.Log(CanSeePlayer());
-
-            if(CanSeePlayer()){
-                transform.LookAt(player.transform.position);
-                transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            // Debug.Log(CanSeePlayer());
+            if(CanSeePlayer())
+            {
+                MoveToPlayer();
             }
         }
     }
-    
-    protected bool CanSeePlayer()
+
+    private bool CanSeePlayer()
     {
-        RaycastHit hit;
-        Vector3 rayDirection = player.transform.position - transform.position;
- 
-        if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
+        if (player)
         {
-            //Debug.Log("test");
-             // Detect if player is within the field of view
-           // if (Physics.Raycast(transform.position, rayDirection, out hit, visibilityDistance))
-           // {
+            // RaycastHit hit;
+            var rayDirection = player.transform.position - transform.position;
+            if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
+            {
+                //Debug.Log("test");
+                // Detect if player is within the field of view
+                // if (Physics.Raycast(transform.position, rayDirection, out hit, visibilityDistance))
+                // {
                 return true;
-               // return (hit.transform.CompareTag("Player"));
-           // }
+                // return (hit.transform.CompareTag("Player"));
+                // }
+            }
         }
- 
+
         return false;
+    }
+
+    private void MoveToPlayer()
+    {
+        if (player)
+        {
+            transform.LookAt(player.transform.position);
+            transform.position += Time.deltaTime * movementSpeed * transform.forward;
+        }
     }
 }

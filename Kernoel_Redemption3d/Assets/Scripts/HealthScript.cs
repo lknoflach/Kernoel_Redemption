@@ -30,7 +30,7 @@ public class HealthScript : MonoBehaviour
     public void Damage(int damageCount)
     {
         currentHealth -= damageCount;
-
+        Debug.Log(gameObject.name + ": currentHealth<" + currentHealth + ">");
         // Update the health slider
         if (healthSlider) healthSlider.value = currentHealth;
 
