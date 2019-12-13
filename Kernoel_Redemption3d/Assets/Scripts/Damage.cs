@@ -4,6 +4,7 @@ public class Damage : MonoBehaviour
 {
     // Initial Damage
     public int damage = 50;
+    public bool frindlyFire = true;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,9 @@ public class Damage : MonoBehaviour
                 Debug.Log(gameObject.name + " triggers with " + other.gameObject.name);
                 if (gameObject.name.Contains("BulletEnemy"))
                 {
+                    var clone = other.gameObject.GetComponent<CloneController>();
+                    clone.health -= damage;
+                }else if(gameObject.name.Contains("BulletPlayer") && frindlyFire){
                     var clone = other.gameObject.GetComponent<CloneController>();
                     clone.health -= damage;
                 }

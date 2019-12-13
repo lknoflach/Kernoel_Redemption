@@ -8,8 +8,11 @@ public class ZombieScript : MonoBehaviour
     private CloneController cloneController;
 
     /** MOVEMENT STUFF **/
-    public bool isArrivedAtPlayer = false;
+    public bool isArrivedAtPlayer = true;
     public float movementSpeed = 10;
+    public bool moveOnlyOnSight = true;
+    public float fieldOfViewDegrees = 90.0f;
+    public float visibilityDistance = 200000.0f; 
 
 
     /** PLAYER STUFF **/
@@ -17,7 +20,6 @@ public class ZombieScript : MonoBehaviour
     private PlayerScript playerScript;
 
     private void Start()
-
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<PlayerScript>();
@@ -71,24 +73,58 @@ public class ZombieScript : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
-        {
-            //die 
-            Destroy(gameObject);
-        }
+        if(moveOnlyOnSight == false){
+            if (health <= 0)
+            {
+                //die 
+                Destroy(gameObject);
+            }
 
-        // Debug.Log(playerScript.moveInput);
-        if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
-            !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
-        {
-            isArrivedAtPlayer = false;
-        }
+            // Debug.Log(playerScript.moveInput);
+            if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
+                !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
+            {
+                isArrivedAtPlayer = false;
+            }
 
-        if (isArrivedAtPlayer == false)
-        {
-            transform.LookAt(player.transform.position);
-            transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            if (isArrivedAtPlayer == false)
+            {
+                transform.LookAt(player.transform.position);
+                transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            }
+        }else
+        {   
+            Debug.Log(CanSeePlayer());
+            if (health <= 0)
+            {
+                //die 
+                Destroy(gameObject);
+            }
+            
+            if(CanSeePlayer()){
+                transform.LookAt(player.transform.position);
+                transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            }
         }
+    }
+    
+    protected bool CanSeePlayer()
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = player.transform.position - transform.position;
+ 
+        if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
+        {
+            //Debug.Log("test");
+             // Detect if player is within the field of view
+           // if (Physics.Raycast(transform.position, rayDirection, out hit, visibilityDistance))
+           // {
+                return true;
+               // return (hit.transform.CompareTag("Player"));
+           // }
+        }
+ 
+        return false;
     }
 }

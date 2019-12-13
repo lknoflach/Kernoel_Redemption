@@ -32,6 +32,9 @@ public class ShotScript : MonoBehaviour
         {
             case "Ground":
             case "Wall":
+            case "Clone":
+            case "Zombie":
+            case "Enemy":
                 Destroy(gameObject);
                 break;
         }
