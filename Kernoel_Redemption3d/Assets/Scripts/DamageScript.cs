@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -69,7 +70,12 @@ public class DamageScript : MonoBehaviour
     {
         ApplyDamage(other.gameObject);
     }
-    
+
+    private void OnTriggerStay(Collider other)
+    {
+        ApplyDamage(other.gameObject);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         ApplyDamage(other.gameObject);

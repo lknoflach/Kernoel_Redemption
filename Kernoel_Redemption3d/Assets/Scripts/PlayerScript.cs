@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         if (groundPlane.Raycast(cameraRay, out var rayLength))
         {
             var pointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+            // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
             // look to the cursor
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }

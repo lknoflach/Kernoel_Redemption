@@ -24,7 +24,7 @@ public class EnemyScript : MonoBehaviour
         if (player)
         {
             // Focus on the Player
-            Debug.DrawLine(transform.position, player.transform.position, Color.red);
+            // Debug.DrawLine(transform.position, player.transform.position, Color.red);
             
             transform.LookAt(player.transform);
 
