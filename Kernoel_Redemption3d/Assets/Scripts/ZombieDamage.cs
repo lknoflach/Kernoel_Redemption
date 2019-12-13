@@ -10,18 +10,11 @@ public class ZombieDamage : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "Clone":
-                var clone = other.gameObject.GetComponent<CloneController>();
-                clone.health -= damage;
-                break;
-                
-            case "Player":
-                var player = other.gameObject.GetComponent<PlayerScript>();
-                player.health -= damage;
-                break;
-                
             case "Enemy":
-                var enemy = other.gameObject.GetComponent<EnemyScript>();
-                enemy.health -= damage;
+            case "Player":
+                // Zombie hits everyone
+                var healthScript = other.gameObject.GetComponent<HealthScript>();
+                healthScript.Damage(damage);
                 break;
         }
     }

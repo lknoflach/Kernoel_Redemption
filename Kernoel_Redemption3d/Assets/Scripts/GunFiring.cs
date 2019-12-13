@@ -7,7 +7,6 @@ public class GunFiring : MonoBehaviour
 {
     // Starting Coordinates of the Projectile
     public Transform firingPoint;
-
     // The Projectile itself
     public GameObject projectilePrefab;
 

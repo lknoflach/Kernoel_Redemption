@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 1106981908444972217}
   - component: {fileID: 1106981908444972197}
   - component: {fileID: 1106981908444972196}
+  - component: {fileID: 3909334219819312411}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -105,7 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa3609e0407be441929fea6b0c57432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   player: {fileID: 3997105012425803673, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
   enemyGun: {fileID: 219112073062098801}
   shootingRate: 1
@@ -125,6 +125,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 1
+--- !u!114 &3909334219819312411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106981908444972218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 10
+  totalHealth: 10
+  healthSlider: {fileID: 0}
 --- !u!1001 &902593303052487771
 PrefabInstance:
   m_ObjectHideFlags: 0

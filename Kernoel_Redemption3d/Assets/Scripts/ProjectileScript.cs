@@ -1,16 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Projectile behavior
+/// Handles the projectile lifetime and movement.
 /// </summary>
-public class ShotScript : MonoBehaviour
+public class ProjectileScript : MonoBehaviour
 {
+    /** PROJECTILE STUFF **/
     // Self-Destruction after X seconds
     private const int DestructionTimerInSeconds = 5;
-
     // Projectile Speed of the bullet
-    [SerializeField] public float projectileSpeed = 30;
+    public float projectileSpeed = 30;
 
     // Start is called before the first frame update
     private void Start()
@@ -32,10 +31,11 @@ public class ShotScript : MonoBehaviour
         {
             case "Ground":
             case "Wall":
+                // destroy the Projectile because we hit the wall
                 Destroy(gameObject);
                 break;
         }
-        // TODO If a player stands directly in front of a wall, then he can still shoot and the Projectile will go
-        // TODO through because the gun is not part of the player !!!
+        
+        // NOTE: Damage will be handled by the DamageScript
     }
 }

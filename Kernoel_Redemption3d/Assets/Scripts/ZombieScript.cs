@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ZombieScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    public int health = 50;
-    private CloneController cloneController;
+    private CloneScript cloneScript;
 
     /** MOVEMENT STUFF **/
-    public bool isArrivedAtPlayer = false;
+    public bool isArrivedAtPlayer;
     public float movementSpeed = 10;
 
 
@@ -29,8 +27,8 @@ public class ZombieScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Clone"))
             {
-                cloneController = col.gameObject.GetComponent<CloneController>();
-                if (cloneController.isArrivedAtPlayer)
+                cloneScript = col.gameObject.GetComponent<CloneScript>();
+                if (cloneScript.isArrivedAtPlayer)
                 {
                     Debug.Log("collider clone");
                     isArrivedAtPlayer = true;
@@ -69,14 +67,8 @@ public class ZombieScript : MonoBehaviour
      }
   */
 
-    void Update()
+    private void Update()
     {
-        if (health <= 0)
-        {
-            //die 
-            Destroy(gameObject);
-        }
-
         // Debug.Log(playerScript.moveInput);
         if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
             !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||

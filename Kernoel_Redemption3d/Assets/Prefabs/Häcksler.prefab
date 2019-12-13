@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5837081261641333349}
   - component: {fileID: 2320436208696626974}
   m_Layer: 0
-  m_Name: "H\xE4cksler 1"
+  m_Name: "H\xE4cksler"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1402dab8322254547b7395c377ea0884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x_speed: 0
-  y_speed: 100
-  z_speed: 0
+  xSpeed: 0
+  ySpeed: 100
+  zSpeed: 0
 --- !u!54 &5837081261641333349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 1
+  damageType: 2
 --- !u!1 &5837081262094361764
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +195,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "h\xE4cksler"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 956dbf4c710e8dd4cae6262b6ee3b143,
+        type: 3}
+      propertyPath: m_Name
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 956dbf4c710e8dd4cae6262b6ee3b143, type: 3}
