@@ -40,7 +40,20 @@ public class MoveObjectAToB : MonoBehaviour
             transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
 
             // Destroy the GameObject if we reached the endMarker
-            if (journeyLength <= distCovered) Destroy(gameObject);
+            if (journeyLength <= distCovered)
+            {
+                // Check if gameObject has a parent
+                if (transform.parent.CompareTag("Trap"))
+                {
+                    // Destroy the parent
+                    Destroy(transform.parent.gameObject);
+                }
+                else
+                {
+                    // Destroy yourself
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 

@@ -1,24 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnOnInterval : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Rigidbody obj; 
-    public float interval; 
+    public Rigidbody obj;
+    public float interval;
     public float firstSpawnAfter;
 
-    void Start()
+    private void Start()
     {
-        InvokeRepeating("SpawnBim", firstSpawnAfter, interval);
+        InvokeRepeating(nameof(SpawnBim), firstSpawnAfter, interval);
     }
-
-    // Update is called once per frame
-        void SpawnBim()
+    
+    private void SpawnBim()
     {
-        Rigidbody instance = Instantiate(obj);
-
+        var instance = Instantiate(obj);
         instance.velocity = Random.insideUnitSphere * 5;
     }
 }
