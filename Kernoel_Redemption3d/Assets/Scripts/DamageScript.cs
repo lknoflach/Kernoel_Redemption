@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -16,11 +15,13 @@ public class DamageScript : MonoBehaviour
         Zombie,
         Undefined
     }
+
     // Defines the CharacterTypes for applying damage. 
     private List<CharacterTypes> validCharacterTypes = new List<CharacterTypes>();
-    
+
     /** DAMAGE STUFF **/
     public int damage = 1;
+
     public enum DamageTypes
     {
         Enemy,
@@ -29,8 +30,9 @@ public class DamageScript : MonoBehaviour
         Zombie,
         Undefined
     }
+
     public DamageTypes damageType = DamageTypes.Undefined;
-    
+
     private void Start()
     {
         // Determine which damageType will be applied to which characterTypes
@@ -42,13 +44,13 @@ public class DamageScript : MonoBehaviour
                 validCharacterTypes.Add(CharacterTypes.Player);
                 // validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
-            
+
             case DamageTypes.Player:
                 // A Player can hit Enemies and Zombies.
                 validCharacterTypes.Add(CharacterTypes.Enemy);
                 validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
-            
+
             case DamageTypes.Trap:
                 // A Trap can hit everyone.
                 validCharacterTypes.Add(CharacterTypes.Clone);
@@ -56,7 +58,7 @@ public class DamageScript : MonoBehaviour
                 validCharacterTypes.Add(CharacterTypes.Player);
                 validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
-            
+
             case DamageTypes.Zombie:
                 // A Zombie can hit everyone EXCEPT other Zombies.
                 validCharacterTypes.Add(CharacterTypes.Clone);

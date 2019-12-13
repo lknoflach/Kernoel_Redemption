@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour
     /** PROJECTILE STUFF **/
     // Self-Destruction after X seconds
     private const int DestructionTimerInSeconds = 5;
+
     // Projectile Speed of the bullet
     public float projectileSpeed = 30;
 
@@ -39,7 +40,7 @@ public class ProjectileScript : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
-        
+
         // NOTE: Damage will be handled by the DamageScript
     }
 }

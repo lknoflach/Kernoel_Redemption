@@ -4,11 +4,13 @@ public class CloneScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
     public bool isArrivedAtPlayer;
+
     public float currentMovementSpeed = 10f;
     public float movementSpeed = 10f;
 
     /** PLAYER STUFF **/
     private GameObject player;
+
     private PlayerScript playerScript;
 
     private void Start()
@@ -34,8 +36,9 @@ public class CloneScript : MonoBehaviour
                         Debug.Log("Clone is arrived at other Clone");
                         isArrivedAtPlayer = true;
                     }
+
                     break;
-                
+
                 case "Player":
                     Debug.Log("Clone is arrived at Player");
                     isArrivedAtPlayer = true;

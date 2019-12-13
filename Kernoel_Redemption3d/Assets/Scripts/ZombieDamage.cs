@@ -3,7 +3,7 @@
 public class ZombieDamage : MonoBehaviour
 {
     public int damage = 50;
-    
+
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision other)
     {

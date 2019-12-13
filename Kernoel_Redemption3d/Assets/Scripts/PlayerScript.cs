@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     /** GUN STUFF **/
     public GameObject playerGun;
+
     private GunFiring gunFiringScript;
-    
+
     /** MOVEMENT STUFF **/
     private Camera mainCamera;
+
     public Vector3 moveInput;
     public float moveSpeed;
     private Vector3 moveVelocity;
@@ -19,10 +19,13 @@ public class PlayerScript : MonoBehaviour
     /** CLONING STUFF **/
     // enables/disables cloning
     private bool isCloneable;
+
     // the prototype for new clone objects
     public GameObject clonePrototype;
+
     // the object which enables the cloning
     public GameObject cloningCapsule;
+
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
 
@@ -64,7 +67,7 @@ public class PlayerScript : MonoBehaviour
         //cloning Button
         if (Input.GetKeyDown(KeyCode.E) && isCloneable)
         {
-            Instantiate(clonePrototype, transform.position ,  transform.rotation);
+            Instantiate(clonePrototype, transform.position, transform.rotation);
             // disable cloning
             isCloneable = false;
         }

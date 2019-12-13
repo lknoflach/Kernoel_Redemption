@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 /// <summary>
 /// Title screen script
 /// </summary>
@@ -9,8 +10,8 @@ public class ButtonsScript : MonoBehaviour
     {
         // "Stage1" is the name of the first scene we created.
         SceneManager.LoadScene("StefanKLevel", LoadSceneMode.Additive);
-
     }
+
     public void QuitGame()
     {
         Application.Quit();

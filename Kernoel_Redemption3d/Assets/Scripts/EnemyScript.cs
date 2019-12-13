@@ -4,12 +4,15 @@ public class EnemyScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
     public GameObject player;
-    
+
     /** GUN STUFF **/
     public GameObject enemyGun;
+
     private GunFiring gunFiringScript;
+
     // The current Cooldown for the next shoot
     private float shootCooldown;
+
     // Cooldown in seconds between two shots
     public float shootingRate = 1f;
 
@@ -25,7 +28,7 @@ public class EnemyScript : MonoBehaviour
         {
             // Focus on the Player
             // Debug.DrawLine(transform.position, player.transform.position, Color.red);
-            
+
             transform.LookAt(player.transform);
 
             if (shootCooldown > 0f)

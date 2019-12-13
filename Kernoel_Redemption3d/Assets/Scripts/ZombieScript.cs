@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ZombieScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
     public bool isArrivedAtPlayer = true;
+
     public float movementSpeed = 10;
     public bool moveOnlyOnSight = true;
     public float fieldOfViewDegrees = 90.0f;
-    public float visibilityDistance = 200000.0f; 
+    public float visibilityDistance = 200000.0f;
 
 
     /** PLAYER STUFF **/
     private GameObject player;
+
     private PlayerScript playerScript;
 
     private void Start()
@@ -35,8 +36,9 @@ public class ZombieScript : MonoBehaviour
                         Debug.Log("Zombie is arrived at other Clone");
                         isArrivedAtPlayer = true;
                     }
+
                     break;
-                
+
                 case "Player":
                     Debug.Log("Zombie is arrived at Player");
                     isArrivedAtPlayer = true;
@@ -47,7 +49,8 @@ public class ZombieScript : MonoBehaviour
 
     private void Update()
     {
-        if(!moveOnlyOnSight){
+        if (!moveOnlyOnSight)
+        {
             // Debug.Log(playerScript.moveInput);
             if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
                 !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
@@ -59,9 +62,9 @@ public class ZombieScript : MonoBehaviour
             if (!isArrivedAtPlayer) MoveToPlayer();
         }
         else
-        {   
+        {
             // Debug.Log(CanSeePlayer());
-            if(CanSeePlayer())
+            if (CanSeePlayer())
             {
                 MoveToPlayer();
             }

@@ -8,14 +8,15 @@ public class HealthScript : MonoBehaviour
 {
     /** HEALTH STUFF **/
     public int currentHealth = 100;
+
     public int totalHealth = 100;
     public Slider healthSlider;
-    
+
     private void Start()
     {
         // Set currentHealth to totalHealth
         currentHealth = totalHealth;
-        
+
         // Update the health slider
         if (healthSlider)
         {

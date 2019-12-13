@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene("StefanKLevel");
     }
-    
+
     public void QuitGame()
     {
         Application.Quit();

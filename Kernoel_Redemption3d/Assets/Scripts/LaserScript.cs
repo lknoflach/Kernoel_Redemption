@@ -4,7 +4,9 @@ public class LaserScript : MonoBehaviour
 {
     public Transform startPoint;
     public Transform endPoint;
+
     private LineRenderer laserLine;
+
     // Start is called before the first frame update
     private void Start()
     {

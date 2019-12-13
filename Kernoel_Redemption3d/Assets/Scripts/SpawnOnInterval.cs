@@ -10,7 +10,7 @@ public class SpawnOnInterval : MonoBehaviour
     {
         InvokeRepeating(nameof(SpawnBim), firstSpawnAfter, interval);
     }
-    
+
     private void SpawnBim()
     {
         var instance = Instantiate(obj);
