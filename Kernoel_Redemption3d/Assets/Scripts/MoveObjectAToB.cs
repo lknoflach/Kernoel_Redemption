@@ -43,7 +43,7 @@ public class MoveObjectAToB : MonoBehaviour
             if (journeyLength <= distCovered)
             {
                 // Check if gameObject has a parent
-                if (transform.parent.CompareTag("Trap"))
+                if (transform.parent && transform.parent.CompareTag("Trap"))
                 {
                     // Destroy the parent
                     Destroy(transform.parent.gameObject);

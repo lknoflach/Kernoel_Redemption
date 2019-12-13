@@ -29,9 +29,13 @@ public class ProjectileScript : MonoBehaviour
         // Destroy Projectile if we hit a Wall or Ground
         switch (other.gameObject.tag)
         {
+            case "Clone":
+            case "Enemy":
             case "Ground":
+            case "Player":
             case "Wall":
-                // destroy the Projectile because we hit the wall
+            case "Zombie":
+                // destroy the Projectile after 1 second because we hit something
                 Destroy(gameObject);
                 break;
         }
