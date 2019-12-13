@@ -14,11 +14,9 @@ public class CloneScript : MonoBehaviour
     private PlayerScript playerScript;
 
     private void Start()
-
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("PlayerHans");
         if (player) playerScript = player.GetComponent<PlayerScript>();
-
         currentMovementSpeed = movementSpeed;
     }
 
@@ -51,7 +49,7 @@ public class CloneScript : MonoBehaviour
 
     private void Update()
     {
-        if (player)
+        if (player && playerScript)
         {
             // Debug.Log(playerScript.moveInput);
             if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
