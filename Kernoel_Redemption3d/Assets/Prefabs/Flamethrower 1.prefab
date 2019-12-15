@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  isContinues: 1
   damageType: 2
 --- !u!54 &3120692049704323216
 Rigidbody:

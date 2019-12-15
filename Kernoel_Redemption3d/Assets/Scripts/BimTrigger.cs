@@ -32,9 +32,11 @@ public class BimTrigger : MonoBehaviour
     {
         if (bimPrefab && !bim)
         {
-            // instantiate the bim
+            // Instantiate the bim
             bim = Instantiate(bimPrefab);
-            // update the MoveObjectAToB script of the bim
+            // Activate the GameObject if it is disabled
+            if (!bim.activeSelf) bim.SetActive(true);
+            // Update the MoveObjectAToB script of the bim
             var moveObjectAToB = bim.GetComponent<MoveObjectAToB>();
             moveObjectAToB.endMarker = endMarker;
             moveObjectAToB.startMarker = startMarker;

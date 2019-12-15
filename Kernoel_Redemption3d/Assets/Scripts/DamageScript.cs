@@ -21,6 +21,7 @@ public class DamageScript : MonoBehaviour
 
     /** DAMAGE STUFF **/
     public int damage = 1;
+    public bool isContinues;
 
     public enum DamageTypes
     {
@@ -75,7 +76,7 @@ public class DamageScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        ApplyDamage(other.gameObject);
+        if (isContinues) ApplyDamage(other.gameObject);
     }
 
     private void OnCollisionEnter(Collision other)

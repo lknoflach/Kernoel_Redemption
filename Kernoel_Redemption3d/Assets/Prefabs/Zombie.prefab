@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  isContinues: 1
   damageType: 3
 --- !u!114 &8666763024600249887
 MonoBehaviour:

@@ -14,6 +14,8 @@ public class SpawnOnInterval : MonoBehaviour
     private void SpawnBim()
     {
         var instance = Instantiate(obj);
+        // Activate the GameObject if it is disabled
+        if (!instance.gameObject.activeSelf) instance.gameObject.SetActive(true);
         instance.velocity = Random.insideUnitSphere * 5;
     }
 }
