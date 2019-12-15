@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 44a0a7466e2bc804fbbb16cafe40baee, type: 3}
-  interval: 0
-  firstPlayAfter: 2
+  interval: 2
+  firstPlayAfter: 1
 --- !u!1 &1872319207584593575
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class ProjectileScript : MonoBehaviour
             case "Enemy":
             case "Ground":
             case "Player":
+            case "Trap":
             case "Wall":
             case "Zombie":
                 // destroy the Projectile after 1 second because we hit something
