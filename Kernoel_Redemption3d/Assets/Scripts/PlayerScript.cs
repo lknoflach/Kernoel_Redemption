@@ -72,9 +72,10 @@ public class PlayerScript : MonoBehaviour
             isCloneable = false;
         }
 
+        
         // calculate movement
-        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput * moveSpeed;
+        // moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        // moveVelocity = moveInput * moveSpeed;
 
         var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         var groundPlane = new Plane(Vector3.up, Vector3.zero);

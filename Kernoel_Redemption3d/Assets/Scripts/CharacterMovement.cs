@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-// This script moves the character controller forward
-// and sideways based on the arrow keys.
-// It also jumps when pressing space.
-// Make sure to attach a character controller to the same game object.
-// It is recommended that you make only one call to Move or SimpleMove per frame.
-
+/// <summary>
+/// This script moves the character controller forward and sideways based on the arrow keys. It also jumps when
+/// pressing space. Make sure to attach a character controller to the same game object. It is recommended that you
+/// make only one call to Move or SimpleMove per frame.
+/// </summary>
 public class CharacterMovement : MonoBehaviour
 {
     CharacterController characterController;
@@ -18,7 +16,6 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
 
-   
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -26,16 +23,12 @@ public class CharacterMovement : MonoBehaviour
 
     void Update()
     {
-        
         if (characterController.isGrounded)
         {
-           // Debug.Log("testset");
             // We are grounded, so recalculate
             // move direction directly from axes
-
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             moveDirection *= speed;
-
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
@@ -50,6 +43,5 @@ public class CharacterMovement : MonoBehaviour
         // Move the controller
         move = moveDirection * Time.deltaTime;
         characterController.Move(move);
-       
     }
 }
