@@ -5,16 +5,11 @@ public class PlayerScript : MonoBehaviour
 {
     /** GUN STUFF **/
     public GameObject playerGun;
-
     private GunFiring gunFiringScript;
 
     /** MOVEMENT STUFF **/
     private Camera mainCamera;
-
-    public Vector3 moveInput;
-    public float moveSpeed;
-    private Vector3 moveVelocity;
-    private Rigidbody myRigidbody;
+    public CharacterMovement characterMovement;
 
     /** CLONING STUFF **/
     // enables/disables cloning
@@ -31,7 +26,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();
+        characterMovement = GetComponent<CharacterMovement>();
         mainCamera = FindObjectOfType<Camera>();
         cloningCapsule.GetComponent<Transform>();
         gunFiringScript = playerGun.GetComponent<GunFiring>();
@@ -72,19 +67,14 @@ public class PlayerScript : MonoBehaviour
             isCloneable = false;
         }
 
-        
-        // calculate movement
-        // moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        // moveVelocity = moveInput * moveSpeed;
-
+        // look to the cursor
         var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         var groundPlane = new Plane(Vector3.up, Vector3.zero);
-
         if (groundPlane.Raycast(cameraRay, out var rayLength))
         {
             var pointToLook = cameraRay.GetPoint(rayLength);
             // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-            // look to the cursor
+            
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
@@ -92,11 +82,5 @@ public class PlayerScript : MonoBehaviour
         {
             gunFiringScript.Shoot();
         }
-    }
-
-    private void FixedUpdate()
-    {
-        // move
-        myRigidbody.velocity = moveVelocity;
     }
 }

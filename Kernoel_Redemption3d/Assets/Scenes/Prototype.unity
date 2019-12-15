@@ -3314,13 +3314,15 @@ MonoBehaviour:
   obj: {fileID: 1972828525}
   interval: 10
   firstSpawnAfter: 0
+  spawnPoint: {fileID: 631240433}
+  spawnCount: 0
 --- !u!43 &710510534
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27266
+  m_Name: pb_Mesh221816
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6161,6 +6163,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1163890230}
     m_Modifications:
+    - target: {fileID: 1106981908444972196, guid: 54b3f5acb63e4524b8d0a716e12d7d6b,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     - target: {fileID: 1106981908444972198, guid: 54b3f5acb63e4524b8d0a716e12d7d6b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6220,6 +6227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
@@ -6659,6 +6671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1163890230}
+  - component: {fileID: 1163890231}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -6681,6 +6694,23 @@ Transform:
   m_Father: {fileID: 1919476152}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163890231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163890229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9d0290209876f418e161c7cab03eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
+  interval: 5
+  firstSpawnAfter: 0
+  spawnPoint: {fileID: 1168302315}
+  spawnCount: 10
 --- !u!1 &1168302309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7978,6 +8008,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1919476152}
     m_Modifications:
+    - target: {fileID: -9015357315328941446, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3997105012425803673, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
       propertyPath: m_Name
@@ -9976,22 +10011,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1294172429}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1553809801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553809800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931ca00f32a99204e8c6c6921d64178d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpSpeed: 8
-  gravity: 20
-  move: {x: 0, y: 0, z: 0}
 --- !u!143 &1553809806
 CharacterController:
   m_ObjectHideFlags: 0

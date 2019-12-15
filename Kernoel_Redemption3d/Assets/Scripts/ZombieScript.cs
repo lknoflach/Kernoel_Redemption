@@ -14,12 +14,12 @@ public class ZombieScript : MonoBehaviour
     /** PLAYER STUFF **/
     private GameObject player;
 
-    private PlayerScript playerScript;
+    private CharacterMovement playerMovement;
 
     private void Start()
     {
         player = GameObject.Find("PlayerHans");
-        if (player) playerScript = player.GetComponent<PlayerScript>();
+        if (player) playerMovement = player.GetComponent<CharacterMovement>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -52,9 +52,8 @@ public class ZombieScript : MonoBehaviour
         if (!moveOnlyOnSight)
         {
             // Debug.Log(playerScript.moveInput);
-            if (!Mathf.Approximately(playerScript.moveInput.x, 0.0f) ||
-                !Mathf.Approximately(playerScript.moveInput.y, 0.0f) ||
-                !Mathf.Approximately(playerScript.moveInput.z, 0.0f))
+            if (!Mathf.Approximately(playerMovement.move.x, 0.0f) ||
+                !Mathf.Approximately(playerMovement.move.z, 0.0f))
             {
                 isArrivedAtPlayer = false;
             }
