@@ -9,14 +9,21 @@ public class MenuScript : MonoBehaviour
     private void Update()
     {
         // Button "r": Restart the Game
-        if (Input.GetKeyDown("r")) StartGame();
+        if (Input.GetKeyDown("r")) RestartScene();
         // Button "t": Terminate the Game
         if (Input.GetKeyDown("t")) QuitGame();
     }
 
     public void StartGame()
     {
+        SceneManager.GetActiveScene();
         SceneManager.LoadScene("StefanKLevel");
+    }
+
+    public void RestartScene()
+    {
+        var activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.name);
     }
 
     public void QuitGame()
