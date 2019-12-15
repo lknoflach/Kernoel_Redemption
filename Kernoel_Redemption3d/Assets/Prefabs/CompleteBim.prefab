@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5151246744252414736}
   - component: {fileID: 8560259033402698272}
   - component: {fileID: -6451550298325860759}
+  - component: {fileID: 3642647943972367397}
   m_Layer: 0
   m_Name: CompleteBim
   m_TagString: Trap
@@ -78,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  isContinues: 0
   damageType: 2
 --- !u!114 &-6451550298325860759
 MonoBehaviour:
@@ -94,6 +96,21 @@ MonoBehaviour:
   startMarker: {fileID: 0}
   endMarker: {fileID: 0}
   moveSpeed: 20
+--- !u!114 &3642647943972367397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872319207332014466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e913e06d5824b75bb3af14b6432feff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 44a0a7466e2bc804fbbb16cafe40baee, type: 3}
+  interval: 0
+  firstPlayAfter: 2
 --- !u!1 &1872319207584593575
 GameObject:
   m_ObjectHideFlags: 0

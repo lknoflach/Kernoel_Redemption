@@ -21,7 +21,7 @@ public class SpawnOnInterval : MonoBehaviour
     /// Is set to true spawnCount is initialized with zero.
     /// </summary>
     private bool isInfinite;
-    
+
     private void Start()
     {
         if (spawnCount == 0) isInfinite = true;
