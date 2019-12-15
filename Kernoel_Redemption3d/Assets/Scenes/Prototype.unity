@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9d0290209876f418e161c7cab03eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1972828529}
+  obj: {fileID: 1972828525}
   interval: 10
   firstSpawnAfter: 0
 --- !u!43 &710510534
@@ -11684,12 +11684,6 @@ Transform:
 --- !u!1 &1972828525 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1872319207332014466, guid: d0848c77617ba8845ab8ee355e24f6c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1369882574}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1972828529 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8651901046330136261, guid: d0848c77617ba8845ab8ee355e24f6c0,
     type: 3}
   m_PrefabInstance: {fileID: 1369882574}
   m_PrefabAsset: {fileID: 0}

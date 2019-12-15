@@ -2,20 +2,19 @@
 
 public class SpawnOnInterval : MonoBehaviour
 {
-    public Rigidbody obj;
+    public GameObject obj;
     public float interval;
     public float firstSpawnAfter;
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnBim), firstSpawnAfter, interval);
+        InvokeRepeating(nameof(SpawnGameObject), firstSpawnAfter, interval);
     }
 
-    private void SpawnBim()
+    private void SpawnGameObject()
     {
         var instance = Instantiate(obj);
         // Activate the GameObject if it is disabled
         if (!instance.gameObject.activeSelf) instance.gameObject.SetActive(true);
-        instance.velocity = Random.insideUnitSphere * 5;
     }
 }
