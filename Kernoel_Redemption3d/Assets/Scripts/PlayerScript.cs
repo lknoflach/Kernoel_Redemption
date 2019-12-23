@@ -62,7 +62,9 @@ public class PlayerScript : MonoBehaviour
         //cloning Button
         if (Input.GetKeyDown(KeyCode.E) && isCloneable)
         {
-            Instantiate(clonePrototype, transform.position, transform.rotation);
+            var clonePosition = transform.position;
+            clonePosition.z -= 3;
+            Instantiate(clonePrototype, clonePosition, transform.rotation);
             // disable cloning
             isCloneable = false;
         }
