@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MenuScript : MonoBehaviour
 {
+    public string currentSceneName = "Prototype";
+    public string mainMenuSceneName = "MainMenu";
+    
     private void Update()
     {
+        // Button "m": Terminate the Game
+        if (Input.GetKeyDown("m")) LoadMainMenu();
         // Button "r": Restart the Game
         if (Input.GetKeyDown("r")) RestartScene();
         // Button "t": Terminate the Game
@@ -16,19 +21,22 @@ public class MenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.GetActiveScene();
-        SceneManager.LoadScene("StefanKLevel");
+        SceneManager.LoadScene(currentSceneName);
     }
 
-    public void RestartScene()
+    private void LoadMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuSceneName);
+    }
+
+    private static void RestartScene()
     {
         var activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
     }
 
-    public void QuitGame()
+    private static void QuitGame()
     {
         Application.Quit();
-        Debug.Log("Game is exiting");
     }
 }
