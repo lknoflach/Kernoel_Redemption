@@ -753,8 +753,11 @@ GameObject:
   m_Component:
   - component: {fileID: 856331533}
   - component: {fileID: 856331532}
+  - component: {fileID: 856331535}
+  - component: {fileID: 856331534}
+  - component: {fileID: 856331536}
   m_Layer: 0
-  m_Name: Script
+  m_Name: Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -788,6 +791,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856331534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856331531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e913e06d5824b75bb3af14b6432feff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 15305e09a44a8c44dbd8e68a66c954e9, type: 3}
+  interval: 0
+  firstPlayAfter: 4
+--- !u!114 &856331535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856331531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e913e06d5824b75bb3af14b6432feff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 44a0a7466e2bc804fbbb16cafe40baee, type: 3}
+  interval: 0
+  firstPlayAfter: 2
+--- !u!114 &856331536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856331531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e913e06d5824b75bb3af14b6432feff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: fcc65412f8da2fd4d8489294842ab97f, type: 3}
+  interval: 0
+  firstPlayAfter: 20
 --- !u!4 &857192018 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 906077403282946176, guid: 6bbbfa88f8b61cb4a8e2525d09fd70c0,
@@ -1545,7 +1593,7 @@ GameObject:
   - component: {fileID: 1470425273}
   - component: {fileID: 1470425272}
   m_Layer: 5
-  m_Name: Button
+  m_Name: StartGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

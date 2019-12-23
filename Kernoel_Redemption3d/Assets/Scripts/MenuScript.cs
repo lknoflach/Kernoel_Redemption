@@ -24,18 +24,18 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene(currentSceneName);
     }
 
-    private void LoadMainMenu()
+    public void LoadMainMenu()
     {
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
-    private static void RestartScene()
+    public void RestartScene()
     {
         var activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
     }
 
-    private static void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
