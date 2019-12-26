@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1617332367326903456}
   - component: {fileID: 5983982043216678034}
+  - component: {fileID: 2463622013446402187}
+  - component: {fileID: 5188406837385422081}
   m_Layer: 0
   m_Name: Flamethrower 1
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,6 +74,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2463622013446402187
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317861637569384115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1969452, y: 0.85820484, z: 1.1097679}
+  m_Center: {x: -1.6738663, y: 2.574942, z: -1.8498001}
+--- !u!54 &5188406837385422081
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2317861637569384115}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3120692049704323223
 GameObject:
   m_ObjectHideFlags: 0

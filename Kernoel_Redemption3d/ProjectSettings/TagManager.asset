@@ -15,6 +15,7 @@ TagManager:
   - Trap
   - Trigger
   - Roof
+  - ExplodingBarrel
   layers:
   - Default
   - TransparentFX
