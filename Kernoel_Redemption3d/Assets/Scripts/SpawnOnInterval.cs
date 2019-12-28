@@ -31,7 +31,7 @@ public class SpawnOnInterval : MonoBehaviour
     private void SpawnGameObject()
     {
         // Spawn if isInfinite or if we haven't spawned the full spawnCount.
-        if (isInfinite || (currentSpawnCount < spawnCount))
+        if (isInfinite || currentSpawnCount < spawnCount)
         {
             var instance = Instantiate(obj, spawnPoint);
             // Activate the GameObject if it is disabled

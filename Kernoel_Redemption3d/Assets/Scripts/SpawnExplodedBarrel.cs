@@ -1,29 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnExplodedBarrel : MonoBehaviour
 {
-    public GameObject BarrelExploding;
+    public GameObject explodedBarrel;
 
     // Spawns an exploded barrel and a explosion when hit by bullet
-  
-
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
-            spwanExplodedBarrel();
+            SpawnBarrel();
         }
         else if(other.gameObject.CompareTag("ExplodingBarrel")){
-            spwanExplodedBarrel();
+            SpawnBarrel();
         }
-       //
     }
     
     
-    private void spwanExplodedBarrel(){
-        Instantiate(BarrelExploding, transform.position, transform.rotation);
+    private void SpawnBarrel(){
+        Instantiate(explodedBarrel, transform.position, transform.rotation);
         Destroy(gameObject);
     }
    
