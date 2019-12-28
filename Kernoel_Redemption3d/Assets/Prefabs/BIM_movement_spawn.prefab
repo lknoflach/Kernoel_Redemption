@@ -1343,7 +1343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5633324812744766647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.40039, y: 0.78515625, z: 580.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5633324813298510239}
@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  isContinues: 0
   damageType: 2
 --- !u!1 &5633324812745764120
 GameObject:
@@ -4408,6 +4409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1000
+  isContinues: 0
   damageType: 2
 --- !u!114 &5633324813505116756
 MonoBehaviour:
@@ -8784,6 +8786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1000
+  isContinues: 0
   damageType: 2
 --- !u!114 &5633324814239294773
 MonoBehaviour:

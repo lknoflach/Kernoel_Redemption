@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BimTrigger : MonoBehaviour
@@ -19,9 +20,20 @@ public class BimTrigger : MonoBehaviour
     public Transform startMarker;
     public float moveSpeed = 20f;
 
+    private void OnCollisionEnter(Collision other)
+    {
+        var target = other.gameObject;
+        Debug.Log("BimTrigger->OnCollisionEnter: target.tag = " + target.tag + ", target.name = " + target.name);
+        if (validTags.Contains(target.tag))
+        {
+            CreateBimAndStartMovement();
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var target = other.gameObject;
+        Debug.Log("BimTrigger->OnTriggerEnter: target.tag = " + target.tag + ", target.name = " + target.name);
         if (validTags.Contains(target.tag))
         {
             CreateBimAndStartMovement();

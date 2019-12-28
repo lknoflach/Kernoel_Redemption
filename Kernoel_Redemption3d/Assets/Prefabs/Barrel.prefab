@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8635352039991317531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.23, y: 9.32, z: 41.28}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b4048647b962942aee043150fd92fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarrelExploding: {fileID: 8693717473799848017, guid: 0d9d7e62e4693774ab930e2d35106dc4,
+  explodedBarrel: {fileID: 8693717473799848017, guid: 0d9d7e62e4693774ab930e2d35106dc4,
     type: 3}
 --- !u!54 &8635352039991317536
 Rigidbody:
