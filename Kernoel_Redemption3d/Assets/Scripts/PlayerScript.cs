@@ -57,6 +57,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+       private void OnTriggerExit(Collider other)
+    {
+        var target = other.gameObject;
+        switch (target.tag)
+        {
+            case "CloningCapsule":
+                // enable cloning
+                isCloneable = false;
+                break;
+        }
+    }
+
     public void Update()
     {
         //cloning Button
@@ -66,7 +78,7 @@ public class PlayerScript : MonoBehaviour
             clonePosition.z -= 3;
             Instantiate(clonePrototype, clonePosition, transform.rotation);
             // disable cloning
-            isCloneable = false;
+           //isCloneable = false;
         }
 
         // look to the cursor
