@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 7504331936492893753}
   - component: {fileID: 6778880855321063345}
   - component: {fileID: -9015357315328941446}
+  - component: {fileID: 1141570981024431508}
   m_Layer: 0
   m_Name: PlayerHans
   m_TagString: Player
@@ -277,17 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGun: {fileID: 4925104842542379422}
   characaterMovement: {fileID: 0}
-  clonePrototype: {fileID: 906077403282946179, guid: 6bbbfa88f8b61cb4a8e2525d09fd70c0,
-    type: 3}
-  zombiePrototype: {fileID: 1426730848515628090, guid: 7bfbf0ab19e527949a61724e5cf034a7,
-    type: 3}
-  cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
-    type: 3}
   clones: []
-  high_grade_kernoel: 10
-  low_grade_kernoel: 10
-  propability_of_mutation_good_kernoel: 10
-  propability_of_mutation_bad_kernoel: 20
 --- !u!65 &13303360449990027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -350,6 +341,28 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   move: {x: 0, y: 0, z: 0}
+--- !u!114 &1141570981024431508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997105012425803673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac41f3a683e5795499735eccd2839e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
+    type: 3}
+  clonePrototype: {fileID: 906077403282946179, guid: 6bbbfa88f8b61cb4a8e2525d09fd70c0,
+    type: 3}
+  zombiePrototype: {fileID: 1426730848515628090, guid: 7bfbf0ab19e527949a61724e5cf034a7,
+    type: 3}
+  high_grade_kernoel: 10
+  low_grade_kernoel: 20
+  propability_of_mutation_good_kernoel: 10
+  propability_of_mutation_bad_kernoel: 20
 --- !u!1 &3997105012587677906
 GameObject:
   m_ObjectHideFlags: 0
