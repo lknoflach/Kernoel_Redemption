@@ -15,7 +15,9 @@ public class CloneScript : MonoBehaviour
 
     private void Start()
     {
+        //get Player to get the CharacterMovementScript
         player = GameObject.Find("PlayerHans");
+        //get CharacterMovementScript to check if Player is moving
         if (player) playerMovement = player.GetComponent<CharacterMovement>();
         currentMovementSpeed = movementSpeed;
     }
@@ -52,6 +54,7 @@ public class CloneScript : MonoBehaviour
         if (player && playerMovement)
         {
             // Debug.Log(playerScript.moveInput);
+            //ask if player moves
             if (!Mathf.Approximately(playerMovement.move.x, 0.0f) ||
                 !Mathf.Approximately(playerMovement.move.z, 0.0f))
             {
