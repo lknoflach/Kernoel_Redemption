@@ -124,6 +124,12 @@ public class CloningScript : MonoBehaviour
         }
     }
 
+    void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 150, 50), "good Kernöl: "+high_grade_kernoel);
+        GUI.Label(new Rect(10, 30, 150, 50), "bad Kernöl: " + low_grade_kernoel);
+
+    } 
    
     // Update is called once per frame
     void Update()
