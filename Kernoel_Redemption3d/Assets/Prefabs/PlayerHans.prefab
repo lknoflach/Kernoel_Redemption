@@ -276,12 +276,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGun: {fileID: 4925104842542379422}
-  characterMovement: {fileID: -9015357315328941446}
+  characaterMovement: {fileID: 0}
   clonePrototype: {fileID: 906077403282946179, guid: 6bbbfa88f8b61cb4a8e2525d09fd70c0,
+    type: 3}
+  zombiePrototype: {fileID: 1426730848515628090, guid: 7bfbf0ab19e527949a61724e5cf034a7,
     type: 3}
   cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
     type: 3}
   clones: []
+  high_grade_kernoel: 10
+  low_grade_kernoel: 10
+  propability_of_mutation_good_kernoel: 10
+  propability_of_mutation_bad_kernoel: 20
 --- !u!65 &13303360449990027
 BoxCollider:
   m_ObjectHideFlags: 0
