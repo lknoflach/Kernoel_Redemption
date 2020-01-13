@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public bool player_is_moving = false;
 
     private Vector3 moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
@@ -43,14 +44,16 @@ public class CharacterMovement : MonoBehaviour
 
         // Move the controller
         move = moveDirection * Time.deltaTime;
-
-        if (moveDirection.y == 0 && moveDirection.y == 0)
+       
+        //check if player is moving for clone movement, animation etc.
+        if (!Mathf.Approximately(move.x, 0.0f) ||
+                !Mathf.Approximately(move.z, 0.0f))
         {
-            anim.SetInteger("condition", 0); 
+            player_is_moving = true;
         }
         else
         {
-            anim.SetInteger("condition", 1);
+            player_is_moving = false;
         }
         characterController.Move(move);
     }

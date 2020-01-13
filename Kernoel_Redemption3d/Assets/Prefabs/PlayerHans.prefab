@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 6778880855321063345}
   - component: {fileID: -9015357315328941446}
   - component: {fileID: 1141570981024431508}
+  - component: {fileID: -1205750056261635010}
   m_Layer: 0
   m_Name: PlayerHans
   m_TagString: Player
@@ -340,6 +341,7 @@ MonoBehaviour:
   speed: 8
   jumpSpeed: 8
   gravity: 20
+  player_is_moving: 0
   move: {x: 0, y: 0, z: 0}
 --- !u!114 &1141570981024431508
 MonoBehaviour:
@@ -363,6 +365,18 @@ MonoBehaviour:
   low_grade_kernoel: 20
   propability_of_mutation_good_kernoel: 10
   propability_of_mutation_bad_kernoel: 20
+--- !u!114 &-1205750056261635010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997105012425803673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d758a89b33bd764682091aafb4c8b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3997105012587677906
 GameObject:
   m_ObjectHideFlags: 0
