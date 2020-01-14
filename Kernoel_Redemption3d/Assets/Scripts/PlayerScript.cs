@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerScript : MonoBehaviour
 {
     /** GUN STUFF **/
@@ -9,26 +10,16 @@ public class PlayerScript : MonoBehaviour
 
     /** MOVEMENT STUFF **/
     private Camera mainCamera;
-    public CharacterMovement characterMovement;
-
-    /** CLONING STUFF **/
-    // enables/disables cloning
-    private bool isCloneable;
-
-    // the prototype for new clone objects
-    public GameObject clonePrototype;
-
-    // the object which enables the cloning
-    public GameObject cloningCapsule;
+    public CharacterMovement characaterMovement;
 
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
+  
 
-    private void Start()
+    public void Start()
     {
-        characterMovement = GetComponent<CharacterMovement>();
+        characaterMovement = GetComponent<CharacterMovement>();
         mainCamera = FindObjectOfType<Camera>();
-        cloningCapsule.GetComponent<Transform>();
         gunFiringScript = playerGun.GetComponent<GunFiring>();
     }
 
@@ -44,30 +35,9 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var target = other.gameObject;
-        switch (target.tag)
-        {
-            case "CloningCapsule":
-                // enable cloning
-                isCloneable = true;
-                break;
-        }
-    }
-
     public void Update()
     {
-        //cloning Button
-        if (Input.GetKeyDown(KeyCode.E) && isCloneable)
-        {
-            var clonePosition = transform.position;
-            clonePosition.z -= 3;
-            Instantiate(clonePrototype, clonePosition, transform.rotation);
-            // disable cloning
-            isCloneable = false;
-        }
+        
 
         // look to the cursor
         var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);

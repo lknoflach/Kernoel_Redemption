@@ -16,6 +16,8 @@ TagManager:
   - Trigger
   - Roof
   - ExplodingBarrel
+  - gutesKernoel
+  - schelchtesKernoel
   layers:
   - Default
   - TransparentFX
