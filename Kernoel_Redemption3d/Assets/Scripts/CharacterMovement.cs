@@ -16,7 +16,6 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
 
-    Animator anim;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -36,6 +35,8 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
+      
+
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
@@ -44,14 +45,8 @@ public class CharacterMovement : MonoBehaviour
         // Move the controller
         move = moveDirection * Time.deltaTime;
 
-        if (moveDirection.y == 0 && moveDirection.y == 0)
-        {
-            anim.SetInteger("condition", 0); 
-        }
-        else
-        {
-            anim.SetInteger("condition", 1);
-        }
+
+     
         characterController.Move(move);
     }
 }
