@@ -4,33 +4,31 @@ using UnityEngine;
 
 public class AnimationPlayer : MonoBehaviour
 {
-
-    private GameObject player;
+    private Animator animator;
     private CharacterMovement characterMovement;
-    Animator anim;
+    private GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
          player = GameObject.Find("PlayerHans");
         //get CharacterMovementScript to check if Player is moving
         if (player) characterMovement = player.GetComponent<CharacterMovement>();
+        // Get the animator
+        if (player) animator = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if(characterMovement.player_is_moving)
         {
-            Debug.Log("Player Hans is moving time for animation");
-            //anim.SetInteger("condition", 0);
+            Debug.Log("AnimationPlayer->Update() --- player_is_moving = " + characterMovement.player_is_moving);
+            animator.SetBool("Walking", true);
         }
         else
         {
-            Debug.Log("Player Hans is not moving no animation");
-            //anim.SetInteger("condition", 1);
+            animator.SetBool("Walking", false);
         }
-
-        //anim.SetInteger("condition", 1);
     }
 }
