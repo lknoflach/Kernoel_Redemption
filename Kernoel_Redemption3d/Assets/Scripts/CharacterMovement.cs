@@ -57,6 +57,7 @@ public class CharacterMovement : MonoBehaviour
         {
             player_is_moving = false;
         }
-
+        
+        characterController.Move(move);
     }
 }

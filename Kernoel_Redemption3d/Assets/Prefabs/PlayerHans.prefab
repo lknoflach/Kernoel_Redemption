@@ -5031,7 +5031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGun: {fileID: 4925104842542379422}
-  characaterMovement: {fileID: 0}
+  characterMovement: {fileID: -9015357315328941446}
   clones: []
 --- !u!65 &13303360449990027
 BoxCollider:
@@ -5175,7 +5175,6 @@ MonoBehaviour:
   firingPoint: {fileID: 3997105012587677917}
   projectilePrefab: {fileID: 8553718696883199997, guid: 58148495c382b154288fbbe280bff1d8,
     type: 3}
-  particleSystem: {fileID: 2299228540465921222}
 --- !u!1 &8119277480618750002
 GameObject:
   m_ObjectHideFlags: 0

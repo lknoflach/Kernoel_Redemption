@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
 
     /** MOVEMENT STUFF **/
     private Camera mainCamera;
-    public CharacterMovement characaterMovement;
+    public CharacterMovement characterMovement;
 
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
 
     public void Start()
     {
-        characaterMovement = GetComponent<CharacterMovement>();
+        characterMovement = GetComponent<CharacterMovement>();
         mainCamera = FindObjectOfType<Camera>();
         gunFiringScript = playerGun.GetComponent<GunFiring>();
     }
