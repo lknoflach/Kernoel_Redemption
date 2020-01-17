@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
 
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
-  
 
     public void Start()
     {
@@ -37,8 +36,6 @@ public class PlayerScript : MonoBehaviour
 
     public void Update()
     {
-        
-
         // look to the cursor
         var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         var groundPlane = new Plane(Vector3.up, Vector3.zero);

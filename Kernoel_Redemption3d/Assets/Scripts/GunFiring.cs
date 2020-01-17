@@ -13,13 +13,21 @@ public class GunFiring : MonoBehaviour
     
     public void Shoot()
     {
-        // var source = transform.parent.gameObject;
-        // var playerScript = FindObjectOfType<PlayerScript>();
-        // var playerPosition = playerScript.gameObject.transform.position;
-        // Debug.DrawLine(firingPoint.position, playerPosition, Color.green);
-       // particles.Pause(true);
         // Create a Projectile
-     
-        Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);
+        var projectile = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);
+        
+        var source = transform.parent.gameObject;
+        if (source.CompareTag("Player"))
+        {
+            // point player projectiles to the cursor position
+            var cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var groundPlane = new Plane(Vector3.up, Vector3.zero);
+            if (groundPlane.Raycast(cameraRay, out var rayLength))
+            {
+                var pointToLook = cameraRay.GetPoint(rayLength);
+                // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+                projectile.transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            }
+        }
     }
 }
