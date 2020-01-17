@@ -26,7 +26,7 @@ public class GunFiring : MonoBehaviour
             {
                 var pointToLook = cameraRay.GetPoint(rayLength);
                 // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-                projectile.transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+                projectile.transform.LookAt(new Vector3(pointToLook.x, projectile.transform.position.y, pointToLook.z));
             }
         }
     }
