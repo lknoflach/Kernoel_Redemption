@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class ZombieScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
     public bool isArrivedAtPlayer = true;
 
-    public float movementSpeed = 10;
+    //the values are a bit guessed
+    public float movementSpeed = 20;
     public bool moveOnlyOnSight = true;
     public float fieldOfViewDegrees = 90.0f;
     public float visibilityDistance = 200000.0f;
+    
+    //if zombie is visible on the screen so if it gets in screen 
+    bool isVisible = false;
 
+    //if zombie has seen the player 
+    bool hasSeenPlayer = false; 
 
     /** PLAYER STUFF **/
     private GameObject player;
@@ -22,55 +29,39 @@ public class ZombieScript : MonoBehaviour
         if (player) playerMovement = player.GetComponent<CharacterMovement>();
     }
 
-    private void OnCollisionEnter(Collision other)
+    void OnBecameVisible()
     {
-        var target = other.gameObject;
-        if (!isArrivedAtPlayer)
-        {
-            switch (target.tag)
+       Debug.Log("Zombie is visible");
+        isVisible = true;
+    }
+
+    private void OnCollisionEnter(Collision col)
+    { 
+            if (!isArrivedAtPlayer)
             {
-                case "Clone":
-                    var cloneScript = target.GetComponent<CloneScript>();
-                    if (cloneScript && cloneScript.isArrivedAtPlayer)
-                    {
+                switch ( col.gameObject.tag)
+                {
+                    case "Clone":
+                        //maybe to something with the clone
+                        //var cloneScript =  col.gameObject.GetComponent<CloneScript>();
+                        //if (cloneScript && cloneScript.isArrivedAtPlayer)
+                        //{
                         Debug.Log("Zombie is arrived at other Clone");
+                            //should zombies turn clones into zombies ?? 
+                        //    isArrivedAtPlayer = true;
+                        //}
+                        break;
+
+                    case "Player":
+                        Debug.Log("Zombie is arrived at Player");
                         isArrivedAtPlayer = true;
-                    }
-
-                    break;
-
-                case "Player":
-                    Debug.Log("Zombie is arrived at Player");
-                    isArrivedAtPlayer = true;
-                    break;
+                        break;
+                }
             }
-        }
     }
 
-    private void Update()
-    {
-        if (!moveOnlyOnSight)
-        {
-            // Debug.Log(playerScript.moveInput);
-            if (!Mathf.Approximately(playerMovement.move.x, 0.0f) ||
-                !Mathf.Approximately(playerMovement.move.z, 0.0f))
-            {
-                isArrivedAtPlayer = false;
-            }
 
-            if (!isArrivedAtPlayer) MoveToPlayer();
-        }
-        else
-        {
-            // Debug.Log(CanSeePlayer());
-            if (CanSeePlayer())
-            {
-                MoveToPlayer();
-            }
-        }
-    }
-
-    private bool CanSeePlayer()
+  private bool CanSeePlayer()
     {
         if (player)
         {
@@ -99,4 +90,20 @@ public class ZombieScript : MonoBehaviour
             transform.position += Time.deltaTime * movementSpeed * transform.forward;
         }
     }
+
+    private void Update()
+    {
+        ////for some reason the OnBecameVisible funtction does not work yet     
+          // if (isVisible){  
+            if (hasSeenPlayer)
+            {
+                MoveToPlayer();
+            }
+            else
+            {
+                hasSeenPlayer = CanSeePlayer();
+            }
+      //  }
+    }
+    
 }

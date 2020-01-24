@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8693717473799848008}
   - component: {fileID: 8693717473799848009}
   - component: {fileID: 1765839380792534598}
+  - component: {fileID: 2802294820197605832}
   m_Layer: 0
   m_Name: ExplodedBarrel
   m_TagString: ExplodingBarrel
@@ -4919,3 +4920,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2802294820197605832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693717473799848017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  isContinues: 0
+  damageType: 2
