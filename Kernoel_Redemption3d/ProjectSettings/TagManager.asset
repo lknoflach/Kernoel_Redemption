@@ -18,6 +18,8 @@ TagManager:
   - ExplodingBarrel
   - gutesKernoel
   - schelchtesKernoel
+  - Spike
+  - Button
   layers:
   - Default
   - TransparentFX
