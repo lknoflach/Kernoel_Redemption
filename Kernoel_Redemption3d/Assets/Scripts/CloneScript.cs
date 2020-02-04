@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CloneScript : MonoBehaviour
 {
@@ -76,7 +77,8 @@ public class CloneScript : MonoBehaviour
             if (!isArrivedAtPlayer)
             {
                 transform.LookAt(player.transform.position);
-                transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+                // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+                transform.position += 0.02f * currentMovementSpeed * transform.forward;
             }
         }
     }
