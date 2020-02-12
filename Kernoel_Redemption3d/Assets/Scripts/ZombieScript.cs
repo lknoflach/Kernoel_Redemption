@@ -3,8 +3,8 @@
 public class ZombieScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
-    public bool isArrivedAtPlayer = true;
-
+    public bool isArrivedAtPlayer = false;
+    public bool isMoving;
     public float movementSpeed = 10;
     public bool moveOnlyOnSight = true;
     public float fieldOfViewDegrees = 90.0f;
@@ -97,6 +97,7 @@ public class ZombieScript : MonoBehaviour
         {
             transform.LookAt(player.transform.position);
             transform.position += Time.deltaTime * movementSpeed * transform.forward;
+            isMoving = true;
         }
     }
 }
