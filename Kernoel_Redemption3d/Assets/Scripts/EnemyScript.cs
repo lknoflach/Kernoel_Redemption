@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour
 
     /** GUN STUFF **/
     public GameObject enemyGun;
-
+    public bool isShooting;
     private GunFiring gunFiringScript;
 
     // The current Cooldown for the next shoot
@@ -35,12 +35,14 @@ public class EnemyScript : MonoBehaviour
             {
                 // Wait the shootCooldown timer
                 shootCooldown -= Time.deltaTime;
+                isShooting = false;
             }
             else
             {
                 // Fire the gun
                 gunFiringScript.Shoot();
                 shootCooldown = shootingRate;
+                isShooting = true;
             }
         }
     }
