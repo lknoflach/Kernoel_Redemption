@@ -13,9 +13,9 @@ public class AnimationPlayer : MonoBehaviour
     {
          player = GameObject.Find("PlayerHans");
         //get CharacterMovementScript to check if Player is moving
-        if (player) characterMovement = player.GetComponent<CharacterMovement>();
+        characterMovement = player.GetComponent<CharacterMovement>();
         // Get the animator
-        if (player) animator = player.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,12 +23,11 @@ public class AnimationPlayer : MonoBehaviour
     {
         if(characterMovement.player_is_moving)
         {
-            Debug.Log("AnimationPlayer->Update() --- player_is_moving = " + characterMovement.player_is_moving);
-            animator.SetBool("Walking", true);
+            animator.SetBool("player_is_moving", true);
         }
         else
         {
-            animator.SetBool("Walking", false);
+            animator.SetBool("player_is_moving", false);
         }
     }
 }

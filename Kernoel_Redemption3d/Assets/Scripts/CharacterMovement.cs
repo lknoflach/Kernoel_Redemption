@@ -13,13 +13,15 @@ public class CharacterMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public bool player_is_moving = false;
-
+    Animator anim;
     private Vector3 moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        anim = gameObject.GetComponent<Animator>();
+       
     }
 
     void Update()
@@ -52,10 +54,12 @@ public class CharacterMovement : MonoBehaviour
                 !Mathf.Approximately(move.z, 0.0f))
         {
             player_is_moving = true;
+      
         }
         else
         {
             player_is_moving = false;
+
         }
         
         characterController.Move(move);
