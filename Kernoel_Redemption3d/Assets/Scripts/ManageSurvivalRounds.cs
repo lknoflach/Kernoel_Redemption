@@ -25,19 +25,28 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     //for every enemy x amount of zombies spawn
     public int RelationOfZombiesAndEnemy = 4;
+
+
+    public int AmountOfKernoel = 1;
+    public int MultiplierOfKernOelPerRound = 2;
+
     
     //List with all enemies if its empty (all enemies are dead) the next round starts
     //enemys get added after the spawn every round
     public List <GameObject> enemies = new List<GameObject>();
-    
+    private List <GameObject> Barrels = new List<GameObject>();
     
     //Array of spawnpoint add spawnpoints here and they spawn random on one of them
-    public Transform[] spawnpoints;
+    public Transform[] EnemySpawnpoints;
+    public Transform[] BarrelSpawnpoints;
+    public Transform KernoelSpawnpoint;
 
     //object to spawn the enemys
     public GameObject Zombie;
     public GameObject Enemy;
-    
+    public GameObject Barrel;
+    public GameObject Kernoel;
+
     //The number of the current survial round
     public int RoundNumber = 1;
     
@@ -53,7 +62,8 @@ public class ManageSurvivalRounds : MonoBehaviour
     public Canvas  GUIMenu;
     // Update is called once per frame
     void Start(){
-         StartCoroutine(removeDeadEnemysFromList());
+        StartCoroutine(removeDeadEnemysFromList());
+        //StartCoroutine(removeExplodedBarrelsFromList());
         //roundNumberText = GetComponent<Text> ();
         roundNumberText.enabled = false;
         GUIMenu.gameObject.SetActive(false);
@@ -73,13 +83,16 @@ public class ManageSurvivalRounds : MonoBehaviour
                     StartCoroutine(showRoundNumber());
                    
                     SpawnEnemies(); 
-                    
+                    spawnBarrels();
+                    SpawnKernoel();
                     ++RoundNumber;
                     
                 }else if(RoundHasStarted && continueGame == true){
                    // Debug.Log("You won to you want to countinue");
                     StartCoroutine(showRoundNumber());
+                    spawnBarrels();
                     SpawnEnemies();
+                    SpawnKernoel();
                     ++RoundNumber;
                     //show dialog
                 }else if(RoundHasStarted && continueGame == false){
@@ -112,13 +125,14 @@ public class ManageSurvivalRounds : MonoBehaviour
         //spawn enemies on random spawnpoint
          //yield return new WaitForSeconds(4);
          continueGame = false;
-        for(int i = 0; i < 2; i++){
+         AmountOfEnmys = AmountOfEnmys * MultiplierOfEnmysPerRound;
+        for(int i = 0; i < AmountOfEnmys; i++){
            
             if(Random.Range(1, RelationOfZombiesAndEnemy+1) == RelationOfZombiesAndEnemy){
                 Debug.Log("SpawnZombies");
 
                 //get random spawnpoint
-                GameObject spawnedEnemy = (GameObject) Instantiate(Enemy, spawnpoints[Random.Range(0, spawnpoints.Length)]);
+                GameObject spawnedEnemy = (GameObject) Instantiate(Enemy, EnemySpawnpoints[Random.Range(0, EnemySpawnpoints.Length)]);
                 spawnedEnemy.transform.position = new Vector3((spawnedEnemy.transform.position.x+Random.Range(-3f, 3f)), spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z+Random.Range(-3f, 3f)));
                 spawnedEnemy.transform.LookAt(player);
                 enemies.Add(spawnedEnemy);
@@ -128,7 +142,7 @@ public class ManageSurvivalRounds : MonoBehaviour
              
                 Debug.Log("SpawnEnemy");
                  //TODO: Also chose random spawnpoint 
-                 GameObject spawnedEnemy = (GameObject) Instantiate(Zombie, spawnpoints[Random.Range(0, spawnpoints.Length)]);
+                 GameObject spawnedEnemy = (GameObject) Instantiate(Zombie, EnemySpawnpoints[Random.Range(0, EnemySpawnpoints.Length)]);
                 spawnedEnemy.transform.position = new Vector3((spawnedEnemy.transform.position.x+Random.Range(-3f, 3f)), spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z+Random.Range(-3f, 3f)));
                 spawnedEnemy.transform.LookAt(player);
                 enemies.Add(spawnedEnemy);
@@ -141,17 +155,41 @@ public class ManageSurvivalRounds : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             if(RoundHasStarted){
-                
-                for(int i = 0; i < enemies.Count; i++){
-                    if(enemies[i] == null){
-                        Debug.Log("Dead");
-                        enemies.RemoveAt(i);
+                    for(int i = 0; i < enemies.Count; i++){ 
                        
+                        if(enemies[i] == null){
+                             Debug.Log("Dead");
+                            enemies.RemoveAt(i);
+                        }
                     }
-                   
                 //resultlist.RemoveAt(1);
-                }
             }
+        }
+    }
+
+   
+
+    void spawnBarrels(){
+         //remove all barrels before spawn new
+        for(int i = 0; i < Barrels.Count; i++){
+            if(Barrels[i] != null){
+                Destroy(Barrels[i]);
+                Barrels.RemoveAt(i);
+            }
+        }
+        for(int i = 0; i < BarrelSpawnpoints.Length; i++){
+            Barrels.Add((GameObject) Instantiate(Barrel, BarrelSpawnpoints[i]));
+        }
+    }
+
+
+    void SpawnKernoel(){
+        AmountOfKernoel = AmountOfKernoel * MultiplierOfKernOelPerRound;
+        for(int i = 0; i <AmountOfKernoel; i++)
+        {
+            Debug.Log("spawnedKernoel");
+            GameObject spawnedKernoel = (GameObject) Instantiate(Kernoel, KernoelSpawnpoint);
+            spawnedKernoel.transform.position = new Vector3((spawnedKernoel.transform.position.x+Random.Range(-3f, 3f)), spawnedKernoel.transform.position.y, (spawnedKernoel.transform.position.z+Random.Range(-3f, 3f)));
         }
     }
     //UI Stuff
