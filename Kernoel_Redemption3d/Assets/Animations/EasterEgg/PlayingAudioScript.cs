@@ -10,9 +10,11 @@ public class PlayingAudioScript : MonoBehaviour
     GameObject player;
     AudioSource audioData;
     public bool enter;
+    public bool soundPlayed;
     void Start()
     {
         enter = false;
+        soundPlayed = false;
         player = GameObject.FindGameObjectWithTag("Player");
         audioData = GetComponent<AudioSource>();
     }
@@ -22,9 +24,10 @@ public class PlayingAudioScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && soundPlayed == false)
         {
             audioData.Play();
+            soundPlayed = true;
 
         }
     }
