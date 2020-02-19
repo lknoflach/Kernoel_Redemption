@@ -97,7 +97,7 @@ public class DamageScript : MonoBehaviour
             var healthScript = target.GetComponent<HealthScript>();
             if (healthScript)
             {
-                Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
+                //Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);
             }
         }

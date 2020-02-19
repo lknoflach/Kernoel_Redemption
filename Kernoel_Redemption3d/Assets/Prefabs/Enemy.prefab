@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 3997105012425803673, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
   enemyGun: {fileID: 219112073062098801}
+  isShooting: 0
   shootingRate: 1
 --- !u!54 &1106981908444972196
 Rigidbody:
@@ -124,8 +125,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &3909334219819312411
 MonoBehaviour:
   m_ObjectHideFlags: 0

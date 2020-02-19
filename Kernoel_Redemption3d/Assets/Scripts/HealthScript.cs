@@ -28,7 +28,7 @@ public class HealthScript : MonoBehaviour
     public void Damage(int damageCount)
     {
         currentHealth -= damageCount;
-        Debug.Log(gameObject.name + ": currentHealth<" + currentHealth.ToString() + ">");
+        //Debug.Log(gameObject.name + ": currentHealth<" + currentHealth.ToString() + ">");
         
         // Update the health bar
         if (healthBar) healthBar.fillAmount = ((float) currentHealth) / ((float) totalHealth);

@@ -36,7 +36,7 @@ public class SpawnOnInterval : MonoBehaviour
             var instance = Instantiate(obj, spawnPoint);
             // Activate the GameObject if it is disabled
             if (!instance.gameObject.activeSelf) instance.gameObject.SetActive(true);
-
+            
             currentSpawnCount++;
         }
     }
