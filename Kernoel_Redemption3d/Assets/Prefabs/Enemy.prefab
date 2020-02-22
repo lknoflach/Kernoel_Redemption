@@ -141,6 +141,18 @@ MonoBehaviour:
   currentHealth: 10
   totalHealth: 10
   healthBar: {fileID: 8056319281763125559}
+--- !u!114 &8026990636664115742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6660692128821153542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdaffdcbcf19354449487b8fb3ae65b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5583455708041591418
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +488,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52c1762747a462a45a82f0035dec00ab, type: 3}
+--- !u!1 &6660692128821153542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 52c1762747a462a45a82f0035dec00ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 3408773181424489999}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7652972475788492053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 52c1762747a462a45a82f0035dec00ab,
