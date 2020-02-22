@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 public class CloneScript : MonoBehaviour
@@ -35,14 +35,14 @@ public class CloneScript : MonoBehaviour
                     var cloneScript = target.GetComponent<CloneScript>();
                     if (cloneScript && cloneScript.isArrivedAtPlayer)
                     {
-                        Debug.Log("Clone is arrived at other Clone");
+                        // Debug.Log("Clone is arrived at other Clone");
                         isArrivedAtPlayer = true;
                     }
 
                     break;
 
                 case "Player":
-                    Debug.Log("Clone is arrived at Player");
+                    // Debug.Log("Clone is arrived at Player");
                     isArrivedAtPlayer = true;
                     break;
             }
