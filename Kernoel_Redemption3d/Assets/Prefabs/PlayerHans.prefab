@@ -444,7 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   totalHealth: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 3482825948255762903}
 --- !u!114 &1461261436678182199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,9 +459,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
     type: 3}
-  clonePrototype: {fileID: 906077403282946179, guid: 6bbbfa88f8b61cb4a8e2525d09fd70c0,
+  clonePrototype: {fileID: 702159183288861103, guid: 12048544c2987e348b4a826aeaa75c6b,
     type: 3}
-  zombiePrototype: {fileID: 1426730848515628090, guid: 7bfbf0ab19e527949a61724e5cf034a7,
+  zombiePrototype: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7,
     type: 3}
   high_grade_kernoel: 10
   low_grade_kernoel: 20

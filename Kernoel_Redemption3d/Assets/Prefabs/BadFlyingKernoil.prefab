@@ -4775,15 +4775,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6450205689820167228, guid: a608b4c21a008b64c806b485d58f82bd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6450205689820167228, guid: a608b4c21a008b64c806b485d58f82bd,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6450205689820167228, guid: a608b4c21a008b64c806b485d58f82bd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4581651094026249727, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -4581651094026249727, guid: a608b4c21a008b64c806b485d58f82bd,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 850509298813604020, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_Name
-      value: badKernoel (1)
+      value: BadFlyingKernoil
       objectReference: {fileID: 0}
     - target: {fileID: 850509298813604020, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
@@ -4798,17 +4818,17 @@ PrefabInstance:
     - target: {fileID: 850509298813604027, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 850509298813604027, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 850509298813604027, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -82.90686
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 850509298813604027, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}

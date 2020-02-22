@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +20,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public int AmountOfEnmys = 4;
     
     //Multiplier for enemys every round
-    public int MultiplierOfEnmysPerRound = 2; 
+    public float MultiplierOfEnmysPerRound = 1.5f; 
 
 
     //for every enemy x amount of zombies spawn
@@ -50,6 +50,8 @@ public class ManageSurvivalRounds : MonoBehaviour
     //The number of the current survial round
     public int RoundNumber = 1;
     
+    //player wants to continue
+    public bool PlayerWantsToContinue = true;
     //player to look at player on spawn
     public Transform player;
 
@@ -73,7 +75,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     void Update()
     {
         // RoundNumberText.text="Roundnumber : ";
-        if(RoundHasStarted == true){
+        if(RoundHasStarted == true && PlayerWantsToContinue){
             if(enemies.Count == 0){
                 //show round numer 
                 
@@ -125,7 +127,7 @@ public class ManageSurvivalRounds : MonoBehaviour
         //spawn enemies on random spawnpoint
          //yield return new WaitForSeconds(4);
          continueGame = false;
-         AmountOfEnmys = AmountOfEnmys * MultiplierOfEnmysPerRound;
+         AmountOfEnmys = (int)(AmountOfEnmys * MultiplierOfEnmysPerRound);
         for(int i = 0; i < AmountOfEnmys; i++){
            
             if(Random.Range(1, RelationOfZombiesAndEnemy+1) == RelationOfZombiesAndEnemy){
@@ -212,7 +214,8 @@ public class ManageSurvivalRounds : MonoBehaviour
     }
 
     public void stopGameHander(){
-        SceneManager.LoadScene("DancingZombies");
+        PlayerWantsToContinue = false;
+        GUIMenu.gameObject.SetActive(false);
     }
 
 }

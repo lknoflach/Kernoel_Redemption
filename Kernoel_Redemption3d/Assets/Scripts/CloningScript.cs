@@ -52,7 +52,12 @@ public class CloningScript : MonoBehaviour
     //adds Kernöl if we run into it
     private void OnCollisionEnter(Collision other)
     {
-        //mabe should be added in on trigger not sure 
+     
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+           //mabe should be added in on trigger not sure 
             //add the Kernöl to the player if he touches one 
            
          
@@ -68,17 +73,11 @@ public class CloningScript : MonoBehaviour
                 low_grade_kernoel++; 
                 Destroy(other.gameObject);
                 break;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var target = other.gameObject;
-        switch (target.tag)
-        {
             case "CloningCapsule":
                 // enable cloning
                 stands_on_cloningplattform = true;
+                break;
+            default:
                 break;
         }
     }
