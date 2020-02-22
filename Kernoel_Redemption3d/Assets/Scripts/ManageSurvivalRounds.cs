@@ -59,15 +59,20 @@ public class ManageSurvivalRounds : MonoBehaviour
     private bool continueGame = false;
 
     //UI Stuff ------------------------------------------------------------
+    private bool showedGUIMenu = false;
     public Text roundNumberText;
     
     public Canvas  GUIMenu;
+
+    
+    public Canvas  GUIUpgrade;
     // Update is called once per frame
     void Start(){
         StartCoroutine(removeDeadEnemysFromList());
         //StartCoroutine(removeExplodedBarrelsFromList());
         //roundNumberText = GetComponent<Text> ();
         roundNumberText.enabled = false;
+        GUIUpgrade.gameObject.SetActive(false);
         GUIMenu.gameObject.SetActive(false);
     }
 
@@ -97,8 +102,8 @@ public class ManageSurvivalRounds : MonoBehaviour
                     SpawnKernoel();
                     ++RoundNumber;
                     //show dialog
-                }else if(RoundHasStarted && continueGame == false){
-                     GUIMenu.gameObject.SetActive(true);
+                }else if(RoundHasStarted && continueGame == false && showedGUIMenu == false){
+                    showGUIMenu();
                 }
 
                 
@@ -216,6 +221,23 @@ public class ManageSurvivalRounds : MonoBehaviour
     public void stopGameHander(){
         PlayerWantsToContinue = false;
         GUIMenu.gameObject.SetActive(false);
+    }
+
+    public void showGUIMenu(){
+        // GUIUpgrade.gameObject.SetActive(false);
+        showedGUIMenu = true;
+        GUIMenu.gameObject.SetActive(true);
+    }
+
+    public void showGUIUpgrade(){
+        GUIMenu.gameObject.SetActive(false);
+        GUIUpgrade.gameObject.SetActive(true);
+        Debug.Log("ShowUpgrade");
+    }
+
+    public void backToGUIMenu(){
+        GUIUpgrade.gameObject.SetActive(false);
+        GUIMenu.gameObject.SetActive(true);
     }
 
 }
