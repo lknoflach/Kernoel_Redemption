@@ -8,6 +8,8 @@ public class CameraScript : MonoBehaviour
 
     public float height;
 
+    public float ofSetX = -9f;
+
     private Vector3 velocity = Vector3.zero;
     //Methods
 
@@ -20,7 +22,7 @@ public class CameraScript : MonoBehaviour
             var pos = new Vector3();
             var position = player.position;
             pos.x = position.x;
-            pos.z = position.z -9f;
+            pos.z = position.z + ofSetX;
             pos.y = position.y + height;
             transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smooth);
         }
