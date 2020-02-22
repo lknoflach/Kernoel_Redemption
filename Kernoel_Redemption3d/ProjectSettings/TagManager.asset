@@ -20,6 +20,7 @@ TagManager:
   - schelchtesKernoel
   - Spike
   - Button
+  - BIM
   layers:
   - Default
   - TransparentFX
