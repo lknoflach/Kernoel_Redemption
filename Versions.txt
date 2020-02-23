@@ -1,0 +1,12 @@
+v1.0 (13-12-2019)
+-----------------
++ One Level
++ Added most traps and enemies
++ Try to reach the end of the level with a living clone (nearly impossible)
+
+v1.1 (23-12-2019)
+-----------------
++ Added Main Menu
++ The player can jump now (hit the space button)
++ Fixes Collision problems between Player and other Characters (Clones, Enemies and Zombies)
++ Changed the level to a more simple design

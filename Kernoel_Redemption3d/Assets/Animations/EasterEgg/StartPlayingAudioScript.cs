@@ -9,12 +9,12 @@ namespace Animations.EasterEgg
 
         private void Start()
         {
-            _audioData = transform.parent.GetComponent<AudioSource>();
+            if (transform.parent) _audioData = transform.parent.GetComponent<AudioSource>();
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player") && !_audioData.isPlaying)
+            if (other.gameObject.CompareTag("Player") && _audioData && !_audioData.isPlaying)
             {
                 _audioData.Play();                
             }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5911312013572480007}
   - component: {fileID: 50615487308465457}
   - component: {fileID: 7359593123467469460}
+  - component: {fileID: 3035881465507582188}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -99,6 +100,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3035881465507582188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723277171979470420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278112dde8194181853141406aeefaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3248349590260411146
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,11 +121,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3248349590260411145}
-  - component: {fileID: 3248349590260411144}
   - component: {fileID: 3248349590260411147}
   - component: {fileID: 3248349590260411142}
   - component: {fileID: 3248349590260411140}
   - component: {fileID: 3248349590260411143}
+  - component: {fileID: 7785178423216109151}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -138,19 +151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3248349590260411144
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3248349590260411146}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3248349590260411147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +215,20 @@ MonoBehaviour:
   damage: 1
   isContinues: 1
   damageType: 3
+--- !u!136 &7785178423216109151
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248349590260411146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3271939891532557934
 GameObject:
   m_ObjectHideFlags: 0

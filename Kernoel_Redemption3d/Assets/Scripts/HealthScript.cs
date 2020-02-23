@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -39,5 +40,12 @@ public class HealthScript : MonoBehaviour
             // Dead!
             Destroy(gameObject);
         }
+    }
+
+    private void OnGUI()
+    {
+        // [CK] Another way to display a health bar would be this
+        // var targetPos = Camera.main.WorldToScreenPoint(transform.position);
+        // GUI.Box(new Rect(targetPos.x, Screen.height - targetPos.y, 60, 20), currentHealth + "/" + totalHealth);
     }
 }
