@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 850509298813604020, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}
       propertyPath: m_Name
-      value: badSeedOil
+      value: BadSeedOil
       objectReference: {fileID: 0}
     - target: {fileID: 850509298813604020, guid: a608b4c21a008b64c806b485d58f82bd,
         type: 3}

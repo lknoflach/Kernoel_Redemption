@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6450205689820167228}
   - component: {fileID: -4581651094026249727}
   m_Layer: 0
-  m_Name: goodSeedOil
+  m_Name: GoodSeedOil
   m_TagString: goodSeedOil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
