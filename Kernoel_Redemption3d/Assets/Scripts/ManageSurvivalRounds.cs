@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ManageSurvivalRounds : MonoBehaviour
 {
+
+    //Please do not touch
+    //its ugly but it works ;)
+
     // The amount of Round you have to play to win 
     public int roundsToWin = 3;
 
@@ -24,15 +28,17 @@ public class ManageSurvivalRounds : MonoBehaviour
     public int amountOfSeedOil = 1;
     public int multiplierOfSeedOilPerRound = 2;
 
-    // List with all enemies if its empty (all enemies are dead) the next round starts
-    // enemies get added after the spawn every round
-    public List<GameObject> enemies = new List<GameObject>();
-    private readonly List<GameObject> _barrels = new List<GameObject>();
-
     // Array of spawn point add spawn points here and they spawn random on one of them
     public Transform[] enemySpawnPoints;
     public Transform[] barrelSpawnPoints;
     public Transform seedOilSpawnPoint;
+
+    // List with all enemies if its empty (all enemies are dead) the next round starts
+    // enemies get added after the spawn every round
+    public List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> _barrels = new List<GameObject>();
+
+  
 
     // object to spawn the enemies
     public GameObject zombie;
@@ -53,7 +59,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     private bool _continueGame;
 
     // UI Stuff ------------------------------------------------------------
-    private bool _showedGuiMenu;
+    private bool _showedGuiMenuOnClick;
     public Text roundNumberText;
 
     public Canvas guiMenu;
@@ -67,12 +73,15 @@ public class ManageSurvivalRounds : MonoBehaviour
         roundNumberText.enabled = false;
         guiUpgrade.gameObject.SetActive(false);
         guiMenu.gameObject.SetActive(false);
+        for(int i = 0; i < barrelSpawnPoints.Length; i++){
+            _barrels.Add((GameObject) Instantiate(barrel, barrelSpawnPoints[i]));
+        }
     }
 
     private void Update()
     {
         // RoundNumberText.text = "Round number: ";
-        if (roundHasStarted && playerWantsToContinue)
+        if (roundHasStarted)
         {
             if (enemies.Count == 0)
             {
@@ -88,7 +97,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                 }
                 else if (roundHasStarted && _continueGame)
                 {
-                    // Debug.Log("You won to you want to continue");
+                    Debug.Log("You won to you want to continue");
                     StartCoroutine(ShowRoundNumber());
                     SpawnBarrels();
                     SpawnEnemies();
@@ -96,7 +105,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                     ++roundNumber;
                     // show dialog
                 }
-                else if (roundHasStarted && _continueGame == false && _showedGuiMenu == false)
+                else if (roundHasStarted && _continueGame == false && _showedGuiMenuOnClick == false)
                 {
                     ShowGuiMenu();
                 }
@@ -138,8 +147,7 @@ public class ManageSurvivalRounds : MonoBehaviour
 
                 // get random spawn point
                 var spawnedEnemy = Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position =
-                    new Vector3((spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
+                spawnedEnemy.transform.position = new Vector3((spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
                         spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
                 spawnedEnemy.transform.LookAt(player);
                 enemies.Add(spawnedEnemy);
@@ -183,17 +191,15 @@ public class ManageSurvivalRounds : MonoBehaviour
     private void SpawnBarrels()
     {
         // remove all barrels before spawn new
-        for (var i = 0; i < _barrels.Count; i++)
-        {
-            if (_barrels[i] == null) continue;
 
-            Destroy(_barrels[i]);
-            _barrels.RemoveAt(i);
-        }
-
-        foreach (var barrelSpawn in barrelSpawnPoints)
-        {
-            _barrels.Add((GameObject) Instantiate(barrel, barrelSpawn));
+        int lenghtBarrelsList = _barrels.Count;
+        Debug.Log(lenghtBarrelsList);
+        for(int i = 0; i < lenghtBarrelsList; i++){
+            if(_barrels[i] != null){
+                Destroy(_barrels[i]);
+            }
+            _barrels[i] = (GameObject) Instantiate(barrel, barrelSpawnPoints[i]);
+            Debug.Log("Destroyed");
         }
     }
 
@@ -227,6 +233,7 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     public void ContinueGameHandler()
     {
+        _showedGuiMenuOnClick = false;
         _continueGame = true;
         guiMenu.gameObject.SetActive(false);
     }
@@ -240,7 +247,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public void ShowGuiMenu()
     {
         // GUIUpgrade.gameObject.SetActive(false);
-        _showedGuiMenu = true;
+        _showedGuiMenuOnClick = true;
         guiMenu.gameObject.SetActive(true);
     }
 

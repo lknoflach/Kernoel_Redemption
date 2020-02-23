@@ -384,12 +384,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9701539}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &10986843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6316364101627251124, guid: e1c9355a640d7714095a08b6bb12df3c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1029324676}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &11839855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27548,7 +27542,7 @@ PrefabInstance:
     - target: {fileID: 3248349590260411145, guid: 7bfbf0ab19e527949a61724e5cf034a7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.457396
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 3248349590260411145, guid: 7bfbf0ab19e527949a61724e5cf034a7,
         type: 3}
@@ -27558,7 +27552,7 @@ PrefabInstance:
     - target: {fileID: 3248349590260411145, guid: 7bfbf0ab19e527949a61724e5cf034a7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 75.57152
+      value: 45.7
       objectReference: {fileID: 0}
     - target: {fileID: 3248349590260411145, guid: 7bfbf0ab19e527949a61724e5cf034a7,
         type: 3}
@@ -29442,6 +29436,114 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1166023927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &828795677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828795682}
+  - component: {fileID: 828795681}
+  - component: {fileID: 828795680}
+  - component: {fileID: 828795679}
+  - component: {fileID: 828795678}
+  m_Layer: 0
+  m_Name: PlatformToKillFallenDownEnemies
+  m_TagString: Trap
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &828795678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828795677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10000
+  isContinues: 0
+  damageType: 2
+--- !u!65 &828795679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828795677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &828795680
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828795677}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &828795681
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828795677}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &828795682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828795677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -109, y: -53, z: 196}
+  m_LocalScale: {x: 3000, y: 1, z: 3000}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &830322245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31767,15 +31869,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b953eb0d1ac3f4d9d996a5eea980ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoundsToWin: 3
-  RoundHasStarted: 0
-  AmountOfEnmys: 1
-  MultiplierOfEnmysPerRound: 2
-  RelationOfZombiesAndEnemy: 4
-  AmountOfKernoel: 1
-  MultiplierOfKernOelPerRound: 2
-  enemies: []
-  EnemySpawnpoints:
+  roundsToWin: 3
+  roundHasStarted: 0
+  amountOfEnemies: 4
+  multiplierOfEnemiesPerRound: 1.5
+  relationOfZombiesAndEnemy: 4
+  amountOfSeedOil: 1
+  multiplierOfSeedOilPerRound: 2
+  enemySpawnPoints:
   - {fileID: 180809951}
   - {fileID: 2142458554}
   - {fileID: 258394489}
@@ -31784,22 +31885,24 @@ MonoBehaviour:
   - {fileID: 1516118978}
   - {fileID: 2023397567}
   - {fileID: 673251678}
-  BarrelSpawnpoints:
+  barrelSpawnPoints:
   - {fileID: 1291393521}
   - {fileID: 1505690588}
   - {fileID: 804556052}
   - {fileID: 1025552307}
-  KernoelSpawnpoint: {fileID: 1796094501}
-  Zombie: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7, type: 3}
-  Enemy: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
-  Barrel: {fileID: 8635352039991317531, guid: c0d5d44a53f857c44a717c94a2ec1205, type: 3}
-  Kernoel: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  RoundNumber: 3
-  PlayerWantsToContinue: 1
+  seedOilSpawnPoint: {fileID: 1796094501}
+  enemies: []
+  _barrels: []
+  zombie: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7, type: 3}
+  enemy: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
+  barrel: {fileID: 8635352039991317531, guid: c0d5d44a53f857c44a717c94a2ec1205, type: 3}
+  seedOil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
+  roundNumber: 1
+  playerWantsToContinue: 1
   player: {fileID: 2002400576}
   roundNumberText: {fileID: 856252927}
-  GUIMenu: {fileID: 1260732756}
-  GUIUpgrade: {fileID: 593482970}
+  guiMenu: {fileID: 1260732756}
+  guiUpgrade: {fileID: 593482970}
 --- !u!135 &881271886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -31841,7 +31944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e341d370f651349adf18060b41ac9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 10986843}
+  player: {fileID: 1029324677}
   totalSpeed: 12
   speedBar: {fileID: 780697287}
 --- !u!1 &882388033
@@ -35005,7 +35108,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881271885}
-        m_MethodName: continueGameHandler
+        m_MethodName: ContinueGameHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36859,6 +36962,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
+--- !u!1 &1029324677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6316364101627251124, guid: e1c9355a640d7714095a08b6bb12df3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029324676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1030486195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55209,7 +55318,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881271885}
-        m_MethodName: backToGUIMenu
+        m_MethodName: BackToGuiMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -56248,7 +56357,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881271885}
-        m_MethodName: showGUIUpgrade
+        m_MethodName: ShowGuiUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -75335,7 +75444,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 881271888}
-        m_MethodName: upgradeSpeed
+        m_MethodName: UpgradeSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

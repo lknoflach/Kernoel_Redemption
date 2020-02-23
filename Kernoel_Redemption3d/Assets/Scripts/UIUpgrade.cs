@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class UiUpgrade : MonoBehaviour
+public class UIUpgrade : MonoBehaviour
 {
     public GameObject player;
     private CharacterMovement _characterMovement;
