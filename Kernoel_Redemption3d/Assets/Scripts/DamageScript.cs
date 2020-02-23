@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,7 +8,7 @@ using UnityEngine;
 public class DamageScript : MonoBehaviour
 {
     /** CHARACTER STUFF **/
-    public enum CharacterTypes
+    private enum CharacterTypes
     {
         Clone,
         Enemy,
@@ -17,10 +18,11 @@ public class DamageScript : MonoBehaviour
     }
 
     // Defines the CharacterTypes for applying damage. 
-    private List<CharacterTypes> validCharacterTypes = new List<CharacterTypes>();
+    private readonly List<CharacterTypes> _validCharacterTypes;
 
     /** DAMAGE STUFF **/
     public int damage = 1;
+
     public bool isContinues;
 
     public enum DamageTypes
@@ -34,6 +36,11 @@ public class DamageScript : MonoBehaviour
 
     public DamageTypes damageType = DamageTypes.Undefined;
 
+    public DamageScript()
+    {
+        _validCharacterTypes = new List<CharacterTypes>();
+    }
+
     private void Start()
     {
         // Determine which damageType will be applied to which characterTypes
@@ -41,30 +48,30 @@ public class DamageScript : MonoBehaviour
         {
             case DamageTypes.Enemy:
                 // An Enemy can hit everyone EXCEPT other Enemies.
-                validCharacterTypes.Add(CharacterTypes.Clone);
-                validCharacterTypes.Add(CharacterTypes.Player);
+                _validCharacterTypes.Add(CharacterTypes.Clone);
+                _validCharacterTypes.Add(CharacterTypes.Player);
                 // validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
 
             case DamageTypes.Player:
                 // A Player can hit Enemies and Zombies.
-                validCharacterTypes.Add(CharacterTypes.Enemy);
-                validCharacterTypes.Add(CharacterTypes.Zombie);
+                _validCharacterTypes.Add(CharacterTypes.Enemy);
+                _validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
 
             case DamageTypes.Trap:
                 // A Trap can hit everyone.
-                validCharacterTypes.Add(CharacterTypes.Clone);
-                validCharacterTypes.Add(CharacterTypes.Enemy);
-                validCharacterTypes.Add(CharacterTypes.Player);
-                validCharacterTypes.Add(CharacterTypes.Zombie);
+                _validCharacterTypes.Add(CharacterTypes.Clone);
+                _validCharacterTypes.Add(CharacterTypes.Enemy);
+                _validCharacterTypes.Add(CharacterTypes.Player);
+                _validCharacterTypes.Add(CharacterTypes.Zombie);
                 break;
 
             case DamageTypes.Zombie:
                 // A Zombie can hit everyone EXCEPT other Zombies.
-                validCharacterTypes.Add(CharacterTypes.Clone);
+                _validCharacterTypes.Add(CharacterTypes.Clone);
                 // validCharacterTypes.Add(CharacterTypes.Enemy);
-                validCharacterTypes.Add(CharacterTypes.Player);
+                _validCharacterTypes.Add(CharacterTypes.Player);
                 break;
         }
     }
@@ -91,7 +98,7 @@ public class DamageScript : MonoBehaviour
     private void ApplyDamage(GameObject target)
     {
         var characterType = DetermineCharacterType(target);
-        if (validCharacterTypes.Contains(characterType))
+        if (_validCharacterTypes.Contains(characterType))
         {
             // Check if there is a healthScript and apply Damage. 
             var healthScript = target.GetComponent<HealthScript>();

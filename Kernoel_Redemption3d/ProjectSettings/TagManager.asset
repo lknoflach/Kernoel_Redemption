@@ -16,11 +16,11 @@ TagManager:
   - Trigger
   - Roof
   - ExplodingBarrel
-  - gutesKernoel
-  - schelchtesKernoel
   - Spike
   - Button
   - BIM
+  - badSeedOil
+  - goodSeedOil
   layers:
   - Default
   - TransparentFX

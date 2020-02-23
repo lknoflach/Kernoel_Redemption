@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CloneScript : MonoBehaviour
@@ -10,22 +9,21 @@ public class CloneScript : MonoBehaviour
     public float movementSpeed = 10f;
 
     /** PLAYER STUFF **/
-    private GameObject player;
+    private GameObject _player;
 
-    private CharacterMovement characterMovement;
+    private CharacterMovement _characterMovement;
 
     private void Start()
     {
         //get Player to get the CharacterMovementScript
-        player = GameObject.Find("PlayerHans");
+        _player = GameObject.Find("PlayerHans");
         //get CharacterMovementScript to check if Player is moving
-        if (player) characterMovement = player.GetComponent<CharacterMovement>();
+        if (_player) _characterMovement = _player.GetComponent<CharacterMovement>();
         currentMovementSpeed = movementSpeed;
     }
 
-    private void checkIfArivedAtPlayer(Collision other)
+    private void CheckIfArivedAtPlayer(Collision other)
     {
-       
         if (!isArrivedAtPlayer)
         {
             var target = other.gameObject;
@@ -53,33 +51,31 @@ public class CloneScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-      checkIfArivedAtPlayer(other);
+        CheckIfArivedAtPlayer(other);
     }
 
-    
+
     private void OnCollisionStay(Collision other)
     {
-        checkIfArivedAtPlayer(other);
+        CheckIfArivedAtPlayer(other);
     }
 
     private void Update()
     {
-        if (player && characterMovement)
-        {
-            // Debug.Log(playerScript.moveInput);
-            //ask if player moves
-            if (characterMovement.player_is_moving)
-            {
-                isArrivedAtPlayer = false;
-                currentMovementSpeed = movementSpeed;
-            }
+        if (!_player || !_characterMovement) return;
+        // Debug.Log(playerScript.moveInput);
 
-            if (!isArrivedAtPlayer)
-            {
-                transform.LookAt(player.transform.position);
-                // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
-                transform.position += 0.02f * currentMovementSpeed * transform.forward;
-            }
+        //ask if player moves
+        if (_characterMovement.playerIsMoving)
+        {
+            isArrivedAtPlayer = false;
+            currentMovementSpeed = movementSpeed;
         }
+
+        if (isArrivedAtPlayer) return;
+
+        transform.LookAt(_player.transform.position);
+        // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+        transform.position += 0.02f * currentMovementSpeed * transform.forward;
     }
 }

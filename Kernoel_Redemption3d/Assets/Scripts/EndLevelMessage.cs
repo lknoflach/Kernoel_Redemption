@@ -2,23 +2,21 @@
 
 public class EndLevelMessage : MonoBehaviour
 {
-    private bool showName = false;
+    private bool _showName;
 
-
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        //sets display message to true an displays the message
-        if (other.gameObject.CompareTag("Player"))
-        {
-            //if you want to load a new scene when you reached the goal to it here
-            Debug.Log("END");
-            showName = true;
-        }
+        // sets display message to true an displays the message
+        if (!other.gameObject.CompareTag("Player")) return;
+
+        // if you want to load a new scene when you reached the goal to it here
+        Debug.Log("END");
+        _showName = true;
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
-        if (showName)
+        if (_showName)
             GUI.Label(new Rect(400, 200, 2000, 2000), "You finished the level! :)");
     }
 }

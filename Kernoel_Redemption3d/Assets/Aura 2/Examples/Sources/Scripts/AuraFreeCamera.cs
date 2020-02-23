@@ -14,14 +14,14 @@ namespace Aura2API //Original from Unity, changed namespace to avoid conflicts w
         float m_yaw;
         float m_pitch;
 
-        void Start()
+        private void Start()
         {
             m_yaw = transform.rotation.eulerAngles.y;
             m_pitch = transform.rotation.eulerAngles.x;
             Cursor.visible = showCursor;
         }
 
-        void Update()
+        private void Update()
         {
             if (!freeLookEnabled)
                 return;

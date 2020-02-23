@@ -7,11 +7,12 @@ public class EnemyScript : MonoBehaviour
 
     /** GUN STUFF **/
     public GameObject enemyGun;
+
     public bool isShooting;
-    private GunFiring gunFiringScript;
+    private GunFiring _gunFiringScript;
 
     // The current Cooldown for the next shoot
-    private float shootCooldown;
+    private float _shootCooldown;
 
     // Cooldown in seconds between two shots
     public float shootingRate = 1f;
@@ -19,31 +20,29 @@ public class EnemyScript : MonoBehaviour
     public void Start()
     {
         player = GameObject.Find("PlayerHans");
-        gunFiringScript = enemyGun.GetComponent<GunFiring>();
+        _gunFiringScript = enemyGun.GetComponent<GunFiring>();
     }
 
     public void Update()
     {
-        if (player)
+        if (!player) return;
+        // Focus on the Player
+        // Debug.DrawLine(transform.position, player.transform.position, Color.red);
+
+        transform.LookAt(player.transform);
+
+        if (_shootCooldown > 0f)
         {
-            // Focus on the Player
-            // Debug.DrawLine(transform.position, player.transform.position, Color.red);
-
-            transform.LookAt(player.transform);
-
-            if (shootCooldown > 0f)
-            {
-                // Wait the shootCooldown timer
-                shootCooldown -= Time.deltaTime;
-                isShooting = false;
-            }
-            else
-            {
-                // Fire the gun
-                gunFiringScript.Shoot();
-                shootCooldown = shootingRate;
-                isShooting = true;
-            }
+            // Wait the shootCooldown timer
+            _shootCooldown -= Time.deltaTime;
+            isShooting = false;
+        }
+        else
+        {
+            // Fire the gun
+            _gunFiringScript.Shoot();
+            _shootCooldown = shootingRate;
+            isShooting = true;
         }
     }
 }

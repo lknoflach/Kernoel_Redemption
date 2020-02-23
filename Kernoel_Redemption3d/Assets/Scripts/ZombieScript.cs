@@ -4,6 +4,7 @@ public class ZombieScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
     public bool isArrivedAtPlayer = false;
+
     public bool isMoving;
     public float movementSpeed = 10;
     public bool moveOnlyOnSight = true;
@@ -12,14 +13,14 @@ public class ZombieScript : MonoBehaviour
 
 
     /** PLAYER STUFF **/
-    private GameObject player;
+    private GameObject _player;
 
-    private CharacterMovement playerMovement;
+    private CharacterMovement _playerMovement;
 
     private void Start()
     {
-        player = GameObject.Find("PlayerHans");
-        if (player) playerMovement = player.GetComponent<CharacterMovement>();
+        _player = GameObject.Find("PlayerHans");
+        if (_player) _playerMovement = _player.GetComponent<CharacterMovement>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -52,8 +53,8 @@ public class ZombieScript : MonoBehaviour
         if (!moveOnlyOnSight)
         {
             // Debug.Log(playerScript.moveInput);
-            if (!Mathf.Approximately(playerMovement.move.x, 0.0f) ||
-                !Mathf.Approximately(playerMovement.move.z, 0.0f))
+            if (!Mathf.Approximately(_playerMovement.move.x, 0.0f) ||
+                !Mathf.Approximately(_playerMovement.move.z, 0.0f))
             {
                 isArrivedAtPlayer = false;
             }
@@ -72,10 +73,10 @@ public class ZombieScript : MonoBehaviour
 
     private bool CanSeePlayer()
     {
-        if (player)
+        if (_player)
         {
             // RaycastHit hit;
-            var rayDirection = player.transform.position - transform.position;
+            var rayDirection = _player.transform.position - transform.position;
             if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
             {
                 //Debug.Log("test");
@@ -93,9 +94,9 @@ public class ZombieScript : MonoBehaviour
 
     private void MoveToPlayer()
     {
-        if (player)
+        if (_player)
         {
-            transform.LookAt(player.transform.position);
+            transform.LookAt(_player.transform.position);
             transform.position += Time.deltaTime * movementSpeed * transform.forward;
             isMoving = true;
         }

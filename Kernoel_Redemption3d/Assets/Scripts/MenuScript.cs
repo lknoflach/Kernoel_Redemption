@@ -8,7 +8,7 @@ public class MenuScript : MonoBehaviour
 {
     public string currentSceneName = "Level1";
     public string mainMenuSceneName = "MainMenu";
-    
+
     private void Update()
     {
         // Button "m": Terminate the Game

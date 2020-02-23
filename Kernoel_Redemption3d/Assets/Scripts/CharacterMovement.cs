@@ -7,61 +7,53 @@
 /// </summary>
 public class CharacterMovement : MonoBehaviour
 {
-    CharacterController characterController;
+    private CharacterController _characterController;
 
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
-    public bool player_is_moving = false;
-    Animator anim;
-    private Vector3 moveDirection = Vector3.zero;
+    public bool playerIsMoving;
+    private Vector3 _moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
 
-    void Start()
+    private void Start()
     {
-        characterController = GetComponent<CharacterController>();
-        anim = gameObject.GetComponent<Animator>();
-       
+        _characterController = GetComponent<CharacterController>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (characterController.isGrounded)
+        if (_characterController.isGrounded)
         {
             // We are grounded, so recalculate
             // move direction directly from axes
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-            moveDirection *= speed;
+            _moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+            _moveDirection *= speed;
             if (Input.GetButton("Jump"))
             {
-                moveDirection.y = jumpSpeed;
+                _moveDirection.y = jumpSpeed;
             }
         }
-
-      
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
+        _moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
-        move = moveDirection * Time.deltaTime;
+        move = _moveDirection * Time.deltaTime;
 
-       
         //check if player is moving for clone movement, animation etc.
         if (!Mathf.Approximately(move.x, 0.0f) ||
-                !Mathf.Approximately(move.z, 0.0f))
+            !Mathf.Approximately(move.z, 0.0f))
         {
-            player_is_moving = true;
-      
+            playerIsMoving = true;
         }
         else
         {
-            player_is_moving = false;
-
+            playerIsMoving = false;
         }
-        
-        characterController.Move(move);
+
+        _characterController.Move(move);
     }
 }

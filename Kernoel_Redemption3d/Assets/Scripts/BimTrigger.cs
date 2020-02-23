@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class BimTrigger : MonoBehaviour
@@ -9,10 +8,10 @@ public class BimTrigger : MonoBehaviour
     public GameObject bimPrefab;
 
     // The bim is used to move from startMarker to endMarker. It will get destroyed when it reaches the endMarker. 
-    private GameObject bim;
+    private GameObject _bim;
 
     /** CHARACTER STUFF **/
-    private readonly List<string> validTags = new List<string>() {"Player", "Clone"};
+    private readonly List<string> _validTags = new List<string>() {"Player", "Clone"};
 
     /** MOVEMENT STUFF **/
     public Transform endMarker;
@@ -24,7 +23,7 @@ public class BimTrigger : MonoBehaviour
     {
         var target = other.gameObject;
         Debug.Log("BimTrigger->OnCollisionEnter: target.tag = " + target.tag + ", target.name = " + target.name);
-        if (validTags.Contains(target.tag))
+        if (_validTags.Contains(target.tag))
         {
             CreateBimAndStartMovement();
         }
@@ -34,7 +33,7 @@ public class BimTrigger : MonoBehaviour
     {
         var target = other.gameObject;
         Debug.Log("BimTrigger->OnTriggerEnter: target.tag = " + target.tag + ", target.name = " + target.name);
-        if (validTags.Contains(target.tag))
+        if (_validTags.Contains(target.tag))
         {
             CreateBimAndStartMovement();
         }
@@ -42,18 +41,17 @@ public class BimTrigger : MonoBehaviour
 
     private void CreateBimAndStartMovement()
     {
-        if (bimPrefab && !bim)
-        {
-            // Instantiate the bim
-            bim = Instantiate(bimPrefab);
-            // Activate the GameObject if it is disabled
-            if (!bim.activeSelf) bim.SetActive(true);
-            // Update the MoveObjectAToB script of the bim
-            var moveObjectAToB = bim.GetComponent<MoveObjectAToB>();
-            moveObjectAToB.endMarker = endMarker;
-            moveObjectAToB.startMarker = startMarker;
-            moveObjectAToB.moveSpeed = moveSpeed;
-            moveObjectAToB.SetJourneyLength();
-        }
+        if (!bimPrefab || _bim) return;
+
+        // Instantiate the bim
+        _bim = Instantiate(bimPrefab);
+        // Activate the GameObject if it is disabled
+        if (!_bim.activeSelf) _bim.SetActive(true);
+        // Update the MoveObjectAToB script of the bim
+        var moveObjectAToB = _bim.GetComponent<MoveObjectAToB>();
+        moveObjectAToB.endMarker = endMarker;
+        moveObjectAToB.startMarker = startMarker;
+        moveObjectAToB.moveSpeed = moveSpeed;
+        moveObjectAToB.SetJourneyLength();
     }
 }

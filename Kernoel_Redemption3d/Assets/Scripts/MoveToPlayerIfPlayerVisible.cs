@@ -2,13 +2,13 @@
 
 public class MoveToPlayerIfPlayerVisible : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        // TODO
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        // TODO
     }
 }

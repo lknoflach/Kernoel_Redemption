@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    //Destroys Traps and i we like something else in its area Damage Radius is 
+    // Destroys Traps and if we like something else in its area Damage Radius is 
     // by the sphere collider of the prefab the particle system is just eye-candy 
     // Grenade explodes after a time delay.
     public float fuseTime;
-    public float growspeed = 2f;
-    private SphereCollider areaOfDetection;
+    public float growSpeed = 2f;
+    private SphereCollider _areaOfDetection;
     public ParticleSystem smoke;
-    
-    void Start()
+
+    private void Start()
     {
         Debug.Log("Explode");
-        areaOfDetection = gameObject.GetComponent<SphereCollider>();
-        
+        _areaOfDetection = gameObject.GetComponent<SphereCollider>();
+
         var exp = GetComponent<ParticleSystem>();
-     //   var smoke = GetComponent<Smoke_Chimny>();
+        // var smoke = GetComponent<SmokeChimney>();
 
         exp.Play();
         smoke.Play();
@@ -34,12 +32,13 @@ public class Explosion : MonoBehaviour
             Destroy(other.gameObject, 1f);
         }
     }
-    
-    void Update() {
+
+    private void Update()
+    {
         // expand explosion collider radius
-        areaOfDetection.radius = areaOfDetection.radius + growspeed* Time.deltaTime;
+        _areaOfDetection.radius = _areaOfDetection.radius + growSpeed * Time.deltaTime;
     }
-  
+
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("Explosion->OnCollisionEnter: other = " + other.gameObject.name);

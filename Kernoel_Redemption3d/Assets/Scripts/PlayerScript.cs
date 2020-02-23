@@ -6,10 +6,12 @@ public class PlayerScript : MonoBehaviour
 {
     /** GUN STUFF **/
     public GameObject playerGun;
-    private GunFiring gunFiringScript;
+
+    private GunFiring _gunFiringScript;
 
     /** MOVEMENT STUFF **/
-    private Camera mainCamera;
+    private Camera _mainCamera;
+
     public CharacterMovement characterMovement;
 
     // the array with all the following clones
@@ -18,8 +20,8 @@ public class PlayerScript : MonoBehaviour
     public void Start()
     {
         characterMovement = GetComponent<CharacterMovement>();
-        mainCamera = FindObjectOfType<Camera>();
-        gunFiringScript = playerGun.GetComponent<GunFiring>();
+        _mainCamera = FindObjectOfType<Camera>();
+        _gunFiringScript = playerGun.GetComponent<GunFiring>();
     }
 
     private void OnCollisionEnter(Collision other)
@@ -37,19 +39,19 @@ public class PlayerScript : MonoBehaviour
     public void Update()
     {
         // look to the cursor
-        var cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+        var cameraRay = _mainCamera.ScreenPointToRay(Input.mousePosition);
         var groundPlane = new Plane(Vector3.up, Vector3.zero);
         if (groundPlane.Raycast(cameraRay, out var rayLength))
         {
             var pointToLook = cameraRay.GetPoint(rayLength);
             // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-            
+
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
         if (Input.GetButtonDown("Fire1"))
         {
-            gunFiringScript.Shoot();
+            _gunFiringScript.Shoot();
         }
     }
 }

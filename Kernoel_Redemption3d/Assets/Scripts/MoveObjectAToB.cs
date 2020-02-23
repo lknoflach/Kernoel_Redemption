@@ -10,15 +10,15 @@ public class MoveObjectAToB : MonoBehaviour
     public float moveSpeed = 1f;
 
     // Time when the movement started.
-    private float startTime;
+    private float _startTime;
 
     // Total distance between the markers.
-    private float journeyLength;
+    private float _journeyLength;
 
     private void Start()
     {
         // Keep a note of the time the movement started.
-        startTime = Time.time;
+        _startTime = Time.time;
 
         // Set journeyLength is startMarker and endMarker are set.
         if (startMarker && endMarker) SetJourneyLength();
@@ -28,19 +28,19 @@ public class MoveObjectAToB : MonoBehaviour
     private void Update()
     {
         // Only start movement if journeyLength is set.
-        if (journeyLength > 0f)
+        if (_journeyLength > 0f)
         {
             // Distance moved equals elapsed time times speed..
-            var distCovered = (Time.time - startTime) * moveSpeed;
+            var distCovered = (Time.time - _startTime) * moveSpeed;
 
             // Fraction of journey completed equals current distance divided by total distance.
-            var fractionOfJourney = distCovered / journeyLength;
+            var fractionOfJourney = distCovered / _journeyLength;
 
             // Set our position as a fraction of the distance between the markers.
             transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
 
             // Destroy the GameObject if we reached the endMarker
-            if (journeyLength <= distCovered)
+            if (_journeyLength <= distCovered)
             {
                 // Check if gameObject has a parent
                 if (transform.parent && transform.parent.CompareTag("Trap"))
@@ -60,6 +60,6 @@ public class MoveObjectAToB : MonoBehaviour
     public void SetJourneyLength()
     {
         // Calculate the journey length if is startMarker and endMarker are set.
-        if (startMarker && endMarker) journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        if (startMarker && endMarker) _journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
     }
 }

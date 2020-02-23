@@ -8,8 +8,9 @@ public class HealthScript : MonoBehaviour
 {
     /** HEALTH STUFF **/
     public int currentHealth = 100;
+
     public int totalHealth = 100;
-    
+
     [Header("Unity Stuff")] public Image healthBar;
 
     private void Start()
@@ -29,10 +30,10 @@ public class HealthScript : MonoBehaviour
     {
         currentHealth -= damageCount;
         //Debug.Log(gameObject.name + ": currentHealth<" + currentHealth.ToString() + ">");
-        
+
         // Update the health bar
         if (healthBar) healthBar.fillAmount = ((float) currentHealth) / ((float) totalHealth);
-        
+
         if (currentHealth <= 0)
         {
             // Dead!

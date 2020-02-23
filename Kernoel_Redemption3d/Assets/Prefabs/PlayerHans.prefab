@@ -276,7 +276,7 @@ Transform:
   m_Father: {fileID: 5854051997168327002}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6316364101686502635
+--- !u!114 &8784821288284191735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2632871547391860889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d758a89b33bd764682091aafb4c8b69, type: 3}
+  m_Script: {fileID: 11500000, guid: 183be8df89e6a974089e5b21362df4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6316364101627251124
@@ -428,7 +428,7 @@ MonoBehaviour:
   speed: 6
   jumpSpeed: 8
   gravity: 20
-  player_is_moving: 0
+  playerIsMoving: 0
   move: {x: 0, y: 0, z: 0}
 --- !u!114 &1461261436678182184
 MonoBehaviour:
@@ -463,10 +463,10 @@ MonoBehaviour:
     type: 3}
   zombiePrototype: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7,
     type: 3}
-  high_grade_kernoel: 10
-  low_grade_kernoel: 20
-  propability_of_mutation_good_kernoel: 10
-  propability_of_mutation_bad_kernoel: 20
+  highGradeSeedOil: 10
+  lowGradeSeedOil: 20
+  probabilityOfMutationGoodSeedOil: 10
+  probabilityOfMutationBadSeedOil: 20
 --- !u!1 &7200941139315054670
 GameObject:
   m_ObjectHideFlags: 0

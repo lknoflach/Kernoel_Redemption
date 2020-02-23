@@ -5,21 +5,19 @@ public class LaserScript : MonoBehaviour
     public Transform startPoint;
     public Transform endPoint;
 
-    private LineRenderer laserLine;
+    private LineRenderer _laserLine;
 
-    // Start is called before the first frame update
     private void Start()
     {
-        laserLine = GetComponent<LineRenderer>();
+        _laserLine = GetComponent<LineRenderer>();
         // laserLine.SetWidth(.2f, .2f);
-        laserLine.startWidth = .2f;
-        laserLine.endWidth = .2f;
+        _laserLine.startWidth = .2f;
+        _laserLine.endWidth = .2f;
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        laserLine.SetPosition(0, startPoint.position);
-        laserLine.SetPosition(1, endPoint.position);
+        _laserLine.SetPosition(0, startPoint.position);
+        _laserLine.SetPosition(1, endPoint.position);
     }
 }

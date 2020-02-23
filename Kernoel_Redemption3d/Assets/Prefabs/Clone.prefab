@@ -94,7 +94,7 @@ MonoBehaviour:
   currentHealth: 100
   totalHealth: 100
   healthBar: {fileID: 0}
---- !u!114 &702159184892023141
+--- !u!114 &380379411754619458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8835920739007387916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7a18acc09f0714188254ed4b741d0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6761014dd87b1ec44ba63da872a360ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &702159183394734085

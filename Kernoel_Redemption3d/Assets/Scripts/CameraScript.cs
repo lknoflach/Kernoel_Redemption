@@ -10,21 +10,17 @@ public class CameraScript : MonoBehaviour
 
     public float ofSetX = -9f;
 
-    private Vector3 velocity = Vector3.zero;
-    //Methods
+    private Vector3 _velocity = Vector3.zero;
 
-
-    // Update is called once per frame
     private void Update()
     {
-        if (player)
-        {
-            var pos = new Vector3();
-            var position = player.position;
-            pos.x = position.x;
-            pos.z = position.z + ofSetX;
-            pos.y = position.y + height;
-            transform.position = Vector3.SmoothDamp(transform.position, pos, ref velocity, smooth);
-        }
+        if (!player) return;
+
+        var pos = new Vector3();
+        var position = player.position;
+        pos.x = position.x;
+        pos.z = position.z + ofSetX;
+        pos.y = position.y + height;
+        transform.position = Vector3.SmoothDamp(transform.position, pos, ref _velocity, smooth);
     }
 }

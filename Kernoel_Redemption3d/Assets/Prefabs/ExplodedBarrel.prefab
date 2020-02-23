@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuseTime: 0
-  growspeed: 2
+  growSpeed: 2
   smoke: {fileID: 6593043267186637684}
 --- !u!54 &8693717473799848023
 Rigidbody:
@@ -5028,7 +5028,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 153530, guid: ffabcbd94ba48544eb29372933c0c78f, type: 3}
       propertyPath: m_Name
-      value: Smoke_Chimny
+      value: SmokeChimney
       objectReference: {fileID: 0}
     - target: {fileID: 475108, guid: ffabcbd94ba48544eb29372933c0c78f, type: 3}
       propertyPath: m_LocalPosition.x
