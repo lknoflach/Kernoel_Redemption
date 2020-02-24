@@ -3,27 +3,57 @@ using UnityEngine.UI;
 
 public class UIUpgrade : MonoBehaviour
 {
-    public GameObject player;
-    private CharacterMovement _characterMovement;
+
+    //Canvas for the UI
+    public Canvas guiUpgrade;
+    //For for controlling the UI
+    public GameObject survivalRoundManager;
+    private ManageSurvivalRounds manageSurvivalRounds;
+
+    //the player components to set the player stats
+    public GameObject player;   
+
+
+
+    private CharacterMovement characterMovement;
     public float totalSpeed = 12f;
-    private CloningScript _cloningScript;
+    private CloningScript cloningScript;
 
     [Header("Unity Stuff")] public Image speedBar;
 
     private void Start()
     {
-        _characterMovement = player.GetComponent<CharacterMovement>();
-        _cloningScript = player.GetComponent<CloningScript>();
-        if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
+        guiUpgrade.gameObject.SetActive(false);
+        manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
+        characterMovement = player.GetComponent<CharacterMovement>();
+        cloningScript = player.GetComponent<CloningScript>();
+        if (speedBar) speedBar.fillAmount = ((float) characterMovement.speed) / ((float) totalSpeed);
+    }
+
+    private void Update() {
+        if(manageSurvivalRounds.showGUIUpgrade){ 
+            guiUpgrade.gameObject.SetActive(true);
+        }else
+        {
+             guiUpgrade.gameObject.SetActive(false);
+        }   
     }
 
     public void UpgradeSpeed()
     {
-        if (_characterMovement.speed < totalSpeed && _cloningScript.lowGradeSeedOil >= 3)
+        if (characterMovement.speed < totalSpeed && cloningScript.lowGradeSeedOil >= 3)
         {
-            _cloningScript.lowGradeSeedOil = _cloningScript.lowGradeSeedOil - 3;
-            _characterMovement.speed = _characterMovement.speed + 1f;
-            if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
+            cloningScript.lowGradeSeedOil = cloningScript.lowGradeSeedOil - 3;
+            characterMovement.speed = characterMovement.speed + 1f;
+            if (speedBar) speedBar.fillAmount = ((float) characterMovement.speed) / ((float) totalSpeed);
         }
+    }
+
+     public void BackToGuiMenu()
+    {
+        manageSurvivalRounds.showGUIUpgrade = false;
+        guiUpgrade.gameObject.SetActive(false);
+        manageSurvivalRounds.showGUISurvivalRounds = true;
+        survivalRoundManager.gameObject.SetActive(true);
     }
 }

@@ -18364,7 +18364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881271885}
+      - m_Target: {fileID: 0}
         m_MethodName: stopGameHander
         m_Mode: 1
         m_Arguments:
@@ -32037,6 +32037,7 @@ GameObject:
   - component: {fileID: 881271887}
   - component: {fileID: 881271886}
   - component: {fileID: 881271885}
+  - component: {fileID: 881271889}
   - component: {fileID: 881271888}
   m_Layer: 0
   m_Name: SurvivalRoundMangager
@@ -32057,9 +32058,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b953eb0d1ac3f4d9d996a5eea980ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombie: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7, type: 3}
+  enemy: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
+  barrel: {fileID: 8635352039991317531, guid: c0d5d44a53f857c44a717c94a2ec1205, type: 3}
+  seedOil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
   roundsToWin: 3
   roundHasStarted: 0
-  amountOfEnemies: 20
+  amountOfEnemies: 4
   multiplierOfEnemiesPerRound: 1.5
   relationOfZombiesAndEnemy: 4
   amountOfSeedOil: 1
@@ -32080,17 +32085,14 @@ MonoBehaviour:
   - {fileID: 1025552307}
   seedOilSpawnPoint: {fileID: 1796094501}
   enemies: []
-  _barrels: []
-  zombie: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7, type: 3}
-  enemy: {fileID: 1106981908444972218, guid: 54b3f5acb63e4524b8d0a716e12d7d6b, type: 3}
-  barrel: {fileID: 8635352039991317531, guid: c0d5d44a53f857c44a717c94a2ec1205, type: 3}
-  seedOil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  roundNumber: 1
-  playerWantsToContinue: 1
+  barrels: []
+  endOfRound: 0
+  roundNumber: 3
   player: {fileID: 2002400576}
+  continueGame: 0
   roundNumberText: {fileID: 856252927}
-  guiMenu: {fileID: 1260732756}
-  guiUpgrade: {fileID: 593482970}
+  showGUISurvivalRounds: 0
+  showGUIUpgrade: 0
 --- !u!135 &881271886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -32132,9 +32134,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e341d370f651349adf18060b41ac9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1029324677}
+  guiUpgrade: {fileID: 593482970}
+  survivalRoundManager: {fileID: 881271884}
+  player: {fileID: 1558603697}
   totalSpeed: 12
   speedBar: {fileID: 780697287}
+--- !u!114 &881271889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881271884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb522b137c173d49b071d01bc4facdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiMenu: {fileID: 1260732756}
+  guiUpgrade: {fileID: 593482970}
+  survivalRoundManager: {fileID: 1558603697}
 --- !u!1 &882388033
 GameObject:
   m_ObjectHideFlags: 0
@@ -35408,7 +35427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881271885}
+      - m_Target: {fileID: 881271889}
         m_MethodName: ContinueGameHandler
         m_Mode: 1
         m_Arguments:
@@ -37263,12 +37282,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
---- !u!1 &1029324677 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6316364101627251124, guid: e1c9355a640d7714095a08b6bb12df3c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1029324676}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1030486195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55618,7 +55631,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881271885}
+      - m_Target: {fileID: 881271888}
         m_MethodName: BackToGuiMenu
         m_Mode: 1
         m_Arguments:
@@ -56657,8 +56670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881271885}
-        m_MethodName: ShowGuiUpgrade
+      - m_Target: {fileID: 881271889}
+        m_MethodName: showGUIUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57657,6 +57670,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 113eb5af96ee2094eac8dc88dfc5b274, type: 3}
+--- !u!1 &1558603697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6316364101627251124, guid: e1c9355a640d7714095a08b6bb12df3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029324676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1559465311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75859,7 +75878,7 @@ GameObject:
   - component: {fileID: 2062372539}
   - component: {fileID: 2062372538}
   m_Layer: 0
-  m_Name: Button
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
