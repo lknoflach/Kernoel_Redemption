@@ -9,7 +9,11 @@ public class UIUpgrade : MonoBehaviour
     //For for controlling the UI
     public GameObject survivalRoundManager;
     private ManageSurvivalRounds manageSurvivalRounds;
-
+    //For upgrading the damage;
+    public GameObject gun;
+    private GunFiring gunFiring;
+    public int totalWeaponDamage = 3;
+    public float totalprojectileSpeedOfWeapon = 45;
     //the player components to set the player stats
     public GameObject player;   
 
@@ -19,7 +23,12 @@ public class UIUpgrade : MonoBehaviour
     public float totalSpeed = 12f;
     private CloningScript cloningScript;
 
-    [Header("Unity Stuff")] public Image speedBar;
+    // Bar for UI
+    [Header("Speedbar")] public Image speedBar;
+    [Header("DamageBar")] public Image damageBar;
+    [Header("ProjectileSpeedBar")] public Image projectileSpeedBar;
+    
+
 
     private void Start()
     {
@@ -27,7 +36,11 @@ public class UIUpgrade : MonoBehaviour
         manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
         characterMovement = player.GetComponent<CharacterMovement>();
         cloningScript = player.GetComponent<CloningScript>();
+        gunFiring = gun.GetComponent<GunFiring>();
+
         if (speedBar) speedBar.fillAmount = ((float) characterMovement.speed) / ((float) totalSpeed);
+        if (damageBar) damageBar.fillAmount = ((float) gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
+        if (projectileSpeedBar) projectileSpeedBar.fillAmount = ((float) gunFiring.projectileSpeedOfWeapon) / ((float) totalprojectileSpeedOfWeapon);
     }
 
     private void Update() {
@@ -46,6 +59,24 @@ public class UIUpgrade : MonoBehaviour
             cloningScript.lowGradeSeedOil = cloningScript.lowGradeSeedOil - 3;
             characterMovement.speed = characterMovement.speed + 1f;
             if (speedBar) speedBar.fillAmount = ((float) characterMovement.speed) / ((float) totalSpeed);
+        }
+    }
+    public void UpgradeDamge(){
+        
+        if (gunFiring.damageOfWeapon < totalWeaponDamage && cloningScript.lowGradeSeedOil >= 5)
+        {
+            cloningScript.lowGradeSeedOil = cloningScript.lowGradeSeedOil - 3;
+            gunFiring.damageOfWeapon = gunFiring.damageOfWeapon + 1; 
+            if (damageBar) damageBar.fillAmount = ((float) gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
+        }
+    }
+
+    public void UpgradeProjectileSpeed(){
+        if (gunFiring.projectileSpeedOfWeapon < totalprojectileSpeedOfWeapon && cloningScript.lowGradeSeedOil >= 2)
+        {
+            cloningScript.lowGradeSeedOil = cloningScript.lowGradeSeedOil - 3;
+            gunFiring.projectileSpeedOfWeapon = gunFiring.projectileSpeedOfWeapon + 5; 
+            if (projectileSpeedBar) projectileSpeedBar.fillAmount = ((float) gunFiring.projectileSpeedOfWeapon) / ((float) totalprojectileSpeedOfWeapon);
         }
     }
 

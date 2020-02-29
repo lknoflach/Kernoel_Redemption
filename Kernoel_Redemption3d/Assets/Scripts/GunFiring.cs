@@ -5,16 +5,27 @@
 /// </summary>
 public class GunFiring : MonoBehaviour
 {
+
+    public int damageOfWeapon = 1;
+    public float projectileSpeedOfWeapon = 30; 
     // Starting Coordinates of the Projectile
     public Transform firingPoint;
 
     // The Projectile itself
     public GameObject projectilePrefab;
-
+    
     public void Shoot()
     {
         // Create a Projectile
         var projectile = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);
+        
+        //needed for upgrading the damage
+        DamageScript damageScript = projectilePrefab.GetComponent<DamageScript>();
+        damageScript.damage = damageOfWeapon;
+
+        ProjectileScript projectileScript = projectilePrefab.GetComponent<ProjectileScript>();
+        projectileScript.projectileSpeed = projectileSpeedOfWeapon;
+        
 
         var source = transform.parent.gameObject;
         if (source.CompareTag("Player"))
