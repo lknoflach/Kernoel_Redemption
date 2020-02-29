@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class ManageSurvivalRounds : MonoBehaviour
@@ -205,5 +206,9 @@ public class ManageSurvivalRounds : MonoBehaviour
         roundNumberText.text = "Round number: " + roundNumber;
         yield return new WaitForSeconds(3);
         roundNumberText.enabled = false;
+    }
+
+    public void StopGame(){
+        SceneManager.LoadScene("FINISHEDDancingZombies");
     }
 }
