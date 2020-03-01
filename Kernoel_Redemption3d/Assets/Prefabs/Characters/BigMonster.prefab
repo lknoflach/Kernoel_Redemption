@@ -120,10 +120,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.55910397
+  m_Radius: 1
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: -0.059103966, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4640324685524468952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArrivedAtPlayer: 0
   isMoving: 0
-  movementSpeed: 1
+  movementSpeed: 4
   moveOnlyOnSight: 1
   fieldOfViewDegrees: 300
   visibilityDistance: 100
