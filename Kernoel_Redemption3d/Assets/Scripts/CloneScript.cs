@@ -22,7 +22,7 @@ public class CloneScript : MonoBehaviour
         currentMovementSpeed = movementSpeed;
     }
 
-    private void CheckIfArivedAtPlayer(Collision other)
+    private void CheckIfArrivedAtPlayer(Collision other)
     {
         if (!isArrivedAtPlayer)
         {
@@ -51,13 +51,13 @@ public class CloneScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        CheckIfArivedAtPlayer(other);
+        CheckIfArrivedAtPlayer(other);
     }
 
 
     private void OnCollisionStay(Collision other)
     {
-        CheckIfArivedAtPlayer(other);
+        CheckIfArrivedAtPlayer(other);
     }
 
     private void Update()
