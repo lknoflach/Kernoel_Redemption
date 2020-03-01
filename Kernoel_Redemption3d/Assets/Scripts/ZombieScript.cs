@@ -30,7 +30,7 @@ public class ZombieScript : MonoBehaviour
         {
             switch (target.tag)
             {
-                case "Clone":
+                /*case "Clone":
                     var cloneScript = target.GetComponent<CloneScript>();
                     if (cloneScript && cloneScript.isArrivedAtPlayer)
                     {
@@ -38,7 +38,7 @@ public class ZombieScript : MonoBehaviour
                         isArrivedAtPlayer = true;
                     }
 
-                    break;
+                    break;*/
 
                 case "Player":
                     Debug.Log("Zombie is arrived at Player");

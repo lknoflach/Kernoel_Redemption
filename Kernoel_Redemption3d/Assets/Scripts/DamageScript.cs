@@ -24,7 +24,17 @@ public class DamageScript : MonoBehaviour
     public int damage = 1;
 
     public bool isContinues;
+    
+    /// <summary>
+    /// Cooldown in seconds between two damage
+    /// </summary>
+    public float damageApplyRate = .25f;
 
+    /// <summary>
+    /// Current cooldown in seconds until the next damage happens
+    /// </summary>
+    private float _damageCooldown;
+    
     public enum DamageTypes
     {
         Enemy,
@@ -43,6 +53,8 @@ public class DamageScript : MonoBehaviour
 
     private void Start()
     {
+        _damageCooldown = 0f;
+        
         // Determine which damageType will be applied to which characterTypes
         switch (damageType)
         {
@@ -76,6 +88,11 @@ public class DamageScript : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (_damageCooldown > 0f) _damageCooldown -= Time.deltaTime;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         ApplyDamage(other.gameObject);
@@ -91,12 +108,19 @@ public class DamageScript : MonoBehaviour
         ApplyDamage(other.gameObject);
     }
 
+    private void OnCollisionStay(Collision other)
+    {
+        if (isContinues) ApplyDamage(other.gameObject);
+    }
+
     /// <summary>
     /// Apply the damage to the target's HealthScript if the targetCharacter is valid.
     /// </summary>
     /// <param name="target"></param>
     private void ApplyDamage(GameObject target)
     {
+        if (!CanApplyDamage) return;
+
         var characterType = DetermineCharacterType(target);
         if (_validCharacterTypes.Contains(characterType))
         {
@@ -104,8 +128,10 @@ public class DamageScript : MonoBehaviour
             var healthScript = target.GetComponent<HealthScript>();
             if (healthScript)
             {
-                //Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
+                Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);
+                // reset the damage timer
+                _damageCooldown = damageApplyRate;
             }
         }
     }
@@ -123,4 +149,9 @@ public class DamageScript : MonoBehaviour
         if (target.GetComponent<ZombieScript>()) targetCharacter = CharacterTypes.Zombie;
         return targetCharacter;
     }
+
+    /// <summary>
+    /// Is the damage ready to apply?
+    /// </summary>
+    private bool CanApplyDamage => (_damageCooldown <= 0f);
 }

@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   totalHealth: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 83117807546555637}
 --- !u!136 &3883339730706998774
 CapsuleCollider:
   m_ObjectHideFlags: 0
