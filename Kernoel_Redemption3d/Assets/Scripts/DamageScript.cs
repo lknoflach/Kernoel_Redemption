@@ -26,9 +26,9 @@ public class DamageScript : MonoBehaviour
     public bool isContinues;
     
     /// <summary>
-    /// Cooldown in seconds between two damage
+    /// Cooldown in seconds between two damage (0 = no cooldown)
     /// </summary>
-    public float damageApplyRate = .25f;
+    public float damageApplyRate;
 
     /// <summary>
     /// Current cooldown in seconds until the next damage happens

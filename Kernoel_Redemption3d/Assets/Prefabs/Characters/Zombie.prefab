@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   isContinues: 1
+  damageApplyRate: 0.25
   damageType: 3
 --- !u!136 &7785178423216109151
 CapsuleCollider:
