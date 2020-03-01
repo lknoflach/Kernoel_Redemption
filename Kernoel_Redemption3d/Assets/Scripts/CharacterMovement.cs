@@ -15,10 +15,12 @@ public class CharacterMovement : MonoBehaviour
     public bool playerIsMoving;
     private Vector3 _moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
-
+    AudioSource audioData;
+    
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        audioData = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -48,10 +50,12 @@ public class CharacterMovement : MonoBehaviour
             !Mathf.Approximately(move.z, 0.0f))
         {
             playerIsMoving = true;
+           
         }
         else
         {
             playerIsMoving = false;
+            audioData.Play(0);
         }
 
         _characterController.Move(move);
