@@ -21,6 +21,7 @@ TagManager:
   - BIM
   - badSeedOil
   - goodSeedOil
+  - Ball
   layers:
   - Default
   - TransparentFX
