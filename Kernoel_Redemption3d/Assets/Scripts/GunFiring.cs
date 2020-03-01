@@ -7,7 +7,7 @@ public class GunFiring : MonoBehaviour
 {
     /** CHARACTER STUFF **/
     private GameObject _player;
-
+    AudioSource audioData;
     /** WEAPON STUFF **/
     public int damageOfWeapon = 1;
     public float projectileSpeedOfWeapon = 30; 
@@ -19,13 +19,15 @@ public class GunFiring : MonoBehaviour
     public void Start()
     {
         _player = GameObject.Find("PlayerHans");
+        audioData = GetComponent<AudioSource>();
     }
 
     public void Shoot()
     {
         // Create a Projectile
         var projectile = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);
-        
+        audioData.Play(0);
+
         //needed for upgrading the damage
         DamageScript damageScript = projectilePrefab.GetComponent<DamageScript>();
         damageScript.damage = damageOfWeapon;
