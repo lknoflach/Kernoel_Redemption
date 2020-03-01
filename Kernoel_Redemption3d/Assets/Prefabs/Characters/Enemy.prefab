@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e378f0000bd1546976b7bdec12defe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageOfWeapon: 1
+  projectileSpeedOfWeapon: 30
   firingPoint: {fileID: 4950379953464110768}
   projectilePrefab: {fileID: 3722962356247017131, guid: 0989a9b463556684f87d240d5dc6f274,
     type: 3}
@@ -420,11 +422,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1106981908444972198}
     m_Modifications:
+    - target: {fileID: -9217817218132447574, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -7943378556525867576, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -6507621502745489020, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 52c1762747a462a45a82f0035dec00ab,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3d517ae099f5aa94693c2c5f0243effb, type: 2}
+    - target: {fileID: -4607699284664234186, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 52c1762747a462a45a82f0035dec00ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -495,10 +517,65 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: -2445193559103534071, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 52c1762747a462a45a82f0035dec00ab,
         type: 3}
       propertyPath: m_Name
       value: Desktop@Shooting
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881797528090517389, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329505420794184642, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440268447527424636, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681956757778336384, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772551937752447412, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782432903653303537, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436829760782469501, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167904293427101411, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881932852953648046, guid: 52c1762747a462a45a82f0035dec00ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52c1762747a462a45a82f0035dec00ab, type: 3}
