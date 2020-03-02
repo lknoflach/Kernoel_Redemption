@@ -126,18 +126,10 @@ public class DamageScript : MonoBehaviour
         {
             // Check if there is a healthScript and apply Damage. 
             var healthScript = target.GetComponent<HealthScript>();
-            var PlayerhealthScript = target.GetComponent<PlayerHealthScript>();
             if (healthScript)
             {
                 Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);
-                // reset the damage timer
-                _damageCooldown = damageApplyRate;
-            }
-            if (PlayerhealthScript)
-            {
-                Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
-                PlayerhealthScript.Damage(damage);
                 // reset the damage timer
                 _damageCooldown = damageApplyRate;
             }

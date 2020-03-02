@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa3609e0407be441929fea6b0c57432, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6316364101627251124, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
+  player: {fileID: 7587884186773514774, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
   enemyGun: {fileID: 219112073062098801}
   isShooting: 0
   shootingRate: 1
