@@ -9,13 +9,7 @@ public class GameOverScript : MonoBehaviour
     public bool isQuit;
     public bool isMenu;
     public PlayerHealthScript playerScene;
-    string PrevScene;
 
-    public void Start()
-    {
-        playerScene = GetComponent<PlayerHealthScript>();
-        PrevScene = playerScene.PrevScene;
-    }
 
     public void ExitGame()
     {
@@ -24,7 +18,7 @@ public class GameOverScript : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(PrevScene);
+        SceneManager.LoadScene("Level2FINISHED");
     }
 
     public void MainMenu()

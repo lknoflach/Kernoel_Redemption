@@ -16,10 +16,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     private void Start()
     {
-        PrevScene = PlayerPrefs.GetString("SceneNumber");
-        // if there will be a third scene, etc.
-        PlayerPrefs.SetString("SceneNumber", SceneManager.GetActiveScene().name);
-        DontDestroyOnLoad(PrevScene);
+      
+   
         // Set currentHealth to totalHealth
         currentHealth = totalHealth;
 
