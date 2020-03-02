@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -22,7 +22,10 @@ public class PlayerScript : MonoBehaviour
         characterMovement = GetComponent<CharacterMovement>();
         _mainCamera = FindObjectOfType<Camera>();
         _gunFiringScript = playerGun.GetComponent<GunFiring>();
+
+
     }
+
 
     private void OnCollisionEnter(Collision other)
     {
@@ -53,5 +56,7 @@ public class PlayerScript : MonoBehaviour
         {
             _gunFiringScript.Shoot();
         }
+
+      
     }
 }

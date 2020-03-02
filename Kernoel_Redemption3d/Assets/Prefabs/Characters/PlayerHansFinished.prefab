@@ -550,9 +550,9 @@ GameObject:
   - component: {fileID: 7587884186773514775}
   - component: {fileID: 7587884186773514856}
   - component: {fileID: 7587884186773514857}
-  - component: {fileID: 3072262333714396810}
   - component: {fileID: 3072262333714396821}
   - component: {fileID: 3072262334930800204}
+  - component: {fileID: 6359847283651059439}
   m_Layer: 0
   m_Name: PlayerHansFinished
   m_TagString: Player
@@ -660,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGun: {fileID: 6450055471033305323}
+  health: {fileID: 0}
   characterMovement: {fileID: 7587884186773514857}
   clones: []
 --- !u!114 &7587884186773514857
@@ -679,21 +680,6 @@ MonoBehaviour:
   gravity: 20
   playerIsMoving: 0
   move: {x: 0, y: 0, z: 0}
---- !u!114 &3072262333714396810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7587884186773514774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 100
-  totalHealth: 100
-  healthBar: {fileID: 1058579452297599605}
 --- !u!114 &3072262333714396821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +798,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6359847283651059439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587884186773514774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8947cc0e4be588140bb808b05e60f490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  totalHealth: 100
+  healthBar: {fileID: 1058579452297599605}
 --- !u!1001 &3072262333189198306
 PrefabInstance:
   m_ObjectHideFlags: 0

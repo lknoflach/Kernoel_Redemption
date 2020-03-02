@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/developers/MainMenu.unity
     guid: a7b16fd16a79f9f438f8d26ae5d41f3f
   - enabled: 0
@@ -17,13 +17,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/developers/Level1.unity
     guid: 91bca51973c8e9540ba5550284c59bac
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/developers/Level2FINISHED.unity
     guid: 8409adecce7023846ad42feaec192cbb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/developers/Level3.unity
     guid: c6332a2d5eb4858489ced58744ca6d41
   - enabled: 1
     path: Assets/Scenes/developers/FINISHEDDancingZombies.unity
     guid: c4e61a71a72da6d449f50cfa602a64da
+  - enabled: 1
+    path: Assets/Scenes/developers/GameOver.unity
+    guid: 01d200ca04ed1c144a561ad2fae0af02
   m_configObjects: {}
