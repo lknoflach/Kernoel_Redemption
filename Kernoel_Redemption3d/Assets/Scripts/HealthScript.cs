@@ -39,7 +39,13 @@ public class HealthScript : MonoBehaviour
         // Dead!
         var isGameOver = gameObject.name == "PlayerHans";
         Destroy(gameObject);
-        if (isGameOver) GameManager.Instance.LoadGameOverMenu();
+        if (isGameOver)
+        {
+            // Set activeScene as currentScene before loading GameOverMenu
+            var activeScene = SceneManager.GetActiveScene();
+            GameManager.Instance.currentSceneName = activeScene.name;
+            GameManager.Instance.LoadGameOverMenu();
+        }
     }
 
     private void OnGUI()

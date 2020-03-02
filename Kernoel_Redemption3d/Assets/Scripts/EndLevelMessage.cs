@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndLevelMessage : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class EndLevelMessage : MonoBehaviour
         // sets display message to true an displays the message
         if (!other.gameObject.CompareTag("Player")) return;
 
-        // if you want to load a new scene when you reached the goal do it here
+        // Set activeScene as currentScene before loading VictoryMenu
+        var activeScene = SceneManager.GetActiveScene();
+        GameManager.Instance.currentSceneName = activeScene.name;
         GameManager.Instance.LoadVictoryMenu();
         // _showName = true;
     }
