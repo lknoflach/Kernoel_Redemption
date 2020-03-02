@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -9,7 +9,6 @@ public class HealthScript : MonoBehaviour
 {
     /** HEALTH STUFF **/
     public int currentHealth = 100;
-
     public int totalHealth = 100;
 
     [Header("Unity Stuff")] public Image healthBar;
@@ -35,11 +34,11 @@ public class HealthScript : MonoBehaviour
         // Update the health bar
         if (healthBar) healthBar.fillAmount = ((float) currentHealth) / ((float) totalHealth);
 
-        if (currentHealth <= 0)
-        {
-            // Dead!
-            Destroy(gameObject);
-        }
+        if (currentHealth > 0) return;
+        
+        // Dead!
+        Destroy(gameObject);
+        if (transform.parent.gameObject.name == "PlayerHans") SceneManager.LoadScene("GameOver");
     }
 
     private void OnGUI()
