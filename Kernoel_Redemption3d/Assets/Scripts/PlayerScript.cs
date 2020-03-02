@@ -52,6 +52,7 @@ public class PlayerScript : MonoBehaviour
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
+        // Use this to enable auto-fire (not recommended): Input.GetButton("Fire1")
         if (Input.GetButtonDown("Fire1"))
         {
             _gunFiringScript.Shoot();
