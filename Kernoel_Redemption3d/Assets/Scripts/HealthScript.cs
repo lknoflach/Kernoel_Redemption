@@ -37,8 +37,9 @@ public class HealthScript : MonoBehaviour
         if (currentHealth > 0) return;
         
         // Dead!
+        var isGameOver = gameObject.name == "PlayerHans";
         Destroy(gameObject);
-        if (transform.parent.gameObject.name == "PlayerHans") SceneManager.LoadScene("GameOver");
+        if (isGameOver) GameManager.Instance.LoadGameOverMenu();
     }
 
     private void OnGUI()

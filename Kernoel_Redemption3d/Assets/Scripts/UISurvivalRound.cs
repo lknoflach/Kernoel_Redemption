@@ -13,20 +13,20 @@ public class UISurvivalRound : MonoBehaviour
 
     //For managing the Gui
     public GameObject survivalRoundManager;
-    private ManageSurvivalRounds manageSurvivalRounds;
+    private ManageSurvivalRounds _manageSurvivalRounds;
     // Start is called before the first frame update
 
     
     void Start()
     {
-        manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
+        _manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
         guiUpgrade.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if(manageSurvivalRounds.showGUISurvivalRounds){
+        if(_manageSurvivalRounds.showGUISurvivalRounds){
             guiMenu.gameObject.SetActive(true);
         }else
         {
@@ -36,27 +36,25 @@ public class UISurvivalRound : MonoBehaviour
 
     public void ShowGuiMenu(){
         
-        manageSurvivalRounds.showGUIUpgrade = false;
-        manageSurvivalRounds.showGUISurvivalRounds = true;
+        _manageSurvivalRounds.showGUIUpgrade = false;
+        _manageSurvivalRounds.showGUISurvivalRounds = true;
     }
 
-    public void showGUIUpgrade(){
-         manageSurvivalRounds.showGUISurvivalRounds = false;
+    public void ShowGuiUpgrade(){
+         _manageSurvivalRounds.showGUISurvivalRounds = false;
         HideGuiMenu();
-        manageSurvivalRounds.showGUIUpgrade = true;
+        _manageSurvivalRounds.showGUIUpgrade = true;
     }
     
     public void HideGuiMenu(){
-        manageSurvivalRounds.showGUISurvivalRounds = false;
+        _manageSurvivalRounds.showGUISurvivalRounds = false;
         guiMenu.gameObject.SetActive(false);
     }
 
     public void ContinueGameHandler()
     {
         HideGuiMenu();
-        manageSurvivalRounds.endOfRound = true;
-        manageSurvivalRounds.continueGame = true;
+        _manageSurvivalRounds.endOfRound = true;
+        _manageSurvivalRounds.continueGame = true;
     }
-
-  
 }

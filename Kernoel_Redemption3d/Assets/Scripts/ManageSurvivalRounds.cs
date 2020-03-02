@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class ManageSurvivalRounds : MonoBehaviour
 {
-
     // object to spawn the enemies
     public GameObject zombie;
     public GameObject enemy;
@@ -30,7 +29,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     // for every enemy x amount of zombies spawn
     public int relationOfZombiesAndEnemy = 4;
 
-    //SeedOil Spawnstuff
+    //SeedOil Spawn stuff
     public int amountOfSeedOil = 1;
     public float multiplierOfSeedOilPerRound = 2;
 
@@ -44,7 +43,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> barrels = new List<GameObject>();
 
-    //gets aktivated on every end of the round
+    //gets activated on every end of the round
     public bool endOfRound;
 
     // The number of the current survival round
@@ -56,7 +55,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     // lets player continue if he wants to in the GUI starts another round
     public bool continueGame;
 
-    //the text of the Roundnumber
+    //the text of the Round number
     public Text roundNumberText;
 
     //UI managers
@@ -69,7 +68,8 @@ public class ManageSurvivalRounds : MonoBehaviour
         // StartCoroutine(removeExplodedBarrelsFromList());
         // roundNumberText = GetComponent<Text> ();
         roundNumberText.enabled = false;
-        for(int i = 0; i < barrelSpawnPoints.Length; i++){
+        for (int i = 0; i < barrelSpawnPoints.Length; i++)
+        {
             barrels.Add((GameObject) Instantiate(barrel, barrelSpawnPoints[i]));
         }
     }
@@ -103,7 +103,6 @@ public class ManageSurvivalRounds : MonoBehaviour
             else if (!continueGame && !showGUIUpgrade)
             {
                 endOfRound = false;
-                Debug.Log("Testsetset");
                 showGUISurvivalRounds = true;
             }
         }
@@ -134,8 +133,9 @@ public class ManageSurvivalRounds : MonoBehaviour
             {
                 // get random spawn point
                 var spawnedEnemy = Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position = new Vector3((spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
-                        spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
+                spawnedEnemy.transform.position = new Vector3(
+                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
+                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
                 spawnedEnemy.transform.LookAt(player);
                 enemies.Add(spawnedEnemy);
                 // yield return new WaitForSeconds(1);
@@ -160,13 +160,14 @@ public class ManageSurvivalRounds : MonoBehaviour
             yield return new WaitForSeconds(1);
 
             if (!roundHasStarted) continue;
-            for (var i = 0; i < enemies.Count; i++){
-                
+            for (var i = 0; i < enemies.Count; i++)
+            {
                 if (enemies[i] != null) continue;
                 enemies.RemoveAt(i);
             }
-            
-            if(enemies.Count == 0){
+
+            if (enemies.Count == 0)
+            {
                 endOfRound = true;
             }
         }
@@ -178,10 +179,13 @@ public class ManageSurvivalRounds : MonoBehaviour
         int lenghtBarrelsList = barrels.Count;
 
         Debug.Log(lenghtBarrelsList);
-        for(int i = 0; i < lenghtBarrelsList; i++){
-            if(barrels[i] != null){
+        for (int i = 0; i < lenghtBarrelsList; i++)
+        {
+            if (barrels[i] != null)
+            {
                 Destroy(barrels[i]);
             }
+
             barrels[i] = (GameObject) Instantiate(barrel, barrelSpawnPoints[i]);
             Debug.Log("Destroyed");
         }
@@ -189,13 +193,14 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     private void SpawnSeedOil()
     {
-        amountOfSeedOil = (int)(amountOfSeedOil * multiplierOfSeedOilPerRound);
+        amountOfSeedOil = (int) (amountOfSeedOil * multiplierOfSeedOilPerRound);
         for (var i = 0; i < amountOfSeedOil; i++)
         {
             Debug.Log("spawned seed oil");
             var spawnedSeedOil = Instantiate(seedOil, seedOilSpawnPoint);
-            spawnedSeedOil.transform.position = new Vector3((spawnedSeedOil.transform.position.x + Random.Range(-3f, 3f)),
-                      spawnedSeedOil.transform.position.y, (spawnedSeedOil.transform.position.z + Random.Range(-3f, 3f)));
+            spawnedSeedOil.transform.position = new Vector3(
+                (spawnedSeedOil.transform.position.x + Random.Range(-3f, 3f)),
+                spawnedSeedOil.transform.position.y, (spawnedSeedOil.transform.position.z + Random.Range(-3f, 3f)));
         }
     }
     // UI Stuff
@@ -208,7 +213,8 @@ public class ManageSurvivalRounds : MonoBehaviour
         roundNumberText.enabled = false;
     }
 
-    public void StopGame(){
+    public void StopGame()
+    {
         SceneManager.LoadScene("FINISHEDDancingZombies");
     }
 }
