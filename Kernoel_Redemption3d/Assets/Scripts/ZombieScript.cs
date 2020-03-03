@@ -3,18 +3,15 @@
 public class ZombieScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
-    public bool isArrivedAtPlayer = false;
-
+    public bool isArrivedAtPlayer;
     public bool isMoving;
     public float movementSpeed = 10;
     public bool moveOnlyOnSight = true;
     public float fieldOfViewDegrees = 90.0f;
     public float visibilityDistance = 200000.0f;
 
-
     /** PLAYER STUFF **/
     private GameObject _player;
-
     private CharacterMovement _playerMovement;
 
     private void Start()
@@ -25,27 +22,9 @@ public class ZombieScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        var target = other.gameObject;
-        if (!isArrivedAtPlayer)
-        {
-            switch (target.tag)
-            {
-                /*case "Clone":
-                    var cloneScript = target.GetComponent<CloneScript>();
-                    if (cloneScript && cloneScript.isArrivedAtPlayer)
-                    {
-                        Debug.Log("Zombie is arrived at other Clone");
-                        isArrivedAtPlayer = true;
-                    }
-
-                    break;*/
-
-                case "Player":
-                    Debug.Log("Zombie is arrived at Player");
-                    isArrivedAtPlayer = true;
-                    break;
-            }
-        }
+        if (isArrivedAtPlayer) return;
+        
+        isArrivedAtPlayer = other.gameObject.CompareTag("Player");
     }
 
     private void Update()
@@ -73,32 +52,19 @@ public class ZombieScript : MonoBehaviour
 
     private bool CanSeePlayer()
     {
-        if (_player)
-        {
-            // RaycastHit hit;
-            var rayDirection = _player.transform.position - transform.position;
-            if ((Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f)
-            {
-                //Debug.Log("test");
-                // Detect if player is within the field of view
-                // if (Physics.Raycast(transform.position, rayDirection, out hit, visibilityDistance))
-                // {
-                return true;
-                // return (hit.transform.CompareTag("Player"));
-                // }
-            }
-        }
-
-        return false;
+        if (!_player) return false;
+        
+        // RayCast hit
+        var rayDirection = _player.transform.position - transform.position;
+        return (Vector3.Angle(rayDirection, transform.forward)) <= fieldOfViewDegrees * 0.5f;
     }
 
     private void MoveToPlayer()
     {
-        if (_player)
-        {
-            transform.LookAt(_player.transform.position);
-            transform.position += Time.deltaTime * movementSpeed * transform.forward;
-            isMoving = true;
-        }
+        if (!_player) return;
+        
+        transform.LookAt(_player.transform.position);
+        transform.position += Time.deltaTime * movementSpeed * transform.forward;
+        isMoving = true;
     }
 }

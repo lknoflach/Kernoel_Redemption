@@ -91,7 +91,7 @@ public class ManageSurvivalRounds : MonoBehaviour
             }
             else if (continueGame)
             {
-                Debug.Log("You won to you want to continue");
+                Debug.Log("You won! Do you want to continue");
                 StartCoroutine(ShowRoundNumber());
                 SpawnBarrels();
                 endOfRound = false;
