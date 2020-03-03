@@ -96,11 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  totalHealth: 80
-  DeathEffect: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
-    type: 3}
-  timeOut: 3
+  currentHealth: 30
+  totalHealth: 30
+  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  timeOut: 1
   healthBar: {fileID: 3936246439158182462}
 --- !u!114 &3936246439151697778
 MonoBehaviour:
@@ -191,18 +190,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3936246439341808635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5008484776537993364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f233272f006bdd4c8398e24c9663109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3936246440712628827
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +374,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 278112dde8194181853141406aeefaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3936246439341808635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008484776537993364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f233272f006bdd4c8398e24c9663109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3936246439896738205
