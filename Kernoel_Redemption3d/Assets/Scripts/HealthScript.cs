@@ -10,7 +10,8 @@ public class HealthScript : MonoBehaviour
     /** HEALTH STUFF **/
     public int currentHealth = 100;
     public int totalHealth = 100;
-
+    public GameObject DeathEffect;
+    public float timeOut = 3.0f;
     [Header("Unity Stuff")] public Image healthBar;
 
     private void Start()
@@ -38,6 +39,10 @@ public class HealthScript : MonoBehaviour
         
         // Dead!
         var isGameOver = gameObject.name == "PlayerHans";
+       
+        var instance = Instantiate(DeathEffect, transform.position, transform.rotation);
+        Destroy(instance.gameObject, timeOut);
+        
         Destroy(gameObject);
         if (isGameOver)
         {
