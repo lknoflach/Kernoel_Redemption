@@ -5,24 +5,27 @@ public class DestroyTrapsButtonScript : MonoBehaviour
 {
     // the array with all the traps
     public List<GameObject> traps = new List<GameObject>();
-    private bool _isNearButton;
     public bool isActivated = true;
+    private bool _isNearButton;
     private GameObject _button;
 
     private void Start()
     {
         _button = transform.Find("Button").gameObject;
+        
         SetButtonColor();
+        UpdateTraps();
     }
 
-    public void DisableTraps()
+    private void Update()
     {
-        foreach(var trap in traps) trap.SetActive(false);
-        }
-    
-    public void EnableTraps()
-    {
-        foreach(var trap in traps) trap.SetActive(true);
+        if (!Input.GetKeyDown(KeyCode.E) || !_isNearButton) return;
+        
+        // update the state
+        isActivated = !isActivated;
+        
+        SetButtonColor();
+        UpdateTraps();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,6 +51,7 @@ public class DestroyTrapsButtonScript : MonoBehaviour
         }
     }
 
+    // update the button color
     private void SetButtonColor()
     {
         if (!_button) return;
@@ -56,17 +60,11 @@ public class DestroyTrapsButtonScript : MonoBehaviour
         var buttonLight = _button.GetComponentInChildren<Light>();
         if (buttonLight) buttonLight.color = color;
     }
-
-    private void Update()
+    
+    // enable/disable the traps
+    public void UpdateTraps()
     {
-        if (!Input.GetKeyDown(KeyCode.E) || !_isNearButton) return;
-        
-        // update the state
-        isActivated = !isActivated;
-        SetButtonColor();
-
-        // enable/disable the traps
-        if (isActivated) EnableTraps();
-        if (!isActivated) DisableTraps();
+        if (isActivated) foreach(var trap in traps) trap.SetActive(true);
+        if (!isActivated) foreach(var trap in traps) trap.SetActive(false);
     }
 }
