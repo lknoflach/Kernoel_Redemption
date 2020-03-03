@@ -50,13 +50,13 @@ public class CloningScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "goodSeedOil":
-                Debug.Log("picked up high grade seed oil");
+                //Debug.Log("picked up high grade seed oil");
                 highGradeSeedOil++;
                 Destroy(other.gameObject);
                 break;
 
             case "badSeedOil":
-                Debug.Log("picked up low grade seed oil");
+                //Debug.Log("picked up low grade seed oil");
                 lowGradeSeedOil++;
                 Destroy(other.gameObject);
                 break;

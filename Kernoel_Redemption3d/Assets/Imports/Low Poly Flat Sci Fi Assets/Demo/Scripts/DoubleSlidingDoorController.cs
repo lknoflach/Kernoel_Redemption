@@ -20,7 +20,7 @@ public class DoubleSlidingDoorController : MonoBehaviour
 {
     private DoubleSlidingDoorStatus _status = DoubleSlidingDoorStatus.Closed;
 
-    [SerializeField] private Transform halfDoorLeftTransform; // Left panel of the sliding door
+    [SerializeField] public Transform halfDoorLeftTransform; // Left panel of the sliding door
     [SerializeField] public Transform halfDoorRightTransform; // Right panel of the sliding door
 
     [SerializeField] private float slideDistance = 0.88f; // Sliding distance to open each panel the door
@@ -37,7 +37,7 @@ public class DoubleSlidingDoorController : MonoBehaviour
 
 
     // Sound Fx
-    [SerializeField] private AudioClip doorOpeningSoundClip;
+    [SerializeField] public AudioClip doorOpeningSoundClip;
     [SerializeField] public AudioClip doorClosingSoundClip;
 
     private AudioSource _audioSource;

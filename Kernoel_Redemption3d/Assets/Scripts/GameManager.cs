@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(SceneNames.GameOver.ToString());
         if (Instance != null && Instance != this)
         {
             // update the currentSceneName
@@ -113,7 +112,7 @@ public class GameManager : MonoBehaviour
         // yield return new WaitForSeconds(3);
 
         // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
-        var asyncOperation = Application.LoadLevelAsync(currentSceneName);
+        var asyncOperation = SceneManager.LoadSceneAsync(currentSceneName);
 
         // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
         while (!asyncOperation.isDone)
