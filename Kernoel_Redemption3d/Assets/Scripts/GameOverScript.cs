@@ -17,7 +17,7 @@ public class GameOverScript : MonoBehaviour
 
     public void RestartLevel()
     {
-        _gameManager.RestartScene();
+        _gameManager.RestartLevel();
     }
 
     public void QuitGame()

@@ -12,19 +12,19 @@ public class MainMenuScript : MonoBehaviour
     public void StartCampaignLevel()
     {
         var sceneName = GameManager.SceneNames.Campaign.ToString();
-        _gameManager.SetAndLoadCurrentScene(sceneName);
+        _gameManager.SetAndLoadCurrentLevel(sceneName);
     }
 
     public void StartEndlessLevel()
     {
         var sceneName = GameManager.SceneNames.Endless.ToString();
-        _gameManager.SetAndLoadCurrentScene(sceneName);
+        _gameManager.SetAndLoadCurrentLevel(sceneName);
     }
 
     public void StartTutorialLevel()
     {
         var sceneName = GameManager.SceneNames.Tutorial.ToString();
-        _gameManager.SetAndLoadCurrentScene(sceneName);
+        _gameManager.SetAndLoadCurrentLevel(sceneName);
     }
 
     public void QuitGame()

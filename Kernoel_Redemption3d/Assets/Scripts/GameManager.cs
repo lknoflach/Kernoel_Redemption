@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Title screen script
@@ -17,11 +19,13 @@ public class GameManager : MonoBehaviour
         Tutorial,
         Victory
     }
-    public string currentSceneName = SceneNames.MainMenu.ToString();
+    public string currentSceneName;
 
     public static GameManager Instance { get; private set; }
 
     private readonly List<string> _availableSceneNames = new List<string>();
+    public GameObject loadingScreen;
+    public Slider loadingSlider;
 
     private void Awake()
     {
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
         // Button "m": Load the Main Menu
         if (Input.GetKeyDown("m")) LoadMainMenu();
         // Button "r": Restart the Game
-        if (Input.GetKeyDown("r")) RestartScene();
+        if (Input.GetKeyDown("r")) RestartLevel();
         // Button "t": Terminate the Game
         if (Input.GetKeyDown("t")) QuitGame();
     }
@@ -78,12 +82,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneNames.Victory.ToString());
     }
 
-    public void RestartScene()
+    public void RestartLevel()
     {
         if (!_availableSceneNames.Contains(currentSceneName)) return;
         
         // var activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentSceneName);
+        // SceneManager.LoadScene(currentSceneName);
+        StartCoroutine(LoadCurrentLevel());
     }
     
     public void QuitGame()
@@ -91,11 +96,38 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
     
-    public void SetAndLoadCurrentScene(string sceneName)
+    public void SetAndLoadCurrentLevel(string sceneName)
     {
         if (!_availableSceneNames.Contains(sceneName)) return;
         
         currentSceneName = sceneName;
-        SceneManager.LoadScene(currentSceneName);
+        if (loadingScreen) loadingScreen.gameObject.SetActive(true);
+        StartCoroutine(LoadCurrentLevel());
+    }
+    
+    // The coroutine runs on its own at the same time as Update() and takes an integer indicating which scene to load.
+    private IEnumerator LoadCurrentLevel() 
+    {
+        // This line waits for 3 seconds before executing the next line in the coroutine.
+        // This line is only necessary for this demo. The scenes are so simple that they load too fast to read the "Loading..." text.
+        // yield return new WaitForSeconds(3);
+
+        // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
+        var asyncOperation = Application.LoadLevelAsync(currentSceneName);
+
+        // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
+        while (!asyncOperation.isDone)
+        {
+            if (loadingSlider)
+            {
+                var progress = Mathf.Clamp01(asyncOperation.progress / .9f);
+                loadingSlider.value = progress;
+            }
+
+            // async.progress;
+            yield return null;
+        }
+        
+        if (loadingScreen) loadingScreen.gameObject.SetActive(false);
     }
 }
