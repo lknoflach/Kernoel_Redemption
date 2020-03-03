@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-public class GameOverScript : MonoBehaviour
+public class EndLevelScript : MonoBehaviour
 {
     private GameManager _gameManager;
 
