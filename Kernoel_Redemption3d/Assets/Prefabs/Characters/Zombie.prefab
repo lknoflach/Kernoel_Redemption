@@ -199,8 +199,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   totalHealth: 10
-  DeathEffect: {fileID: 6565791107433830260, guid: a629a76090a267747969d216b7a7b367,
+  DeathEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 3}
+  timeOut: 3
   healthBar: {fileID: 7928810593388973619}
 --- !u!114 &3248349590260411143
 MonoBehaviour:
