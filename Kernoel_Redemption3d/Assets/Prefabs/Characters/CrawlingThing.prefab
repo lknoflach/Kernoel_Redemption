@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5247232217998623905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318957473907007658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f233272f006bdd4c8398e24c9663109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5247232217320410430
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,11 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 40
-  totalHealth: 40
-  DeathEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
-    type: 3}
-  timeOut: 3
+  currentHealth: 3
+  totalHealth: 3
+  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  timeOut: 1
   healthBar: {fileID: 5247232218875225536}
 --- !u!114 &5247232217950865860
 MonoBehaviour:
@@ -304,18 +315,6 @@ MonoBehaviour:
   isContinues: 0
   damageApplyRate: 0
   damageType: 3
---- !u!114 &5247232217998623905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4318957473907007658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f233272f006bdd4c8398e24c9663109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5247232218875225537
 GameObject:
   m_ObjectHideFlags: 0

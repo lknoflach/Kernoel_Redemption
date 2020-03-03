@@ -81,9 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   totalHealth: 10
-  DeathEffect: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
-    type: 3}
-  timeOut: 3
+  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  timeOut: 1
   healthBar: {fileID: 83117807546555637}
 --- !u!136 &3883339730706998774
 CapsuleCollider:
