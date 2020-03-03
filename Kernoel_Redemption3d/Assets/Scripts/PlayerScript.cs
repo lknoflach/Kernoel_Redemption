@@ -48,7 +48,6 @@ public class PlayerScript : MonoBehaviour
         {
             var pointToLook = cameraRay.GetPoint(rayLength);
             // Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
-
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
