@@ -193,6 +193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!4 &131924662 stripped
@@ -285,6 +290,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -446,6 +456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -707,6 +722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1001 &554740101
@@ -775,6 +795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -963,6 +988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1001 &655128836
@@ -1031,6 +1061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -1191,6 +1226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -1531,6 +1571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1 &856331531
@@ -1854,6 +1899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1001 &944892982
@@ -1922,6 +1972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -2272,6 +2327,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1001 &1126419557
@@ -2340,6 +2400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -2567,6 +2632,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!4 &1242621554 stripped
@@ -2641,6 +2711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -3019,6 +3094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -3465,6 +3545,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clone (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
 --- !u!1001 &2054931960
@@ -3533,6 +3618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
@@ -3687,6 +3777,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clone (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900507660088044052, guid: 12048544c2987e348b4a826aeaa75c6b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12048544c2987e348b4a826aeaa75c6b, type: 3}
