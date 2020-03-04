@@ -118,7 +118,7 @@ MonoBehaviour:
   isContinues: 0
   damageApplyRate: 3
   damageType: 3
-  audioData: {fileID: 0}
+  audioData: {fileID: 5894060018716752265}
 --- !u!82 &5894060018716752265
 AudioSource:
   m_ObjectHideFlags: 0
