@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public bool playerIsMoving;
+    public bool playerIsJumping;
     private Vector3 _moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
     AudioSource audioData;
@@ -35,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
             {
                 _moveDirection.y = jumpSpeed;
             }
+          
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
