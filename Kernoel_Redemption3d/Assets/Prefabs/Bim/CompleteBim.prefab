@@ -32,8 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1013382414700724188}
   - {fileID: 1524347114927865348}
+  - {fileID: 1013382414700724188}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -80,7 +80,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   isContinues: 0
+  damageApplyRate: 0
   damageType: 2
+  audioData: {fileID: 0}
 --- !u!114 &-6451550298325860759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 1723631303379429867, guid: b8298d974485ece45aa308d10b1e2e3b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1723631303379429867, guid: b8298d974485ece45aa308d10b1e2e3b,
         type: 3}
@@ -563,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 926688164733310006, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 926688164733310006, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
@@ -588,7 +590,7 @@ PrefabInstance:
     - target: {fileID: 5307198827541143197, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307198827541143198, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
@@ -603,7 +605,7 @@ PrefabInstance:
     - target: {fileID: 5307198827698679984, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307198827698679989, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
@@ -623,7 +625,7 @@ PrefabInstance:
     - target: {fileID: 5307198828338342661, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307198828338342682, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
@@ -648,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 5307198829391163569, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307198829391163574, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
@@ -663,7 +665,7 @@ PrefabInstance:
     - target: {fileID: 5307198829619584127, guid: 338d9935b9cde344e8a3436800b7588a,
         type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 338d9935b9cde344e8a3436800b7588a, type: 3}
