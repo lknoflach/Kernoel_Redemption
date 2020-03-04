@@ -17,7 +17,8 @@ public class BimEndLevel : MonoBehaviour
     
     /** CHARACTER STUFF **/
     private readonly List<string> _validTags = new List<string>() {"Player", "Clone"};
-
+    private GameObject _player;
+    
     /** MOVEMENT STUFF **/
     public Transform endMarker;
 
@@ -26,6 +27,7 @@ public class BimEndLevel : MonoBehaviour
 
     private void Start()
     {
+        _player = GameObject.Find("PlayerHans");
         if (Camera.main) _cameraScript = Camera.main.GetComponent<CameraScript>();
     }
 
@@ -48,11 +50,19 @@ public class BimEndLevel : MonoBehaviour
         // Set flag to prevent restart
         _isStarted = true;
         
+        // hide Player
+        if (_player) _player.gameObject.SetActive(false);
+
         // Set Camera onto BIM instead of Player
         CreateBimAndStartMovement();
-        Destroy(toDestroy);
-        Delay();
+        
+        // Destroy(toDestroy);
+        StartCoroutine(LoadNextLevel());
+    }
 
+    private IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(5);
         if (!string.IsNullOrEmpty(nextLevelName))
         {
             GameManager.Instance.SetAndLoadCurrentLevel(nextLevelName);
@@ -61,11 +71,6 @@ public class BimEndLevel : MonoBehaviour
         {
             GameManager.Instance.LoadVictoryMenu();
         }
-    }
-
-    private static IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(5);
         yield return null;
     }
 
@@ -83,7 +88,6 @@ public class BimEndLevel : MonoBehaviour
         if (_cameraScript)
         {
             _cameraScript.height = 25f;
-            _cameraScript.ofSetX = 9;
             _cameraScript.player = _bim.transform.GetChild(0);
             // _cameraScript.player = _bim.transform;
         }
