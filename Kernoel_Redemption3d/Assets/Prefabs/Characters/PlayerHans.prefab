@@ -678,6 +678,7 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   playerIsMoving: 0
+  playerIsJumping: 0
   move: {x: 0, y: 0, z: 0}
 --- !u!114 &3072262333714396810
 MonoBehaviour:
@@ -693,7 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   totalHealth: 100
-  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  DeathEffect: {fileID: 100014, guid: 7ae0f082131b65b4db997d70d822add3, type: 3}
   timeOut: 1
   healthBar: {fileID: 1058579452297599605}
 --- !u!114 &3072262333714396821
