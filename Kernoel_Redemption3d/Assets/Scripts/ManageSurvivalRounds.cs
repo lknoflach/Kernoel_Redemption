@@ -10,6 +10,8 @@ public class ManageSurvivalRounds : MonoBehaviour
     // object to spawn the enemies
     public GameObject zombie;
     public GameObject enemy;
+    public GameObject crawlingZombie;
+    public GameObject golem;
     public GameObject barrel;
     public GameObject seedOil;
 
@@ -128,8 +130,9 @@ public class ManageSurvivalRounds : MonoBehaviour
         continueGame = false;
         amountOfEnemies = (int) (amountOfEnemies * multiplierOfEnemiesPerRound);
         for (var i = 0; i < amountOfEnemies; i++)
-        {
-            if (Random.Range(1, relationOfZombiesAndEnemy + 1) == relationOfZombiesAndEnemy)
+        {   
+            int randomNumber = Random.Range(1, 11 + 1);
+            if( randomNumber >= 5 && randomNumber <= 7)
             {
                 // get random spawn point
                 var spawnedEnemy = Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
@@ -139,6 +142,20 @@ public class ManageSurvivalRounds : MonoBehaviour
                 spawnedEnemy.transform.LookAt(player);
                 enemies.Add(spawnedEnemy);
                 // yield return new WaitForSeconds(1);
+            }else if(randomNumber >= 8 && randomNumber <= 9) {
+                var spawnedEnemy = Instantiate(golem, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
+                spawnedEnemy.transform.position = new Vector3(
+                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
+                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
+                spawnedEnemy.transform.LookAt(player);
+                enemies.Add(spawnedEnemy);
+            }else if(randomNumber >= 10 ){
+                var spawnedEnemy = Instantiate(crawlingZombie, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
+                spawnedEnemy.transform.position = new Vector3(
+                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
+                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
+                spawnedEnemy.transform.LookAt(player);
+                enemies.Add(spawnedEnemy);
             }
             else
             {
