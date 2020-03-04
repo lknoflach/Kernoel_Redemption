@@ -296,7 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 3
   totalHealth: 3
-  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  DeathEffect: {fileID: 100014, guid: 7ae0f082131b65b4db997d70d822add3, type: 3}
   timeOut: 1
   healthBar: {fileID: 5247232218875225536}
 --- !u!114 &5247232217950865860
@@ -315,6 +315,7 @@ MonoBehaviour:
   isContinues: 0
   damageApplyRate: 0
   damageType: 3
+  audioData: {fileID: 0}
 --- !u!1 &5247232218875225537
 GameObject:
   m_ObjectHideFlags: 0
