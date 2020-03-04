@@ -20,7 +20,7 @@ public class Explosion : MonoBehaviour
 
         exp.Play();
         smoke.Play();
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2.5f);
     }
 
     //currently just destroys traps

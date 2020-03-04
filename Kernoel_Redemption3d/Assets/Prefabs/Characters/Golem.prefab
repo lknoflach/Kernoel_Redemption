@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 30
   totalHealth: 30
-  DeathEffect: {fileID: 100014, guid: 7ae0f082131b65b4db997d70d822add3, type: 3}
+  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
   healthBar: {fileID: 3936246439158182462}
 --- !u!114 &3936246439151697778
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd016b4e9fcdd0d44b1145baef424191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 5
   isContinues: 0
   damageApplyRate: 3
   damageType: 3

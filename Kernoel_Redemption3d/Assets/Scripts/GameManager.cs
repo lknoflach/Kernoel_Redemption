@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public enum SceneNames
     {
+        Aufsteirern,
         Campaign,
         GameOver,
         Endless,
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         _availableSceneNames.Add(SceneNames.MainMenu.ToString());
         _availableSceneNames.Add(SceneNames.Victory.ToString());
         // Levels
+        _availableSceneNames.Add(SceneNames.Aufsteirern.ToString());
         _availableSceneNames.Add(SceneNames.Campaign.ToString());
         _availableSceneNames.Add(SceneNames.Endless.ToString());
         _availableSceneNames.Add(SceneNames.Prototype.ToString());

@@ -232,6 +232,6 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     public void StopGame()
     {
-        SceneManager.LoadScene("FINISHEDDancingZombies");
+        SceneManager.LoadScene("Victory");
     }
 }
