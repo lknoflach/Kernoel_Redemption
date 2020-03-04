@@ -7920,6 +7920,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3daece7739c10f74d921376e3fa53bec, type: 3}
+--- !u!1 &405796470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7703776110164373235, guid: 7a485d0af4a9c2a4493704f40bd952ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 305892192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408712612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7703776110164373235, guid: 7a485d0af4a9c2a4493704f40bd952ba,
@@ -12592,7 +12598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596899443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.03, y: -0.1, z: -30.09}
+  m_LocalPosition: {x: -9.92, y: 0.03, z: -30.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1713824249}
@@ -16663,13 +16669,18 @@ PrefabInstance:
     - target: {fileID: 2673451402673358970, guid: aef0c4be2a671df468634e007d391287,
         type: 3}
       propertyPath: traps.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2673451402673358970, guid: aef0c4be2a671df468634e007d391287,
         type: 3}
       propertyPath: traps.Array.data[0]
       value: 
       objectReference: {fileID: 408712612}
+    - target: {fileID: 2673451402673358970, guid: aef0c4be2a671df468634e007d391287,
+        type: 3}
+      propertyPath: traps.Array.data[1]
+      value: 
+      objectReference: {fileID: 405796470}
     - target: {fileID: 6213820646884791416, guid: aef0c4be2a671df468634e007d391287,
         type: 3}
       propertyPath: m_Name
@@ -18204,7 +18215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853738657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.97, y: 0, z: -40.174164}
+  m_LocalPosition: {x: -9.97, y: 0.02, z: -40.174164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1713824249}
@@ -24293,7 +24304,7 @@ GameObject:
   - component: {fileID: 1168830320}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39798,6 +39809,7 @@ GameObject:
   - component: {fileID: 1875594517}
   - component: {fileID: 1875594516}
   - component: {fileID: 1875594515}
+  - component: {fileID: 1875594518}
   m_Layer: 0
   m_Name: EndLevelTrigger
   m_TagString: Untagged
@@ -39845,6 +39857,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1875594518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875594514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d927c63513e612649abdf82dcf8c286a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSceneName: 
+  loadingScreen: {fileID: 0}
+  loadingSlider: {fileID: 0}
 --- !u!4 &1876806087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4392362303542888, guid: 43664d96612e4ec489761a6609ac27a8,
