@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
     //Variables 
-    public Transform player;
+    public GameObject player;
     public float smooth = 0.3f;
 
     public float height;
@@ -12,12 +13,17 @@ public class CameraScript : MonoBehaviour
 
     private Vector3 _velocity = Vector3.zero;
 
+    private void Start()
+    {
+        if (!player) player = GameObject.Find("PlayerHans");
+    }
+
     private void Update()
     {
         if (!player) return;
 
         var pos = new Vector3();
-        var position = player.position;
+        var position = player.transform.position;
         pos.x = position.x;
         pos.z = position.z + ofSetX;
         pos.y = position.y + height;

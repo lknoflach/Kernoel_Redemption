@@ -68815,7 +68815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0946bfdafd2297e4e9d00b50d8a20a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 863629066}
+  player: {fileID: 863629065}
   smooth: 0.3
   height: 25
   ofSetX: -15
