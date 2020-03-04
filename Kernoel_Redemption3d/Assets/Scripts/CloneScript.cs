@@ -74,7 +74,10 @@ public class CloneScript : MonoBehaviour
 
         if (isArrivedAtPlayer) return;
 
-        transform.LookAt(_player.transform.position);
+        var playerPosition = new Vector3(_player.transform.position.x, transform.position.y, _player.transform.position.z);
+        transform.LookAt(playerPosition);
+        //transform.LookAt(_player.transform.position);
+        
         // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
         transform.position += 0.02f * currentMovementSpeed * transform.forward;
     }
