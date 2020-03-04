@@ -7,6 +7,7 @@ namespace Animations.Player
         private Animator _animator;
         private CharacterMovement _characterMovement;
         private static readonly int _playerIsMoving = Animator.StringToHash("player_is_moving");
+       
 
         private void Start()
         {
@@ -17,6 +18,7 @@ namespace Animations.Player
         private void Update()
         {
             _animator.SetBool(_playerIsMoving, _characterMovement.playerIsMoving);
+           
         }
     }
 }
