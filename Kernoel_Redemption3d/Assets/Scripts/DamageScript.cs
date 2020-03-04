@@ -131,7 +131,7 @@ public class DamageScript : MonoBehaviour
             if (healthScript)
             {
                 // play damageSound if set
-                if (audioData) audioData.Play(0);
+                if (audioData && !audioData.isPlaying) audioData.Play(0);
 
                     // Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);
