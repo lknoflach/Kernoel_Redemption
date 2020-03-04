@@ -39652,6 +39652,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26100741}
     m_Modifications:
+    - target: {fileID: 1083998189732857027, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.630005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369867365780611480, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7587884186773514774, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
       propertyPath: m_Name
@@ -68268,7 +68278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

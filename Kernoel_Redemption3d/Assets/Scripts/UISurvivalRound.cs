@@ -57,4 +57,5 @@ public class UISurvivalRound : MonoBehaviour
         _manageSurvivalRounds.endOfRound = true;
         _manageSurvivalRounds.continueGame = true;
     }
+
 }

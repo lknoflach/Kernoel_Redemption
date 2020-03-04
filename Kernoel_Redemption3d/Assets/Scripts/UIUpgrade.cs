@@ -67,6 +67,7 @@ public class UIUpgrade : MonoBehaviour
             _cloningScript.highGradeSeedOil -= 3;
             _characterMovement.speed += 1f;
             if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
+            _cloningScript.updateUI();
         }
     }
 
@@ -77,6 +78,7 @@ public class UIUpgrade : MonoBehaviour
             _cloningScript.highGradeSeedOil -= 3;
             _gunFiring.damageOfWeapon += 1;
             if (damageBar) damageBar.fillAmount = ((float) _gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
+            _cloningScript.updateUI();
         }
     }
 
@@ -89,6 +91,7 @@ public class UIUpgrade : MonoBehaviour
             if (projectileSpeedBar)
                 projectileSpeedBar.fillAmount = ((float) _gunFiring.projectileSpeedOfWeapon) /
                                                 ((float) totalProjectileSpeedOfWeapon);
+            _cloningScript.updateUI();
         }
     }
 
@@ -99,4 +102,5 @@ public class UIUpgrade : MonoBehaviour
         _manageSurvivalRounds.showGUISurvivalRounds = true;
         survivalRoundManager.gameObject.SetActive(true);
     }
+
 }
