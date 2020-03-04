@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isArrivedAtPlayer: 0
-  currentMovementSpeed: 10
-  movementSpeed: 10
+  currentMovementSpeed: 6
+  movementSpeed: 6
 --- !u!54 &702159183288861088
 Rigidbody:
   m_ObjectHideFlags: 0
