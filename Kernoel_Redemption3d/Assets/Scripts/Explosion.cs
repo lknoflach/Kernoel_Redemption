@@ -26,7 +26,7 @@ public class Explosion : MonoBehaviour
     //currently just destroys traps
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Explosion->OnTriggerEnter: other = " + other.gameObject.name);
+        // Debug.Log("Explosion->OnTriggerEnter: other = " + other.gameObject.name);
         if (other.gameObject.CompareTag("Trap"))
         {
             Destroy(other.gameObject, 1f);
@@ -36,12 +36,12 @@ public class Explosion : MonoBehaviour
     private void Update()
     {
         // expand explosion collider radius
-        _areaOfDetection.radius = _areaOfDetection.radius + growSpeed * Time.deltaTime;
+        _areaOfDetection.radius += growSpeed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Explosion->OnCollisionEnter: other = " + other.gameObject.name);
+        // Debug.Log("Explosion->OnCollisionEnter: other = " + other.gameObject.name);
         if (other.gameObject.CompareTag("Trap"))
         {
             Destroy(other.gameObject, 1f);
