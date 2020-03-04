@@ -57,8 +57,6 @@ public class DamageScript : MonoBehaviour
     {
         _damageCooldown = 0f;
 
-        audioData = GetComponent<AudioSource>();
-        
         // Determine which damageType will be applied to which characterTypes
         switch (damageType)
         {
@@ -134,8 +132,8 @@ public class DamageScript : MonoBehaviour
             {
                 // play damageSound if set
                 if (audioData) audioData.Play(0);
-                
-                // Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
+
+                    // Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);
                 // reset the damage timer
                 _damageCooldown = damageApplyRate;

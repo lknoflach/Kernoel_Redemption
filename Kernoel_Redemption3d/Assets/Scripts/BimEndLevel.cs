@@ -26,7 +26,7 @@ public class BimEndLevel : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         var target = other.gameObject;
-
+        Debug.Log("BimTrigger->OnCollisionEnter: target.tag = " + target.tag + ", target.name = " + target.name);
         if (_validTags.Contains(target.tag))
         {
             CreateBimAndStartMovement();
