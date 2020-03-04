@@ -178,7 +178,7 @@ public class ManageSurvivalRounds : MonoBehaviour
         // remove all barrels before spawn new
         int lenghtBarrelsList = barrels.Count;
 
-        Debug.Log(lenghtBarrelsList);
+        //Debug.Log(lenghtBarrelsList);
         for (int i = 0; i < lenghtBarrelsList; i++)
         {
             if (barrels[i] != null)
@@ -187,7 +187,7 @@ public class ManageSurvivalRounds : MonoBehaviour
             }
 
             barrels[i] = (GameObject) Instantiate(barrel, barrelSpawnPoints[i]);
-            Debug.Log("Destroyed");
+            //Debug.Log("Destroyed");
         }
     }
 
@@ -196,7 +196,7 @@ public class ManageSurvivalRounds : MonoBehaviour
         amountOfSeedOil = (int) (amountOfSeedOil * multiplierOfSeedOilPerRound);
         for (var i = 0; i < amountOfSeedOil; i++)
         {
-            Debug.Log("spawned seed oil");
+            //Debug.Log("spawned seed oil");
             var spawnedSeedOil = Instantiate(seedOil, seedOilSpawnPoint);
             spawnedSeedOil.transform.position = new Vector3(
                 (spawnedSeedOil.transform.position.x + Random.Range(-3f, 3f)),

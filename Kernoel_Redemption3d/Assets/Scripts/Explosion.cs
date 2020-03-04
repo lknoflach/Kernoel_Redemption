@@ -12,7 +12,7 @@ public class Explosion : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Explode");
+        //Debug.Log("Explode");
         _areaOfDetection = gameObject.GetComponent<SphereCollider>();
 
         var exp = GetComponent<ParticleSystem>();
