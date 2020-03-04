@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 30
   totalHealth: 30
-  DeathEffect: {fileID: 100008, guid: 7558471b1bf298d4286b9c9d4fa2142e, type: 3}
+  DeathEffect: {fileID: 100014, guid: 7ae0f082131b65b4db997d70d822add3, type: 3}
   timeOut: 1
   healthBar: {fileID: 3936246439158182462}
 --- !u!114 &3936246439151697778
