@@ -62,9 +62,9 @@ public class UIUpgrade : MonoBehaviour
 
     public void UpgradeSpeed()
     {
-        if (_characterMovement.speed < totalSpeed && _cloningScript.lowGradeSeedOil >= 3)
+        if (_characterMovement.speed < totalSpeed && _cloningScript.highGradeSeedOil >= 3)
         {
-            _cloningScript.lowGradeSeedOil -= 3;
+            _cloningScript.highGradeSeedOil -= 3;
             _characterMovement.speed += 1f;
             if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
         }
@@ -72,9 +72,9 @@ public class UIUpgrade : MonoBehaviour
 
     public void UpgradeDamage()
     {
-        if (_gunFiring.damageOfWeapon < totalWeaponDamage && _cloningScript.lowGradeSeedOil >= 5)
+        if (_gunFiring.damageOfWeapon < totalWeaponDamage && _cloningScript.highGradeSeedOil >= 5)
         {
-            _cloningScript.lowGradeSeedOil -= 3;
+            _cloningScript.highGradeSeedOil -= 3;
             _gunFiring.damageOfWeapon += 1;
             if (damageBar) damageBar.fillAmount = ((float) _gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
         }
@@ -82,9 +82,9 @@ public class UIUpgrade : MonoBehaviour
 
     public void UpgradeProjectileSpeed()
     {
-        if (_gunFiring.projectileSpeedOfWeapon < totalProjectileSpeedOfWeapon && _cloningScript.lowGradeSeedOil >= 2)
+        if (_gunFiring.projectileSpeedOfWeapon < totalProjectileSpeedOfWeapon && _cloningScript.highGradeSeedOil >= 2)
         {
-            _cloningScript.lowGradeSeedOil -= 3;
+            _cloningScript.highGradeSeedOil -= 3;
             _gunFiring.projectileSpeedOfWeapon += 5;
             if (projectileSpeedBar)
                 projectileSpeedBar.fillAmount = ((float) _gunFiring.projectileSpeedOfWeapon) /
