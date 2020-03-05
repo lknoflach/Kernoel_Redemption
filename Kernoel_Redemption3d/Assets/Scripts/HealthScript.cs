@@ -48,8 +48,7 @@ public class HealthScript : MonoBehaviour
 
         if (currentHealth > 0) return;
 
-
-            // Dead!
+       // Dead!
          var isGameOver = gameObject.name == "PlayerHans";
 
         var spawnPosition = transform.position;
