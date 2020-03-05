@@ -18010,6 +18010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631240433}
   - component: {fileID: 631240434}
+  - component: {fileID: 631240435}
   m_Layer: 0
   m_Name: BimSpawnStartPoint
   m_TagString: Untagged
@@ -18025,7 +18026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631240432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.25, y: 4.65, z: -23.5}
+  m_LocalPosition: {x: 111, y: 4.65, z: -23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1210931542}
@@ -18048,6 +18049,19 @@ MonoBehaviour:
   firstSpawnAfter: 0
   spawnPoint: {fileID: 631240433}
   spawnCount: 0
+--- !u!65 &631240435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631240432}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &632836625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4302042920928744, guid: c45c41f59dbb9894cb895ef86d325026,
@@ -37923,6 +37937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1518089781}
+  - component: {fileID: 1518089782}
   m_Layer: 0
   m_Name: BimSpawnEndPoint
   m_TagString: Untagged
@@ -37938,12 +37953,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518089780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.25, y: 4.65, z: -147.28}
+  m_LocalPosition: {x: 111, y: 4.65, z: -147.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1210931542}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1518089782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518089780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1523498236
 PrefabInstance:
   m_ObjectHideFlags: 0
