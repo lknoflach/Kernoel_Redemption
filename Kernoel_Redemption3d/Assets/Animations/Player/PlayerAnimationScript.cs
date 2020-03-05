@@ -17,7 +17,16 @@ namespace Animations.Player
 
         private void Update()
         {
-            _animator.SetBool(_playerIsMoving, _characterMovement.playerIsMoving);
+            if (_characterMovement)
+            {
+                _animator.SetBool(_playerIsMoving, _characterMovement.playerIsMoving);    
+            }
+            else
+            {
+                _animator.SetBool(_playerIsMoving, true);
+            }
+            
+            
            
         }
     }
