@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class EndLevelMessage : MonoBehaviour
 {
@@ -11,17 +10,13 @@ public class EndLevelMessage : MonoBehaviour
         // sets display message to true an displays the message
         if (!other.gameObject.CompareTag("Player")) return;
 
-        if (nextLevelName != null && nextLevelName != "")
+        if (!string.IsNullOrEmpty(nextLevelName))
         {
             GameManager.Instance.SetAndLoadCurrentLevel(nextLevelName);
         }
         else
         {
-            // Set activeScene as currentScene before loading VictoryMenu
-            var activeScene = SceneManager.GetActiveScene();
-            GameManager.Instance.currentSceneName = activeScene.name;
             GameManager.Instance.LoadVictoryMenu();
-            // _showName = true;
         }
     }
 

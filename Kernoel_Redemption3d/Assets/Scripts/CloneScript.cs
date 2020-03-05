@@ -75,7 +75,7 @@ public class CloneScript : MonoBehaviour
         transform.LookAt(playerPosition);
         //transform.LookAt(_player.transform.position);
         
-        // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
-        transform.position += 0.02f * currentMovementSpeed * transform.forward;
+        transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+        // transform.position += 0.02f * currentMovementSpeed * transform.forward;
     }
 }
