@@ -4,28 +4,27 @@ using System.Collections;
 
 public class EndLevelScript : MonoBehaviour
 {
-    private GameManager _gameManager;
     public Text kernölAmountText;
+    
     private void Start()
     {
-        _gameManager = GameManager.Instance;
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
         updateUI();
     }
     
     public void LoadMainMenu()
     {
-        _gameManager.LoadMainMenu();
+        GameManager.Instance.LoadMainMenu();
     }
 
     public void RestartLevel()
     {
-        _gameManager.RestartLevel();
+        GameManager.Instance.RestartLevel();
     }
 
     public void QuitGame()
     {
-        _gameManager.QuitGame();
+        GameManager.Instance.QuitGame();
     }
 
     public void updateUI()
