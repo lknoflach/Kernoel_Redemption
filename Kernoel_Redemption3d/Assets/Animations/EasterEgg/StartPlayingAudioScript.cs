@@ -14,7 +14,7 @@ namespace Animations.EasterEgg
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player") && _audioData && !_audioData.isPlaying)
+            if (other.gameObject.CompareTag("Player") && _audioData && _audioData.isActiveAndEnabled && !_audioData.isPlaying)
             {
                 _audioData.Play();                
             }

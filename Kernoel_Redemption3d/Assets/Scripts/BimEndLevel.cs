@@ -88,7 +88,7 @@ public class BimEndLevel : MonoBehaviour
         if (_cameraScript)
         {
             _cameraScript.height = 25f;
-            _cameraScript.player = _bim.transform.GetChild(0);
+            _cameraScript.player = _bim.transform.GetChild(0).gameObject;
             // _cameraScript.player = _bim.transform;
         }
         

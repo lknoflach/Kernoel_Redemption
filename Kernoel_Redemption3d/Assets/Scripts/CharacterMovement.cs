@@ -57,7 +57,7 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             playerIsMoving = false;
-            audioData.Play(0);
+            if (audioData && audioData.isActiveAndEnabled) audioData.Play(0);
         }
 
         _characterController.Move(move);

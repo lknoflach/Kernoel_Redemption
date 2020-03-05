@@ -107,11 +107,13 @@ public class DamageScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        //Debug.Log("OnCollisionEnter: " + gameObject.name + ": inflicts damage<" + damage + "> on: " + other.gameObject.name);
         ApplyDamage(other.gameObject);
     }
 
     private void OnCollisionStay(Collision other)
     {
+        //Debug.Log("OnCollisionStay: " + gameObject.name + ": inflicts damage<" + damage + "> on: " + other.gameObject.name);
         if (isContinues) ApplyDamage(other.gameObject);
     }
 
@@ -131,7 +133,7 @@ public class DamageScript : MonoBehaviour
             if (healthScript)
             {
                 // play damageSound if set
-                if (audioData) audioData.Play(0);
+                if (audioData && audioData.isActiveAndEnabled && !audioData.isPlaying) audioData.Play(0);
 
                     // Debug.Log(gameObject.name + ": inflicts damage<" + damage + "> on: " + target.name);
                 healthScript.Damage(damage);

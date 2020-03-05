@@ -56,7 +56,7 @@ public class GunFiring : MonoBehaviour
         // Create a Projectile
         var projectile = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation);
         // Play the sound of the gun
-        _audioData.Play(0);
+        if (_audioData && _audioData.isActiveAndEnabled && !_audioData.isPlaying) _audioData.Play(0);
 
         // do upgrades
         _damageScript.damage = damageOfWeapon;
