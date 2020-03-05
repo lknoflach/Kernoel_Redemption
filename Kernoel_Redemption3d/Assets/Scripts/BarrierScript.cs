@@ -7,7 +7,7 @@ public class BarrierScript : MonoBehaviour
     
     private void Start()
     {
-        _barrier = GameObject.Find("Barrier");
+        _barrier = transform.Find("Barrier").gameObject;
         
         if (_barrier) _barrier.SetActive(isBarrierActive);
     }
