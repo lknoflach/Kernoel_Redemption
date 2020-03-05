@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             // update the currentSceneName
-            Instance.currentSceneName = currentSceneName;
+            if (!string.IsNullOrEmpty(currentSceneName)) Instance.currentSceneName = currentSceneName;
             // destroy the duplicate
             Destroy(gameObject);
         }
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadGameOverMenu()
     {
+        // if (string.IsNullOrEmpty(currentSceneName))
         SceneManager.LoadScene(SceneNames.GameOver.ToString());
         KernoilScore = 0;
         CloneAmount = 0;
@@ -94,6 +95,8 @@ public class GameManager : MonoBehaviour
         
         // var activeScene = SceneManager.GetActiveScene();
         // SceneManager.LoadScene(currentSceneName);
+        
+        if (loadingScreen) loadingScreen.gameObject.SetActive(true);
         StartCoroutine(LoadCurrentLevel());
     }
     

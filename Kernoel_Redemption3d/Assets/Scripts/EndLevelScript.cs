@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-using System.Collections;
 
 public class EndLevelScript : MonoBehaviour
 {
-    public Text kernölAmountText;
+    [FormerlySerializedAs("kernölAmountText")] public Text seedOilAmountText;
     
     private void Start()
     {
-        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
-        updateUI();
+        if (seedOilAmountText) updateUI();
     }
     
     public void LoadMainMenu()
@@ -29,7 +28,7 @@ public class EndLevelScript : MonoBehaviour
 
     public void updateUI()
     {
-        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
+        seedOilAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
     }
 
 
