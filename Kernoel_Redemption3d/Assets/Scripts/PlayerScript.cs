@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +12,8 @@ public class PlayerScript : MonoBehaviour
 
     /** MOVEMENT STUFF **/
     private Camera _mainCamera;
-
     public CharacterMovement characterMovement;
+    private float _pushPower = 2f;
 
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
@@ -26,6 +27,25 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        var body = hit.collider.attachedRigidbody;
+
+        // No Rigidbody
+        if (body == null || body.isKinematic) return;
+        
+        // We dont want to push objects below us
+        if (hit.moveDirection.y <= -0.3f) return;
+        
+        // Calculate push direction from move direction,
+        // we only push objects to the sides never up and down
+        var pushDirection = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+        
+        // If you know how fast your character is trying to move,
+        // then you can also multiply the push velocity by that.
+        // Apply the push
+        body.velocity = pushDirection * _pushPower;
+    }
 
     private void OnCollisionEnter(Collision other)
     {
