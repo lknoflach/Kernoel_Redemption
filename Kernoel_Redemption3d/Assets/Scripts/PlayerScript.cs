@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
 
     // the array with all the following clones
     public List<GameObject> clones = new List<GameObject>();
+    public static int numberOfClones = 0;
 
     public void Start()
     {
@@ -54,7 +55,10 @@ public class PlayerScript : MonoBehaviour
         {
             case "Clone":
                 // add the clone to the list of clones
-                if (!clones.Contains(target)) clones.Add(target);
+                if (!clones.Contains(target)){
+                    clones.Add(target);
+                    numberOfClones++;
+                }
                 break;
         }
     }

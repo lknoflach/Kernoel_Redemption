@@ -28,7 +28,14 @@ public class EndLevelScript : MonoBehaviour
 
     public void updateUI()
     {
-        seedOilAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
+        float score = 10.0f;
+        if(PlayerScript.numberOfClones < 1){
+            score += GameManager.Instance.KernoilScore;
+        }
+        else{
+            score = (score + GameManager.Instance.KernoilScore) * ((float)PlayerScript.numberOfClones * 0.5f + 1.0f);
+        }
+        seedOilAmountText.text = "Kernöl: " + score;
     }
 
 

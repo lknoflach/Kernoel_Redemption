@@ -42,7 +42,7 @@ public class CloningScript : MonoBehaviour
         cloningCapsule.GetComponent<Transform>();
 
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
-        cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
+        cloneAmountText.text = "Clones: " + PlayerScript.numberOfClones;
     }
 
 
@@ -106,7 +106,7 @@ public class CloningScript : MonoBehaviour
                 spawnPosition, transform.rotation
             );
             GameManager.Instance.KernoilScore -= 3;
-            
+            PlayerScript.numberOfClones++;
             updateUI();
         }
     }
@@ -131,6 +131,6 @@ public class CloningScript : MonoBehaviour
         }
         GameManager.Instance.CloneAmount = CloneCounter;
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
-        cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
+        cloneAmountText.text = "Clones: " + PlayerScript.numberOfClones;
     }
 }
