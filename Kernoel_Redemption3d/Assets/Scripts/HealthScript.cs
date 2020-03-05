@@ -12,6 +12,7 @@ public class HealthScript : MonoBehaviour
     public int totalHealth = 100;
     public GameObject DeathEffect;
     public float timeOut = 3.0f;
+    public CloningScript kernoil;
     [Header("Unity Stuff")] public Image healthBar;
 
     private void Start()
@@ -42,7 +43,8 @@ public class HealthScript : MonoBehaviour
        
         var instance = Instantiate(DeathEffect, transform.position, transform.rotation);
         Destroy(instance.gameObject, timeOut);
-        
+
+
         Destroy(gameObject);
         if (isGameOver)
         {

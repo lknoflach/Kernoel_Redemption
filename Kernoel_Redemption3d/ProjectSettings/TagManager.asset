@@ -22,6 +22,8 @@ TagManager:
   - badSeedOil
   - goodSeedOil
   - Ball
+  - Golem
+  - CrawlingZombie
   layers:
   - Default
   - TransparentFX
