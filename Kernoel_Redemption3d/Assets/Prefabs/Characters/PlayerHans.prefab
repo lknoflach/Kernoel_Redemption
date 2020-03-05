@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4967869596697375330}
   - component: {fileID: 8123010688785489448}
   m_Layer: 0
-  m_Name: AmountClones
+  m_Name: CloneAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1570230800397600585}
   - component: {fileID: 4149944762479611685}
   m_Layer: 0
-  m_Name: AmountKernoel
+  m_Name: SeedOilAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,7 +912,6 @@ MonoBehaviour:
     type: 3}
   zombiePrototype: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7,
     type: 3}
-  highGradeSeedOil: 10
   CloneCounter: 0
   probabilityOfMutationGoodSeedOil: 10
   probabilityOfMutationBadSeedOil: 20
