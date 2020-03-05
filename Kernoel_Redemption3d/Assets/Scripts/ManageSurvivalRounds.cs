@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-
 
 public class ManageSurvivalRounds : MonoBehaviour
 {
@@ -53,7 +51,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public int roundNumber = 1;
 
     // player to look at player on spawn
-    public Transform player;
+    private GameObject _player;
 
     // lets player continue if he wants to in the GUI starts another round
     public bool continueGame;
@@ -67,6 +65,8 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     private void Start()
     {
+        _player = GameObject.Find("PlayerHans");
+        
         StartCoroutine(RemoveDeadEnemiesFromList());
         // StartCoroutine(removeExplodedBarrelsFromList());
         // roundNumberText = GetComponent<Text> ();
@@ -143,7 +143,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                 /*var position = spawnedEnemy.transform.position;
                 position = new Vector3((position.x + Random.Range(-1f, 1f)), position.y, (position.z + Random.Range(-1f, 1f)));
                 spawnedEnemy.transform.position = position;*/
-                spawnedEnemy.transform.LookAt(player);
+                spawnedEnemy.transform.LookAt(_player.transform);
                 
                 spawnedEnemy.SetActive(true);
                 
@@ -157,7 +157,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                 var position = spawnedGolem.transform.position;
                 position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y + 1f, (position.z + Random.Range(-3f, 3f)));
                 spawnedGolem.transform.position = position;
-                spawnedGolem.transform.LookAt(player);
+                spawnedGolem.transform.LookAt(_player.transform);
                 
                 spawnedGolem.SetActive(true);
                 
@@ -171,7 +171,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                 var position = spawnedCrawlingZombie.transform.position;
                 position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y, (position.z + Random.Range(-3f, 3f)));
                 spawnedCrawlingZombie.transform.position = position;
-                spawnedCrawlingZombie.transform.LookAt(player);
+                spawnedCrawlingZombie.transform.LookAt(_player.transform);
                 
                 spawnedCrawlingZombie.SetActive(true);
                 
@@ -185,7 +185,7 @@ public class ManageSurvivalRounds : MonoBehaviour
                 var position = spawnedZombie.transform.position;
                 position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y, (position.z + Random.Range(-3f, 3f)));
                 spawnedZombie.transform.position = position;
-                spawnedZombie.transform.LookAt(player);
+                spawnedZombie.transform.LookAt(_player.transform);
                 
                 spawnedZombie.SetActive(true);
                 

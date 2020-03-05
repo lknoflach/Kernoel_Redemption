@@ -13,15 +13,13 @@ public class UIUpgrade : MonoBehaviour
     private ManageSurvivalRounds _manageSurvivalRounds;
 
     //For upgrading the damage;
-    public GameObject gun;
     private GunFiring _gunFiring;
     public int totalWeaponDamage = 3;
 
     [FormerlySerializedAs("totalprojectileSpeedOfWeapon")] public float totalProjectileSpeedOfWeapon = 45;
 
-    //the player components to set the player stats
-    public GameObject player;
-
+    // the player components to set the player stats
+    private GameObject _player;
 
     private CharacterMovement _characterMovement;
     public float totalSpeed = 12f;
@@ -35,11 +33,16 @@ public class UIUpgrade : MonoBehaviour
 
     private void Start()
     {
+        _player = GameObject.Find("PlayerHans");
+        if (_player)
+        {
+            _characterMovement = _player.GetComponent<CharacterMovement>();
+            _cloningScript = _player.GetComponent<CloningScript>();
+            _gunFiring = _player.GetComponentInChildren<GunFiring>();
+        }
+        
         guiUpgrade.gameObject.SetActive(false);
         _manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
-        _characterMovement = player.GetComponent<CharacterMovement>();
-        _cloningScript = player.GetComponent<CloningScript>();
-        _gunFiring = gun.GetComponent<GunFiring>();
 
         if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
         if (damageBar) damageBar.fillAmount = ((float) _gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
