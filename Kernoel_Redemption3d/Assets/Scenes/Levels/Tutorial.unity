@@ -955,6 +955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 83.04
@@ -1594,6 +1598,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9904,6 +9912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.45
@@ -10253,7 +10265,7 @@ GameObject:
   - component: {fileID: 358708124}
   - component: {fileID: 358708123}
   - component: {fileID: 358708122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new24
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11527,7 +11539,7 @@ GameObject:
   - component: {fileID: 419741310}
   - component: {fileID: 419741309}
   - component: {fileID: 419741308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new23
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -12309,6 +12321,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14759,7 +14775,7 @@ GameObject:
   - component: {fileID: 504302900}
   - component: {fileID: 504302899}
   - component: {fileID: 504302898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new26
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -16446,7 +16462,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3434372
+  m_Name: pb_Mesh3696978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18549,7 +18565,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3432918
+  m_Name: pb_Mesh3695508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20807,6 +20823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 68.98
@@ -21098,6 +21118,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22667,6 +22691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 69.391
@@ -23091,7 +23119,7 @@ GameObject:
   - component: {fileID: 902036765}
   - component: {fileID: 902036764}
   - component: {fileID: 902036763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new21
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -23739,6 +23767,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24577,6 +24609,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 83.04
@@ -25018,6 +25054,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28126,6 +28166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.075
@@ -28280,6 +28324,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.97
@@ -28421,6 +28469,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30004,6 +30056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.47
@@ -30072,7 +30128,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3433058
+  m_Name: pb_Mesh3695648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30830,6 +30886,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32504,6 +32564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.2
@@ -34035,6 +34099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.54
@@ -35276,7 +35344,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3433478
+  m_Name: pb_Mesh3696070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38494,6 +38562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 94.8
@@ -38702,6 +38774,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40559,7 +40635,7 @@ GameObject:
   - component: {fileID: 1601422154}
   - component: {fileID: 1601422153}
   - component: {fileID: 1601422152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new20
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -41509,7 +41585,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3434494
+  m_Name: pb_Mesh3697100
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43121,7 +43197,7 @@ GameObject:
   - component: {fileID: 1686890154}
   - component: {fileID: 1686890153}
   - component: {fileID: 1686890152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new22
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -44841,6 +44917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.52
@@ -46443,6 +46523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811646028}
   - component: {fileID: 1811646027}
+  - component: {fileID: 1811646029}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -46560,6 +46641,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1811646029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811646026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf687aa8810b4ca69b650b1a0bf34db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenObjects: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &1814155743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4302042920928744, guid: c45c41f59dbb9894cb895ef86d325026,
@@ -48177,6 +48274,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -50698,6 +50799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52.67
@@ -50851,6 +50956,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51098,6 +51207,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52253,7 +52366,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3435020
+  m_Name: pb_Mesh3697626
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52510,7 +52623,7 @@ GameObject:
   - component: {fileID: 2091560073}
   - component: {fileID: 2091560072}
   - component: {fileID: 2091560071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_new25
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -53272,7 +53385,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh3432848
+  m_Name: pb_Mesh3695438
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53595,6 +53708,10 @@ PrefabInstance:
     - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_Name
       value: Gale_Wall_01_snaps002 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1501235054621648, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4402799294761104, guid: d64f573e69fdda34fa09e2633bd328ef, type: 3}
       propertyPath: m_LocalPosition.x
