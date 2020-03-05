@@ -493,7 +493,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Clonesl: 0
+  m_Text: 'Clones: 0
 
 '
 --- !u!1 &5169638150865122379
@@ -909,16 +909,6 @@ MonoBehaviour:
   cloningCapsule: {fileID: 8018476936224455603, guid: 8518412415b14224fbdc33dd009cc14f,
     type: 3}
   clonePrototype: {fileID: 702159183288861103, guid: 12048544c2987e348b4a826aeaa75c6b,
-    type: 3}
-  zombiePrototype: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7,
-    type: 3}
-  CloneCounter: 0
-  probabilityOfMutationGoodSeedOil: 10
-  probabilityOfMutationBadSeedOil: 20
-  "kern\xF6lAmountText": {fileID: 4149944762479611685}
-  cloneAmountText: {fileID: 8123010688785489448}
-  clones: []
-  clonesPrefab: {fileID: 702159183288861103, guid: 12048544c2987e348b4a826aeaa75c6b,
     type: 3}
 --- !u!82 &3072262334930800204
 AudioSource:
