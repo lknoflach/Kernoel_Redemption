@@ -99,13 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 30
   totalHealth: 30
-  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
-  kernoil: {fileID: 0}
-  probabilityOfMutationGoodSeedOil: 90
   healthBar: {fileID: 3936246439158182462}
-  Kernoil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  noKernoil: {fileID: 0}
+  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  seedOil: {fileID: 8371632955182199159, guid: 550c5f48945921e459e341b549a50249, type: 3}
+  probabilityOfMutationGoodSeedOil: 50
 --- !u!114 &3936246439151697778
 MonoBehaviour:
   m_ObjectHideFlags: 0

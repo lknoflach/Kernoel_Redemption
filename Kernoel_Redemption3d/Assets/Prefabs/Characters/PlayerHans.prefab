@@ -965,13 +965,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   totalHealth: 100
-  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
-  kernoil: {fileID: 0}
-  probabilityOfMutationGoodSeedOil: 100
   healthBar: {fileID: 1058579452297599605}
-  Kernoil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  noKernoil: {fileID: 0}
+  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  seedOil: {fileID: 0}
+  probabilityOfMutationGoodSeedOil: 0
 --- !u!114 &3072262333714396821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +989,7 @@ MonoBehaviour:
   zombiePrototype: {fileID: 3248349590260411146, guid: 7bfbf0ab19e527949a61724e5cf034a7,
     type: 3}
   highGradeSeedOil: 10
+  CloneCounter: 0
   probabilityOfMutationGoodSeedOil: 10
   probabilityOfMutationBadSeedOil: 20
   "kern\xF6lAmountText": {fileID: 4149944762479611685}
