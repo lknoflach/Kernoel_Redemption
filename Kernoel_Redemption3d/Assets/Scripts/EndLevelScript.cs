@@ -8,7 +8,7 @@ public class EndLevelScript : MonoBehaviour
     
     private void Start()
     {
-        if (seedOilAmountText) updateUI();
+        if (seedOilAmountText) UpdateUI();
     }
     
     public void LoadMainMenu()
@@ -26,14 +26,14 @@ public class EndLevelScript : MonoBehaviour
         GameManager.Instance.QuitGame();
     }
 
-    public void updateUI()
+    public void UpdateUI()
     {
-        float score = 10.0f;
-        if(PlayerScript.numberOfClones < 1){
-            score += GameManager.Instance.KernoilScore;
+        var score = 10.0f;
+        if(GameManager.Instance.cloneAmount < 1){
+            score += GameManager.Instance.seedOilAmount;
         }
         else{
-            score = (score + GameManager.Instance.KernoilScore) * ((float)PlayerScript.numberOfClones * 0.5f + 1.0f);
+            score = (score + GameManager.Instance.seedOilAmount) * (GameManager.Instance.cloneAmount * 0.5f + 1.0f);
         }
         seedOilAmountText.text = "Kernöl: " + score;
     }

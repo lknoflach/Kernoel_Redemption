@@ -46,6 +46,7 @@ public class CloneScript : MonoBehaviour
                     if (cloneScript && cloneScript.isArrivedAtPlayer)
                     {
                         // Debug.Log("Clone is arrived at other Clone");
+                        _player.GetComponent<PlayerScript>().AddCloneToPlayer(gameObject);
                         isArrivedAtPlayer = true;
                     }
 

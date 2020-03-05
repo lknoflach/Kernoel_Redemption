@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
 public class CloningScript : MonoBehaviour
 {
@@ -15,36 +13,11 @@ public class CloningScript : MonoBehaviour
     // the prototype for new clone objects
     public GameObject clonePrototype;
 
-    // the prototype for new zombie objects
-    // the prototype for new clone objects
-    public GameObject zombiePrototype;
-
-    // amount of good seed oil
-    public int highGradeSeedOil;
-    public int CloneCounter;
-    // the likeliness that the clone created turns out to be a zombie with good seed oil
-    public float probabilityOfMutationGoodSeedOil;
-
-    // the likeliness that the clone created turns out to be a zombie with bad seed oil
-    public int probabilityOfMutationBadSeedOil;
-
-    //the text for the amout of Kernöl
-    public Text kernölAmountText;
-    public Text cloneAmountText;
-
-    /** Clone Counter **/
-    public GameObject[] clones;
-    public GameObject clonesPrefab;
-
     // Start is called before the first frame update
     private void Start()
     {
         cloningCapsule.GetComponent<Transform>();
-
-        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
-        cloneAmountText.text = "Clones: " + PlayerScript.numberOfClones;
     }
-
 
     // just a random boolean function with a set likeliness that it turns out to be false 
     private static bool RandomBoolean(float likelinessInPercent)
@@ -60,17 +33,13 @@ public class CloningScript : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "goodSeedOil":
-                //Debug.Log("picked up high grade seed oil");
-                GameManager.Instance.KernoilScore += 2;
+                GameManager.Instance.UpdateSeedOilAmount(2);
                 Destroy(other.gameObject);
-                updateUI();
                 break;
 
             case "badSeedOil":
-                //Debug.Log("picked up low grade seed oil");
-                GameManager.Instance.KernoilScore += 1;
+                GameManager.Instance.UpdateSeedOilAmount(1);
                 Destroy(other.gameObject);
-                updateUI();
                 break;
 
             case "CloningCapsule":
@@ -96,41 +65,19 @@ public class CloningScript : MonoBehaviour
     // creates the clone if we have seed oil and with a possibility that it turns out to be a zombie 
     public void CreateClone()
     {
-        if (GameManager.Instance.KernoilScore > 2)
+        if (GameManager.Instance.seedOilAmount > 2)
         {
             var spawnPosition = transform.position;
             spawnPosition.z -= 3;
-
-            Instantiate(
-                RandomBoolean(probabilityOfMutationGoodSeedOil) ? clonePrototype : zombiePrototype,
-                spawnPosition, transform.rotation
-            );
-            GameManager.Instance.KernoilScore -= 3;
-            PlayerScript.numberOfClones++;
-            updateUI();
+            Instantiate(clonePrototype, spawnPosition, transform.rotation);
+            
+            GameManager.Instance.UpdateSeedOilAmount(-3);
         }
     }
-
- 
-    // Update is called once per frame
+    
     private void Update()
     {
-
         // cloning Button
         if (Input.GetKeyDown(KeyCode.E) && _standsOnCloningPlatform) CreateClone();
-    }
-
-    public void updateUI()
-    {
-        CloneCounter = 0;
-        clones = GameObject.FindGameObjectsWithTag("Clone");
-
-        foreach (GameObject clone in clones)
-        {
-            CloneCounter++;
-        }
-        GameManager.Instance.CloneAmount = CloneCounter;
-        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
-        cloneAmountText.text = "Clones: " + PlayerScript.numberOfClones;
     }
 }

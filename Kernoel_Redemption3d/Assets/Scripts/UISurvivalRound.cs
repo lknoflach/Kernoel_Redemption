@@ -7,8 +7,7 @@ public class UISurvivalRound : MonoBehaviour
     public Canvas guiMenu;
     public Canvas guiUpgrade;
 
-    //For managing the Gui
-    public GameObject survivalRoundManager;
+    //For managing the GUI
     private ManageSurvivalRounds _manageSurvivalRounds;
 
     private void Start()

@@ -23,13 +23,11 @@ public class UIUpgrade : MonoBehaviour
 
     private CharacterMovement _characterMovement;
     public float totalSpeed = 12f;
-    private CloningScript _cloningScript;
 
     // Bar for UI
     [Header("SpeedBar")] public Image speedBar;
     [Header("DamageBar")] public Image damageBar;
     [Header("ProjectileSpeedBar")] public Image projectileSpeedBar;
-
 
     private void Start()
     {
@@ -37,18 +35,17 @@ public class UIUpgrade : MonoBehaviour
         if (_player)
         {
             _characterMovement = _player.GetComponent<CharacterMovement>();
-            _cloningScript = _player.GetComponent<CloningScript>();
             _gunFiring = _player.GetComponentInChildren<GunFiring>();
         }
         
         guiUpgrade.gameObject.SetActive(false);
         _manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
 
-        if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
-        if (damageBar) damageBar.fillAmount = ((float) _gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
+        if (speedBar) speedBar.fillAmount = _characterMovement.speed / totalSpeed;
+        if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / totalWeaponDamage;
         if (projectileSpeedBar)
             projectileSpeedBar.fillAmount =
-                ((float) _gunFiring.projectileSpeedOfWeapon) / ((float) totalProjectileSpeedOfWeapon);
+                _gunFiring.projectileSpeedOfWeapon / totalProjectileSpeedOfWeapon;
     }
 
     private void Update()
@@ -65,36 +62,36 @@ public class UIUpgrade : MonoBehaviour
 
     public void UpgradeSpeed()
     {
-        if (_characterMovement.speed < totalSpeed && _cloningScript.highGradeSeedOil >= 3)
+        if (_characterMovement.speed < totalSpeed && GameManager.Instance.seedOilAmount >= 3)
         {
-            _cloningScript.highGradeSeedOil -= 3;
+            GameManager.Instance.UpdateSeedOilAmount(-3);
+            
             _characterMovement.speed += 1f;
-            if (speedBar) speedBar.fillAmount = ((float) _characterMovement.speed) / ((float) totalSpeed);
-            _cloningScript.updateUI();
+            if (speedBar) speedBar.fillAmount = _characterMovement.speed / totalSpeed;
         }
     }
 
     public void UpgradeDamage()
     {
-        if (_gunFiring.damageOfWeapon < totalWeaponDamage && _cloningScript.highGradeSeedOil >= 5)
+        if (_gunFiring.damageOfWeapon < totalWeaponDamage && GameManager.Instance.seedOilAmount >= 5)
         {
-            _cloningScript.highGradeSeedOil -= 3;
+            GameManager.Instance.UpdateSeedOilAmount(-3);
+            
             _gunFiring.damageOfWeapon += 1;
-            if (damageBar) damageBar.fillAmount = ((float) _gunFiring.damageOfWeapon) / ((float) totalWeaponDamage);
-            _cloningScript.updateUI();
+            if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / totalWeaponDamage;
+
         }
     }
 
     public void UpgradeProjectileSpeed()
     {
-        if (_gunFiring.projectileSpeedOfWeapon < totalProjectileSpeedOfWeapon && _cloningScript.highGradeSeedOil >= 2)
+        if (_gunFiring.projectileSpeedOfWeapon < totalProjectileSpeedOfWeapon && GameManager.Instance.seedOilAmount >= 2)
         {
-            _cloningScript.highGradeSeedOil -= 3;
+            GameManager.Instance.UpdateSeedOilAmount(-3);
+            
             _gunFiring.projectileSpeedOfWeapon += 5;
             if (projectileSpeedBar)
-                projectileSpeedBar.fillAmount = ((float) _gunFiring.projectileSpeedOfWeapon) /
-                                                ((float) totalProjectileSpeedOfWeapon);
-            _cloningScript.updateUI();
+                projectileSpeedBar.fillAmount = _gunFiring.projectileSpeedOfWeapon / totalProjectileSpeedOfWeapon;
         }
     }
 

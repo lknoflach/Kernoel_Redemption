@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -21,8 +22,10 @@ public class GameManager : MonoBehaviour
         Victory
     }
     public string currentSceneName;
-    public float KernoilScore;
-    public float CloneAmount;
+    
+    [FormerlySerializedAs("KernoilScore")] public float seedOilAmount;
+    [FormerlySerializedAs("CloneAmount")] public float cloneAmount;
+
     public static GameManager Instance { get; private set; }
 
     private readonly List<string> _availableSceneNames = new List<string>();
@@ -57,8 +60,9 @@ public class GameManager : MonoBehaviour
         _availableSceneNames.Add(SceneNames.Endless.ToString());
         _availableSceneNames.Add(SceneNames.Prototype.ToString());
         _availableSceneNames.Add(SceneNames.Tutorial.ToString());
-        KernoilScore = 0;
-        CloneAmount = 0;
+        
+        seedOilAmount = 0;
+        cloneAmount = 0;
     }
 
     private void Update()
@@ -75,8 +79,9 @@ public class GameManager : MonoBehaviour
     {
         // if (string.IsNullOrEmpty(currentSceneName))
         SceneManager.LoadScene(SceneNames.GameOver.ToString());
-        KernoilScore = 0;
-        CloneAmount = 0;
+        
+        seedOilAmount = 0;
+        cloneAmount = 0;
     }
     
     public void LoadMainMenu()
@@ -103,6 +108,22 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void UpdateSeedOilAmount(int amount)
+    {
+        seedOilAmount += amount;
+        // Update text in UI
+        var seedOilText = GameObject.Find("SeedOilAmount");
+        if (seedOilText) seedOilText.GetComponent<Text>().text = "Kernöl: " + seedOilAmount;
+    }
+    
+    public void UpdateCloneAmount(int amount)
+    {
+        cloneAmount += amount;
+        // Update text in UI
+        var cloneAmountText = GameObject.Find("CloneAmount");
+        if (cloneAmountText) cloneAmountText.GetComponent<Text>().text = "Clones: " + cloneAmount;
     }
     
     public void SetAndLoadCurrentLevel(string sceneName)

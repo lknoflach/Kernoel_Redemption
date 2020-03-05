@@ -51,16 +51,17 @@ public class HealthScript : MonoBehaviour
         if (healthBar) healthBar.fillAmount = (float) currentHealth / totalHealth;
 
         if (currentHealth > 0) return;
-
-       // Dead!
+        
+        // Remove Clone from Player
+        if(gameObject.CompareTag("Clone"))
+        {
+            var player = GameObject.Find("PlayerHans");
+            if (player) player.GetComponent<PlayerScript>().RemoveCloneFromPlayer(gameObject);
+        }
+        
+        // Dead!
        var isGameOver = gameObject.name == "PlayerHans";
 
-       // remove clone from actual clones
-       if(gameObject.name == "Clone"){
-           if(PlayerScript.numberOfClones > 0){
-               PlayerScript.numberOfClones--;
-           }
-       }
 
        var spawnPosition = transform.position;
        spawnPosition.z -= 3;
