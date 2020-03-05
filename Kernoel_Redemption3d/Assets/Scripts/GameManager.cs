@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     }
     public string currentSceneName;
     public float KernoilScore;
+    public float CloneAmount;
     public static GameManager Instance { get; private set; }
 
     private readonly List<string> _availableSceneNames = new List<string>();
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
         _availableSceneNames.Add(SceneNames.Prototype.ToString());
         _availableSceneNames.Add(SceneNames.Tutorial.ToString());
         KernoilScore = 0;
+        CloneAmount = 0;
     }
 
     private void Update()
@@ -73,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneNames.GameOver.ToString());
         KernoilScore = 0;
+        CloneAmount = 0;
     }
     
     public void LoadMainMenu()
@@ -83,7 +86,6 @@ public class GameManager : MonoBehaviour
     public void LoadVictoryMenu()
     {
         SceneManager.LoadScene(SceneNames.Victory.ToString());
-        KernoilScore = 0;
     }
 
     public void RestartLevel()
