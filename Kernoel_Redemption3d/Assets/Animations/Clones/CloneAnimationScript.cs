@@ -16,7 +16,7 @@ namespace Animations.Clones
 
         private void Update()
         {
-            _animator.SetBool(_isWalking, _cloneScript.isArrivedAtPlayer == false);
+            _animator.SetBool(_isWalking, !_cloneScript.isArrivedAtPlayer && _cloneScript.currentMovementSpeed > 0);
         }
     }
 }
