@@ -69,10 +69,12 @@ public class GameManager : MonoBehaviour
     {
         // Button "m": Load the Main Menu
         if (Input.GetKeyDown("m")) LoadMainMenu();
+        
         // Button "r": Restart the Game
         // if (Input.GetKeyDown("r")) RestartLevel();
-        // Button "t": Terminate the Game
-        if (Input.GetKeyDown("t")) QuitGame();
+        
+        // Button "Escape": Terminate the Game
+        if (Input.GetKeyDown(KeyCode.Escape)) QuitGame();
     }
 
     public void LoadGameOverMenu()
