@@ -14,7 +14,13 @@ public class BimEndLevel : MonoBehaviour
     private GameObject _bim;
     private CameraScript _cameraScript;
     private bool _isStarted;
-    
+
+
+    /** Clone Counter at End **/
+    public GameObject[] clones;
+    public GameObject clonesPrefab;
+    public float CloneCounter = 0;
+
     /** CHARACTER STUFF **/
     private readonly List<string> _validTags = new List<string>() {"Player", "Clone"};
     private GameObject _player;
@@ -46,6 +52,15 @@ public class BimEndLevel : MonoBehaviour
         var target = other.gameObject;
         // Debug.Log("BimTrigger->OnTriggerEnter: target.tag = " + target.tag + ", target.name = " + target.name);
         if (!_validTags.Contains(target.tag) || _isStarted) return;
+
+        clones = GameObject.FindGameObjectsWithTag("Clone");
+
+        foreach (GameObject respawn in clones)
+        {
+            CloneCounter++;
+        }
+
+        GameManager.Instance.KernoilScore = GameManager.Instance.KernoilScore  * (0.5f + CloneCounter);
 
         // Set flag to prevent restart
         _isStarted = true;

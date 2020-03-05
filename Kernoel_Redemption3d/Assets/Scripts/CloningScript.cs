@@ -35,7 +35,7 @@ public class CloningScript : MonoBehaviour
     private void Start()
     {
         cloningCapsule.GetComponent<Transform>();
-        kernölAmountText.text = "Kernöl: " + highGradeSeedOil;
+        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
     }
 
 
@@ -54,14 +54,14 @@ public class CloningScript : MonoBehaviour
         {
             case "goodSeedOil":
                 //Debug.Log("picked up high grade seed oil");
-                highGradeSeedOil += 2;
+                GameManager.Instance.KernoilScore += 2;
                 Destroy(other.gameObject);
                 updateUI();
                 break;
 
             case "badSeedOil":
                 //Debug.Log("picked up low grade seed oil");
-                highGradeSeedOil++;
+                GameManager.Instance.KernoilScore += 1;
                 Destroy(other.gameObject);
                 updateUI();
                 break;
@@ -99,7 +99,7 @@ public class CloningScript : MonoBehaviour
                 spawnPosition, transform.rotation
             );
 
-            highGradeSeedOil--;
+            highGradeSeedOil -= 3;
             updateUI();
         }
     }
@@ -113,6 +113,6 @@ public class CloningScript : MonoBehaviour
     }
 
     public void updateUI(){
-        kernölAmountText.text = "Kernöl: " + highGradeSeedOil;
+        kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
     }
 }
