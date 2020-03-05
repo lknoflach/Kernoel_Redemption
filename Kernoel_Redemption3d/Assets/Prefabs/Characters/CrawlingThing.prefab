@@ -215,7 +215,7 @@ GameObject:
   m_Layer: 0
   m_Name: CrawlingThing
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -296,11 +296,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 5
   totalHealth: 5
-  timeOut: 1
   healthBar: {fileID: 5247232218875225536}
-  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffectTimer: 1
   seedOil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  probabilityOfMutationGoodSeedOil: 10
+  seedOilDropChance: 10
 --- !u!114 &5247232217950865860
 MonoBehaviour:
   m_ObjectHideFlags: 0

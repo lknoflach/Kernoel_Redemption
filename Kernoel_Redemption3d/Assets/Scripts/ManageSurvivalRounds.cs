@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 public class ManageSurvivalRounds : MonoBehaviour
@@ -70,9 +71,12 @@ public class ManageSurvivalRounds : MonoBehaviour
         // StartCoroutine(removeExplodedBarrelsFromList());
         // roundNumberText = GetComponent<Text> ();
         roundNumberText.enabled = false;
-        for (int i = 0; i < barrelSpawnPoints.Length; i++)
+        foreach (var barrelSpawnPoint in barrelSpawnPoints)
         {
-            barrels.Add((GameObject) Instantiate(barrel, barrelSpawnPoints[i]));
+            var spawnedBarrel = Instantiate(barrel);
+            spawnedBarrel.transform.position = barrelSpawnPoint.position;
+            spawnedBarrel.SetActive(true);
+            barrels.Add(spawnedBarrel);
         }
     }
 
@@ -88,17 +92,17 @@ public class ManageSurvivalRounds : MonoBehaviour
                 endOfRound = false;
                 SpawnEnemies();
                 SpawnBarrels();
-                SpawnSeedOil();
+                //SpawnSeedOil();
                 ++roundNumber;
             }
             else if (continueGame)
             {
-                Debug.Log("You won! Do you want to continue");
+                //Debug.Log("You won! Do you want to continue");
                 StartCoroutine(ShowRoundNumber());
                 SpawnBarrels();
                 endOfRound = false;
                 SpawnEnemies();
-                SpawnSeedOil();
+                //SpawnSeedOil();
                 ++roundNumber;
                 // show dialog
             }
@@ -122,50 +126,70 @@ public class ManageSurvivalRounds : MonoBehaviour
         // to you want to continue 
     }
 
-
     private void SpawnEnemies()
     {
         // spawn enemies on random spawn point
         // yield return new WaitForSeconds(4);
         continueGame = false;
         amountOfEnemies = (int) (amountOfEnemies * multiplierOfEnemiesPerRound);
+        
         for (var i = 0; i < amountOfEnemies; i++)
-        {   
-            int randomNumber = Random.Range(1, 11 + 1);
-            if( randomNumber >= 5 && randomNumber <= 7)
+        {
+            var randomNumber = Random.Range(1, 11 + 1);
+            if (randomNumber >= 5 && randomNumber <= 7)
             {
-                // get random spawn point
                 var spawnedEnemy = Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position = new Vector3(
-                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
-                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
+
+                /*var position = spawnedEnemy.transform.position;
+                position = new Vector3((position.x + Random.Range(-1f, 1f)), position.y, (position.z + Random.Range(-1f, 1f)));
+                spawnedEnemy.transform.position = position;*/
                 spawnedEnemy.transform.LookAt(player);
+                
+                spawnedEnemy.SetActive(true);
+                
                 enemies.Add(spawnedEnemy);
-                // yield return new WaitForSeconds(1);
-            }else if(randomNumber >= 8 && randomNumber <= 9) {
-                var spawnedEnemy = Instantiate(golem, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position = new Vector3(
-                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
-                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
-                spawnedEnemy.transform.LookAt(player);
-                enemies.Add(spawnedEnemy);
-            }else if(randomNumber >= 10 ){
-                var spawnedEnemy = Instantiate(crawlingZombie, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position = new Vector3(
-                    (spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
-                    spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
-                spawnedEnemy.transform.LookAt(player);
-                enemies.Add(spawnedEnemy);
+            }
+            else if (randomNumber >= 8 && randomNumber <= 9)
+            {
+                var spawnedGolem = Instantiate(golem, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
+                // spawnedGolem.transform.position = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
+                
+                var position = spawnedGolem.transform.position;
+                position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y + 1f, (position.z + Random.Range(-3f, 3f)));
+                spawnedGolem.transform.position = position;
+                spawnedGolem.transform.LookAt(player);
+                
+                spawnedGolem.SetActive(true);
+                
+                enemies.Add(spawnedGolem);
+            }
+            else if (randomNumber >= 10)
+            {
+                var spawnedCrawlingZombie = Instantiate(crawlingZombie, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
+                // spawnedCrawlingZombie.transform.position = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
+                
+                var position = spawnedCrawlingZombie.transform.position;
+                position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y, (position.z + Random.Range(-3f, 3f)));
+                spawnedCrawlingZombie.transform.position = position;
+                spawnedCrawlingZombie.transform.LookAt(player);
+                
+                spawnedCrawlingZombie.SetActive(true);
+                
+                enemies.Add(spawnedCrawlingZombie);
             }
             else
             {
-                var spawnedEnemy = Instantiate(zombie, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
-                spawnedEnemy.transform.position =
-                    new Vector3((spawnedEnemy.transform.position.x + Random.Range(-3f, 3f)),
-                        spawnedEnemy.transform.position.y, (spawnedEnemy.transform.position.z + Random.Range(-3f, 3f)));
-                spawnedEnemy.transform.LookAt(player);
-                enemies.Add(spawnedEnemy);
-                // yield return new WaitForSeconds(1);
+                var spawnedZombie = Instantiate(zombie, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
+                //spawnedZombie.transform.position = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)].position;
+                
+                var position = spawnedZombie.transform.position;
+                position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y, (position.z + Random.Range(-3f, 3f)));
+                spawnedZombie.transform.position = position;
+                spawnedZombie.transform.LookAt(player);
+                
+                spawnedZombie.SetActive(true);
+                
+                enemies.Add(spawnedZombie);
             }
         }
     }
@@ -193,18 +217,14 @@ public class ManageSurvivalRounds : MonoBehaviour
     private void SpawnBarrels()
     {
         // remove all barrels before spawn new
-        int lenghtBarrelsList = barrels.Count;
+        foreach (var barrel in barrels) if (barrel != null) Destroy(barrel);
 
-        //Debug.Log(lenghtBarrelsList);
-        for (int i = 0; i < lenghtBarrelsList; i++)
+        foreach (var barrelSpawnPoint in barrelSpawnPoints)
         {
-            if (barrels[i] != null)
-            {
-                Destroy(barrels[i]);
-            }
-
-            barrels[i] = (GameObject) Instantiate(barrel, barrelSpawnPoints[i]);
-            //Debug.Log("Destroyed");
+            var spawnedBarrel = Instantiate(barrel);
+            spawnedBarrel.transform.position = barrelSpawnPoint.position;
+            spawnedBarrel.SetActive(true);
+            barrels.Add(spawnedBarrel);
         }
     }
 

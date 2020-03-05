@@ -18,7 +18,7 @@ GameObject:
   m_Layer: 0
   m_Name: Golem
   m_TagString: Zombie
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -99,11 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 30
   totalHealth: 30
-  timeOut: 1
   healthBar: {fileID: 3936246439158182462}
-  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffectTimer: 1
   seedOil: {fileID: 8371632955182199159, guid: 550c5f48945921e459e341b549a50249, type: 3}
-  probabilityOfMutationGoodSeedOil: 50
+  seedOilDropChance: 50
 --- !u!114 &3936246439151697778
 MonoBehaviour:
   m_ObjectHideFlags: 0

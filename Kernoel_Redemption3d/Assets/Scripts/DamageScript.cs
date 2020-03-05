@@ -123,7 +123,7 @@ public class DamageScript : MonoBehaviour
     /// <param name="target"></param>
     private void ApplyDamage(GameObject target)
     {
-        if (!CanApplyDamage) return;
+        if (!CanApplyDamage || !target.activeSelf) return;
 
         var characterType = DetermineCharacterType(target);
         if (_validCharacterTypes.Contains(characterType))
