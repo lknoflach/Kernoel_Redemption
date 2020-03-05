@@ -422,6 +422,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 8423848310342087757}
+  - {fileID: 4116298791397499056}
   m_Father: {fileID: 7587884186773514860}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -490,6 +491,85 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4448835705726714206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4116298791397499056}
+  - component: {fileID: 4967869596697375330}
+  - component: {fileID: 8123010688785489448}
+  m_Layer: 0
+  m_Name: AmountClones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4116298791397499056
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448835705726714206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8175686755336422980}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -47.8}
+  m_SizeDelta: {x: 160, y: 21.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4967869596697375330
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448835705726714206}
+  m_CullTransparentMesh: 0
+--- !u!114 &8123010688785489448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448835705726714206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5ea139970101a5f489c776ba296a6704, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Clonesl: 12
+
+'
 --- !u!1 &5169638150865122379
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +967,11 @@ MonoBehaviour:
   totalHealth: 100
   DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
+  kernoil: {fileID: 0}
+  probabilityOfMutationGoodSeedOil: 100
   healthBar: {fileID: 1058579452297599605}
+  Kernoil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
+  noKernoil: {fileID: 0}
 --- !u!114 &3072262333714396821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +994,10 @@ MonoBehaviour:
   probabilityOfMutationGoodSeedOil: 10
   probabilityOfMutationBadSeedOil: 20
   "kern\xF6lAmountText": {fileID: 4149944762479611685}
+  cloneAmountText: {fileID: 8123010688785489448}
+  clones: []
+  clonesPrefab: {fileID: 702159183288861103, guid: 12048544c2987e348b4a826aeaa75c6b,
+    type: 3}
 --- !u!82 &3072262334930800204
 AudioSource:
   m_ObjectHideFlags: 0

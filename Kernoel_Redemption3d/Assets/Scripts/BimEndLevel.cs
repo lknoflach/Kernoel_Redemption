@@ -55,7 +55,7 @@ public class BimEndLevel : MonoBehaviour
 
         clones = GameObject.FindGameObjectsWithTag("Clone");
 
-        foreach (GameObject respawn in clones)
+        foreach (GameObject clone in clones)
         {
             CloneCounter++;
         }

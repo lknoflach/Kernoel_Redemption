@@ -168,7 +168,6 @@ MonoBehaviour:
   isMoving: 0
   currentMovementSpeed: 1
   movementSpeed: 1
-  moveOnlyOnSight: 1
   fieldOfViewDegrees: 180
   maxMovementRangeDistance: 50
 --- !u!54 &3248349590260411142
@@ -203,7 +202,11 @@ MonoBehaviour:
   totalHealth: 10
   DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
+  kernoil: {fileID: 0}
+  probabilityOfMutationGoodSeedOil: 40
   healthBar: {fileID: 7928810593388973619}
+  Kernoil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
+  noKernoil: {fileID: 0}
 --- !u!114 &3248349590260411143
 MonoBehaviour:
   m_ObjectHideFlags: 0
