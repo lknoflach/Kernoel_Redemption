@@ -39,7 +39,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public bool endOfRound;
 
     // The number of the current survival round
-    public int roundNumber = 1;
+    public int roundNumber;
 
     // player to look at player on spawn
     private GameObject _player;
@@ -90,15 +90,14 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     private void StartNextRound()
     {
+        roundNumber++;
         StartCoroutine(ShowRoundNumber());
+        
         endOfRound = false;
 
         // Spawn stuff
         SpawnBarrels();
         SpawnEnemies();
-        
-        // Increase the round number 
-        ++roundNumber;
     }
 
     private void OnTriggerEnter(Collider other)
