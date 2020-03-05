@@ -7,12 +7,12 @@ public class DestroyTrapsButtonScript : MonoBehaviour
     public List<GameObject> traps = new List<GameObject>();
     public bool isActivated = true;
     private bool _isNearButton;
-    private GameObject _button;
+    private List<GameObject> _buttons = new List<GameObject>();
 
     private void Start()
     {
-        _button = transform.Find("Button").gameObject;
-        
+        foreach (Transform eachChild in transform) if (eachChild.name == "Button") _buttons.Add(eachChild.gameObject);
+
         SetButtonColor();
         UpdateTraps();
     }
@@ -54,11 +54,12 @@ public class DestroyTrapsButtonScript : MonoBehaviour
     // update the button color
     private void SetButtonColor()
     {
-        if (!_button) return;
-
-        var color = isActivated ? Color.green : Color.red;
-        var buttonLight = _button.GetComponentInChildren<Light>();
-        if (buttonLight) buttonLight.color = color;
+        foreach (var button in _buttons)
+        {
+            var color = isActivated ? Color.green : Color.red;
+            var buttonLight = button.GetComponentInChildren<Light>();
+            if (buttonLight) buttonLight.color = color;
+        }
     }
     
     // enable/disable the traps
