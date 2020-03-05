@@ -83,8 +83,9 @@ public class CloneScript : MonoBehaviour
         transform.LookAt(playerPosition);
         //transform.LookAt(_player.transform.position);
         
-        transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
-        // transform.position += 0.02f * currentMovementSpeed * transform.forward;
+        // TODO fix clones teleporting out of rooms!!!
+        // transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
+        transform.position += 0.02f * currentMovementSpeed * transform.forward;
     }
     
     private bool CanSeePlayer()
