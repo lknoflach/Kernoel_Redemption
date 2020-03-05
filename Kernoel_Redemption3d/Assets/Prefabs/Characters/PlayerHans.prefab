@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 101.25867, y: 9.629944}
-  m_SizeDelta: {x: 3, y: 1}
+  m_AnchoredPosition: {x: 692, y: 453}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &344210251629213873
 CanvasRenderer:
@@ -242,7 +242,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3, y: 1}
+  m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8004719926633245978
 CanvasRenderer:
@@ -525,7 +525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -47.8}
+  m_AnchoredPosition: {x: 88, y: -47.80005}
   m_SizeDelta: {x: 160, y: 21.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4967869596697375330
@@ -823,7 +823,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7587884186773514774}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
@@ -965,11 +965,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   totalHealth: 100
-  timeOut: 1
   healthBar: {fileID: 1058579452297599605}
-  DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
+  deathEffectTimer: 1
   seedOil: {fileID: 0}
-  probabilityOfMutationGoodSeedOil: 0
+  seedOilDropChance: 0
 --- !u!114 &3072262333714396821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1017,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 132
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.1391983
   MaxDistance: 500
   Pan2D: -0.05
   rolloffMode: 0

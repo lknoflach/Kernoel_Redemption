@@ -602,7 +602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh305118
+  m_Name: pb_Mesh123064
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37420,7 +37420,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh306566
+  m_Name: pb_Mesh124514
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -44058,8 +44058,8 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249598953}
-  m_Text: "The green bar at the\nbottom left side of your\nscreen is the healthbar
-    \nof Hans. If the healthbar \nturns completely red, \nthe game is over\n"
+  m_Text: "The green bar at the\ntop right of your\nscreen is the healthbar \nof Hans.
+    If the healthbar \nturns completely red, \nthe game is over\n"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -57520,7 +57520,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh304722
+  m_Name: pb_Mesh122668
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63532,7 +63532,17 @@ PrefabInstance:
     - target: {fileID: 1083998189732857027, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 9.629883
+      value: 453
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083998189732857027, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 692
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083998189732857027, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3072262333714396810, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
@@ -63572,7 +63582,7 @@ PrefabInstance:
     - target: {fileID: 7587884186773514860, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 253
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 7587884186773514860, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
@@ -63582,7 +63592,7 @@ PrefabInstance:
     - target: {fileID: 7587884186773514860, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16
+      value: -48
       objectReference: {fileID: 0}
     - target: {fileID: 7587884186773514860, guid: e1c9355a640d7714095a08b6bb12df3c,
         type: 3}
@@ -63638,6 +63648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8691184332348494569, guid: e1c9355a640d7714095a08b6bb12df3c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c9355a640d7714095a08b6bb12df3c, type: 3}
@@ -66803,7 +66818,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh307846
+  m_Name: pb_Mesh125790
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -70613,7 +70628,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh307242
+  m_Name: pb_Mesh125192
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
