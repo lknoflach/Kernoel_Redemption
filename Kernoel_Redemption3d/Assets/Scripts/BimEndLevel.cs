@@ -53,15 +53,6 @@ public class BimEndLevel : MonoBehaviour
         // Debug.Log("BimTrigger->OnTriggerEnter: target.tag = " + target.tag + ", target.name = " + target.name);
         if (!_validTags.Contains(target.tag) || _isStarted) return;
 
-        clones = GameObject.FindGameObjectsWithTag("Clone");
-
-        foreach (GameObject clone in clones)
-        {
-            CloneCounter++;
-        }
-
-        GameManager.Instance.KernoilScore = GameManager.Instance.KernoilScore  * (0.5f + CloneCounter);
-
         // Set flag to prevent restart
         _isStarted = true;
         
