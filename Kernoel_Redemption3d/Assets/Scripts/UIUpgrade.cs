@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIUpgrade : MonoBehaviour
@@ -9,25 +8,38 @@ public class UIUpgrade : MonoBehaviour
 
     //For for controlling the UI
     public GameObject survivalRoundManager;
-
     private ManageSurvivalRounds _manageSurvivalRounds;
-
-    //For upgrading the damage;
-    private GunFiring _gunFiring;
-    public int totalWeaponDamage = 3;
-
-    [FormerlySerializedAs("totalprojectileSpeedOfWeapon")] public float totalProjectileSpeedOfWeapon = 45;
 
     // the player components to set the player stats
     private GameObject _player;
-
     private CharacterMovement _characterMovement;
-    public float totalSpeed = 12f;
+    private HealthScript _playerHealthScript;
+    private GunFiring _gunFiring;
 
-    // Bar for UI
-    [Header("SpeedBar")] public Image speedBar;
-    [Header("DamageBar")] public Image damageBar;
-    [Header("ProjectileSpeedBar")] public Image projectileSpeedBar;
+    // Bars for UI
+    [Header("Speed")]
+    public Image speedBar;
+    public float speedMax = 12f;
+    public int speedUpgradeCost = 3;
+    public float speedUpgradeValue = 1f;
+    
+    [Header("Damage")] 
+    public Image damageBar;
+    public int damageMax = 3;
+    public int damageUpgradeCost = 5;
+    public int damageUpgradeValue = 1;
+
+    [Header("ProjectileSpeed")] 
+    public Image projectileSpeedBar;
+    public float projectileSpeedMax = 45;
+    public int projectileSpeedUpgradeCost = 5;
+    public int playerHealthUpgradeValue = 10;
+    
+    [Header("PlayerHealth")] 
+    public Image playerHealthBar;
+    public int playerHealthMax = 100;
+    public int playerHealthUpgradeCost = 10;
+    public float projectileSpeedUpgradeValue = 5f;
 
     private void Start()
     {
@@ -36,71 +48,74 @@ public class UIUpgrade : MonoBehaviour
         {
             _characterMovement = _player.GetComponent<CharacterMovement>();
             _gunFiring = _player.GetComponentInChildren<GunFiring>();
+            _playerHealthScript = _player.GetComponent<HealthScript>();
+
+            playerHealthMax = _playerHealthScript.totalHealth;
+
+            if (speedBar) speedBar.fillAmount = _characterMovement.speed / speedMax;
+            if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / damageMax;
+            if (projectileSpeedBar) projectileSpeedBar.fillAmount = _gunFiring.projectileSpeedOfWeapon / projectileSpeedMax;
+            if (playerHealthBar) playerHealthBar.fillAmount = (float) _playerHealthScript.currentHealth / playerHealthMax;
         }
         
         guiUpgrade.gameObject.SetActive(false);
         _manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
-
-        if (speedBar) speedBar.fillAmount = _characterMovement.speed / totalSpeed;
-        if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / totalWeaponDamage;
-        if (projectileSpeedBar)
-            projectileSpeedBar.fillAmount =
-                _gunFiring.projectileSpeedOfWeapon / totalProjectileSpeedOfWeapon;
     }
 
     private void Update()
     {
-        if (_manageSurvivalRounds.showGUIUpgrade)
-        {
-            guiUpgrade.gameObject.SetActive(true);
-        }
-        else
-        {
-            guiUpgrade.gameObject.SetActive(false);
-        }
+        if (_manageSurvivalRounds.showGuiUpgrade) if (playerHealthBar) playerHealthBar.fillAmount = (float) _playerHealthScript.currentHealth / playerHealthMax;
+        guiUpgrade.gameObject.SetActive(_manageSurvivalRounds.showGuiUpgrade);
     }
 
     public void UpgradeSpeed()
     {
-        if (_characterMovement.speed < totalSpeed && GameManager.Instance.seedOilAmount >= 3)
-        {
-            GameManager.Instance.UpdateSeedOilAmount(-3);
-            
-            _characterMovement.speed += 1f;
-            if (speedBar) speedBar.fillAmount = _characterMovement.speed / totalSpeed;
-        }
+        if (_characterMovement.speed >= speedMax || GameManager.Instance.seedOilAmount < speedUpgradeCost) return;
+        
+        GameManager.Instance.UpdateSeedOilAmount(-speedUpgradeCost);
+        _characterMovement.speed += speedUpgradeValue;
+        
+        if (_characterMovement.speed > speedMax) _characterMovement.speed = speedMax;
+        if (speedBar) speedBar.fillAmount = _characterMovement.speed / speedMax;
     }
 
     public void UpgradeDamage()
     {
-        if (_gunFiring.damageOfWeapon < totalWeaponDamage && GameManager.Instance.seedOilAmount >= 5)
-        {
-            GameManager.Instance.UpdateSeedOilAmount(-3);
-            
-            _gunFiring.damageOfWeapon += 1;
-            if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / totalWeaponDamage;
-
-        }
+        if (_gunFiring.damageOfWeapon >= damageMax || GameManager.Instance.seedOilAmount < damageUpgradeCost) return;
+        
+        GameManager.Instance.UpdateSeedOilAmount(-damageUpgradeCost);
+        _gunFiring.damageOfWeapon += damageUpgradeValue;
+        
+        if (_gunFiring.damageOfWeapon > damageMax) _gunFiring.damageOfWeapon = damageMax;
+        if (damageBar) damageBar.fillAmount = (float) _gunFiring.damageOfWeapon / damageMax;
     }
 
     public void UpgradeProjectileSpeed()
     {
-        if (_gunFiring.projectileSpeedOfWeapon < totalProjectileSpeedOfWeapon && GameManager.Instance.seedOilAmount >= 2)
-        {
-            GameManager.Instance.UpdateSeedOilAmount(-3);
-            
-            _gunFiring.projectileSpeedOfWeapon += 5;
-            if (projectileSpeedBar)
-                projectileSpeedBar.fillAmount = _gunFiring.projectileSpeedOfWeapon / totalProjectileSpeedOfWeapon;
-        }
+        if (_gunFiring.projectileSpeedOfWeapon >= projectileSpeedMax || GameManager.Instance.seedOilAmount < projectileSpeedUpgradeCost) return;
+       
+        GameManager.Instance.UpdateSeedOilAmount(-projectileSpeedUpgradeCost);
+        _gunFiring.projectileSpeedOfWeapon += projectileSpeedUpgradeValue;
+        
+        if (_gunFiring.projectileSpeedOfWeapon > projectileSpeedMax) _gunFiring.projectileSpeedOfWeapon = projectileSpeedMax;
+        if (projectileSpeedBar) projectileSpeedBar.fillAmount = _gunFiring.projectileSpeedOfWeapon / projectileSpeedMax;
+    }
+    
+    public void UpgradePlayerHealth()
+    {
+        if (_playerHealthScript.currentHealth >= playerHealthMax || GameManager.Instance.seedOilAmount < playerHealthUpgradeCost) return;
+        
+        GameManager.Instance.UpdateSeedOilAmount(-playerHealthUpgradeCost);
+        _playerHealthScript.Heal(playerHealthUpgradeValue);
+        
+        if (playerHealthBar) playerHealthBar.fillAmount = (float) _playerHealthScript.currentHealth / playerHealthMax;
     }
 
     public void BackToGuiMenu()
     {
-        _manageSurvivalRounds.showGUIUpgrade = false;
+        _manageSurvivalRounds.showGuiUpgrade = false;
         guiUpgrade.gameObject.SetActive(false);
-        _manageSurvivalRounds.showGUISurvivalRounds = true;
+        _manageSurvivalRounds.showGuiSurvivalRounds = true;
         survivalRoundManager.gameObject.SetActive(true);
     }
-
 }

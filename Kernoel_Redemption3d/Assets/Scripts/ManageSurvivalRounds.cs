@@ -14,7 +14,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     public GameObject barrel;
 
     // The amount of Round you have to play to win 
-    public int roundsToWin = 3;
+    public int amountOfRoundsForUpgrade = 3;
 
     // SpawnStuff--------------------------------------------
     // if the survival starts lets enemies spawn
@@ -51,8 +51,8 @@ public class ManageSurvivalRounds : MonoBehaviour
     public Text roundNumberText;
 
     //UI managers
-    public bool showGUISurvivalRounds = false;
-    public bool showGUIUpgrade = false;
+    public bool showGuiSurvivalRounds;
+    public bool showGuiUpgrade;
 
     private void Start()
     {
@@ -73,50 +73,40 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     private void Update()
     {
-        // RoundNumberText.text = "Round number: ";
         if (roundHasStarted && endOfRound)
         {
-            // show round number 
-            if (roundNumber <= 3)
+            if (roundNumber % amountOfRoundsForUpgrade != 0 || continueGame)
             {
-                StartCoroutine(ShowRoundNumber());
-                endOfRound = false;
-                
-                SpawnBarrels();
-                SpawnEnemies();
-                
-                ++roundNumber;
+                StartNextRound();
             }
-            else if (continueGame)
+            else if (!continueGame && !showGuiUpgrade)
             {
-                // show dialog
-                //Debug.Log("You won! Do you want to continue");
-                StartCoroutine(ShowRoundNumber());
+                // Show Gui after every third round
                 endOfRound = false;
-                
-                SpawnBarrels();
-                SpawnEnemies();
-                
-                ++roundNumber;
-            }
-            else if (!continueGame && !showGUIUpgrade)
-            {
-                endOfRound = false;
-                showGUISurvivalRounds = true;
+                showGuiSurvivalRounds = true;
             }
         }
+    }
+
+    private void StartNextRound()
+    {
+        StartCoroutine(ShowRoundNumber());
+        endOfRound = false;
+
+        // Spawn stuff
+        SpawnBarrels();
+        SpawnEnemies();
+        
+        // Increase the round number 
+        ++roundNumber;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         // start survival round
-        // Show UI survive 3 rounds
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (roundHasStarted == false) roundHasStarted = true;
-        }
-
-        // to you want to continue 
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        if (roundHasStarted == false) roundHasStarted = true;
     }
 
     private void SpawnEnemies()

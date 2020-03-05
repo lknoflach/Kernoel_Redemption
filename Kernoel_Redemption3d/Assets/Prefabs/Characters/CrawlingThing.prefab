@@ -300,7 +300,7 @@ MonoBehaviour:
   deathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   deathEffectTimer: 1
   seedOil: {fileID: 897460695016049175, guid: 7010f089bfe1f824e84662993ff0d9d0, type: 3}
-  seedOilDropChance: 10
+  seedOilDropChance: 15
 --- !u!114 &5247232217950865860
 MonoBehaviour:
   m_ObjectHideFlags: 0

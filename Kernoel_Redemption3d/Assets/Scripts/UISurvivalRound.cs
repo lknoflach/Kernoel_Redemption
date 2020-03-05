@@ -2,7 +2,6 @@
 
 public class UISurvivalRound : MonoBehaviour
 {
-
     //The canvas for the Menu
     public Canvas guiMenu;
     public Canvas guiUpgrade;
@@ -15,31 +14,35 @@ public class UISurvivalRound : MonoBehaviour
         _manageSurvivalRounds = GetComponent<ManageSurvivalRounds>();
         guiUpgrade.gameObject.SetActive(false);
     }
-    
+
     private void Update()
     {
-        if(_manageSurvivalRounds.showGUISurvivalRounds){
+        if (_manageSurvivalRounds.showGuiSurvivalRounds)
+        {
             guiMenu.gameObject.SetActive(true);
-        }else
+        }
+        else
         {
             guiMenu.gameObject.SetActive(false);
         }
     }
 
-    public void ShowGuiMenu(){
-        
-        _manageSurvivalRounds.showGUIUpgrade = false;
-        _manageSurvivalRounds.showGUISurvivalRounds = true;
+    public void ShowGuiMenu()
+    {
+        _manageSurvivalRounds.showGuiUpgrade = false;
+        _manageSurvivalRounds.showGuiSurvivalRounds = true;
     }
 
-    public void ShowGuiUpgrade(){
-         _manageSurvivalRounds.showGUISurvivalRounds = false;
+    public void ShowGuiUpgrade()
+    {
+        _manageSurvivalRounds.showGuiSurvivalRounds = false;
         HideGuiMenu();
-        _manageSurvivalRounds.showGUIUpgrade = true;
+        _manageSurvivalRounds.showGuiUpgrade = true;
     }
-    
-    public void HideGuiMenu(){
-        _manageSurvivalRounds.showGUISurvivalRounds = false;
+
+    public void HideGuiMenu()
+    {
+        _manageSurvivalRounds.showGuiSurvivalRounds = false;
         guiMenu.gameObject.SetActive(false);
     }
 

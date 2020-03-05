@@ -89,6 +89,18 @@ public class HealthScript : MonoBehaviour
         GameManager.Instance.LoadGameOverMenu();
     }
 
+    public void Heal(int healCount)
+    {
+        if (currentHealth == totalHealth) return;
+        
+        currentHealth += healCount;
+        
+        if (currentHealth > totalHealth) currentHealth = totalHealth;
+        
+        // Update the health bar
+        if (healthBar) healthBar.fillAmount = (float) currentHealth / totalHealth;
+    }
+
     /*private void OnGUI()
     {
         // [CK] Another way to display a health bar would be this
