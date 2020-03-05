@@ -278,10 +278,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArrivedAtPlayer: 0
   isMoving: 0
+  currentMovementSpeed: 3
   movementSpeed: 3
-  moveOnlyOnSight: 1
   fieldOfViewDegrees: 300
-  visibilityDistance: 1000
+  maxMovementRangeDistance: 50
 --- !u!114 &5247232217950865859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bee23d4df80417187478ecdcdfe532c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 3
-  totalHealth: 3
+  currentHealth: 5
+  totalHealth: 5
   DeathEffect: {fileID: 100014, guid: 77e8386bc3f2f824ab67cbdbdb9b87f8, type: 3}
   timeOut: 1
   healthBar: {fileID: 5247232218875225536}

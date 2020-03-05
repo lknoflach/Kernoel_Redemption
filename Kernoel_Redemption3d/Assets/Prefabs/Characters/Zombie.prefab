@@ -166,10 +166,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArrivedAtPlayer: 0
   isMoving: 0
-  movementSpeed: 0.5
+  currentMovementSpeed: 1
+  movementSpeed: 1
   moveOnlyOnSight: 1
   fieldOfViewDegrees: 180
-  visibilityDistance: 300
+  maxMovementRangeDistance: 50
 --- !u!54 &3248349590260411142
 Rigidbody:
   m_ObjectHideFlags: 0

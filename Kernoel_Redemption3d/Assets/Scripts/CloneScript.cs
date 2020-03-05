@@ -10,16 +10,24 @@ public class CloneScript : MonoBehaviour
 
     /** PLAYER STUFF **/
     private GameObject _player;
-
-    private CharacterMovement _characterMovement;
+    private CharacterMovement _playerMovement;
 
     private void Start()
     {
-        //get Player to get the CharacterMovementScript
-        _player = GameObject.Find("PlayerHans");
-        //get CharacterMovementScript to check if Player is moving
-        if (_player) _characterMovement = _player.GetComponent<CharacterMovement>();
         currentMovementSpeed = movementSpeed;
+        
+        _player = GameObject.Find("PlayerHans");
+        if (_player) _playerMovement = _player.GetComponent<CharacterMovement>();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        CheckIfArrivedAtPlayer(other);
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        CheckIfArrivedAtPlayer(other);
     }
 
     private void CheckIfArrivedAtPlayer(Collision other)
@@ -49,24 +57,13 @@ public class CloneScript : MonoBehaviour
         if (isArrivedAtPlayer) currentMovementSpeed = 0f;
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        CheckIfArrivedAtPlayer(other);
-    }
-
-
-    private void OnCollisionStay(Collision other)
-    {
-        CheckIfArrivedAtPlayer(other);
-    }
-
     private void Update()
     {
-        if (!_player || !_characterMovement) return;
+        if (!_player || !_playerMovement) return;
         // Debug.Log(playerScript.moveInput);
 
         //ask if player moves
-        if (_characterMovement.playerIsMoving)
+        if (_playerMovement.playerIsMoving)
         {
             isArrivedAtPlayer = false;
             currentMovementSpeed = movementSpeed;
