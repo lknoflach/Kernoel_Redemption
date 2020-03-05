@@ -4,7 +4,11 @@ public class CloneScript : MonoBehaviour
 {
     /** MOVEMENT STUFF **/
     public bool isArrivedAtPlayer;
-
+    
+    public bool isAsleep;
+    public float fieldOfViewDegrees = 90.0f;
+    public float maxMovementRangeDistance = 50.0f;
+    
     public float currentMovementSpeed = 10f;
     public float movementSpeed = 10f;
 
@@ -14,7 +18,7 @@ public class CloneScript : MonoBehaviour
 
     private void Start()
     {
-        currentMovementSpeed = movementSpeed;
+        if (!isAsleep) currentMovementSpeed = movementSpeed;
         
         _player = GameObject.Find("PlayerHans");
         if (_player) _playerMovement = _player.GetComponent<CharacterMovement>();
@@ -62,6 +66,9 @@ public class CloneScript : MonoBehaviour
         if (!_player || !_playerMovement) return;
         // Debug.Log(playerScript.moveInput);
 
+        if (isAsleep && !CanSeePlayer()) return;
+        isAsleep = false;
+        
         //ask if player moves
         if (_playerMovement.playerIsMoving)
         {
@@ -77,5 +84,20 @@ public class CloneScript : MonoBehaviour
         
         transform.position += Time.deltaTime * currentMovementSpeed * transform.forward;
         // transform.position += 0.02f * currentMovementSpeed * transform.forward;
+    }
+    
+    private bool CanSeePlayer()
+    {
+        if (!_player) return false;
+        
+        // Is the Player in range?
+        var distanceToPlayer = Vector3.Distance(_player.transform.position, transform.position);
+        if (distanceToPlayer > maxMovementRangeDistance) return false;
+        
+        // Is the Player in sight?
+        var rayDirection = _player.transform.position - transform.position;
+        if (Vector3.Angle(rayDirection, transform.forward) > fieldOfViewDegrees * 0.5f) return false;
+
+        return true;
     }
 }
