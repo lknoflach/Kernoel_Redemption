@@ -30,12 +30,27 @@ public class CloningScript : MonoBehaviour
 
     //the text for the amout of Kernöl
     public Text kernölAmountText;
+    public Text cloneAmountText;
+
+    /** Clone Counter **/
+    public GameObject[] clones;
+    public GameObject clonesPrefab;
 
     // Start is called before the first frame update
     private void Start()
     {
         cloningCapsule.GetComponent<Transform>();
+
+        clones = GameObject.FindGameObjectsWithTag("Clone");
+
+        foreach (GameObject clone in clones)
+        {
+            GameManager.Instance.CloneAmount += 1;
+        }
+
+
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
+        cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
     }
 
 
@@ -89,7 +104,7 @@ public class CloningScript : MonoBehaviour
     // creates the clone if we have seed oil and with a possibility that it turns out to be a zombie 
     public void CreateClone()
     {
-        if (highGradeSeedOil > 0)
+        if (GameManager.Instance.KernoilScore > 2)
         {
             var spawnPosition = transform.position;
             spawnPosition.z -= 3;
@@ -99,7 +114,8 @@ public class CloningScript : MonoBehaviour
                 spawnPosition, transform.rotation
             );
 
-            highGradeSeedOil -= 3;
+            GameManager.Instance.KernoilScore -= 3;
+            GameManager.Instance.CloneAmount += 1;
             updateUI();
         }
     }
@@ -108,11 +124,13 @@ public class CloningScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         // cloning Button
         if (Input.GetKeyDown(KeyCode.E) && _standsOnCloningPlatform) CreateClone();
     }
 
     public void updateUI(){
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
+        cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
     }
 }
