@@ -21,7 +21,7 @@ public class CloningScript : MonoBehaviour
 
     // amount of good seed oil
     public int highGradeSeedOil;
-
+    public int CloneCounter;
     // the likeliness that the clone created turns out to be a zombie with good seed oil
     public float probabilityOfMutationGoodSeedOil;
 
@@ -40,14 +40,6 @@ public class CloningScript : MonoBehaviour
     private void Start()
     {
         cloningCapsule.GetComponent<Transform>();
-
-        clones = GameObject.FindGameObjectsWithTag("Clone");
-
-        foreach (GameObject clone in clones)
-        {
-            GameManager.Instance.CloneAmount += 1;
-        }
-
 
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
         cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
@@ -113,9 +105,8 @@ public class CloningScript : MonoBehaviour
                 RandomBoolean(probabilityOfMutationGoodSeedOil) ? clonePrototype : zombiePrototype,
                 spawnPosition, transform.rotation
             );
-
             GameManager.Instance.KernoilScore -= 3;
-            GameManager.Instance.CloneAmount += 1;
+            
             updateUI();
         }
     }
@@ -129,7 +120,16 @@ public class CloningScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && _standsOnCloningPlatform) CreateClone();
     }
 
-    public void updateUI(){
+    public void updateUI()
+    {
+        CloneCounter = 0;
+        clones = GameObject.FindGameObjectsWithTag("Clone");
+
+        foreach (GameObject clone in clones)
+        {
+            CloneCounter++;
+        }
+        GameManager.Instance.CloneAmount = CloneCounter;
         kernölAmountText.text = "Kernöl: " + GameManager.Instance.KernoilScore;
         cloneAmountText.text = "Clones: " + GameManager.Instance.CloneAmount;
     }
