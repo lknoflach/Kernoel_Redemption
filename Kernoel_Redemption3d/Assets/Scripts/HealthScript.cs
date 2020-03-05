@@ -55,6 +55,13 @@ public class HealthScript : MonoBehaviour
        // Dead!
        var isGameOver = gameObject.name == "PlayerHans";
 
+       // remove clone from actual clones
+       if(gameObject.name == "Clone"){
+           if(PlayerScript.numberOfClones > 0){
+               PlayerScript.numberOfClones--;
+           }
+       }
+
        var spawnPosition = transform.position;
        spawnPosition.z -= 3;
 

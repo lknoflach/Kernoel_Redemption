@@ -29,11 +29,11 @@ public class EndLevelScript : MonoBehaviour
     public void updateUI()
     {
         float score = 10.0f;
-        if(GameManager.Instance.CloneAmount < 1.0f){
+        if(PlayerScript.numberOfClones < 1){
             score += GameManager.Instance.KernoilScore;
         }
         else{
-            score = (score + GameManager.Instance.KernoilScore) * (GameManager.Instance.CloneAmount * 0.5f + 1);
+            score = (score + GameManager.Instance.KernoilScore) * ((float)PlayerScript.numberOfClones * 0.5f + 1.0f);
         }
         seedOilAmountText.text = "Kernöl: " + score;
     }
