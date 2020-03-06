@@ -16,14 +16,14 @@ public class CharacterMovement : MonoBehaviour
     public bool playerIsJumping;
     private Vector3 _moveDirection = Vector3.zero;
     public Vector3 move = Vector3.zero;
-    AudioSource audioData;
+    private AudioSource _audioData;
     public GameObject flashlight;
-    private bool flashlight_active = true;
+    private bool _isFlashlightActive = true;
     
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
-        audioData = GetComponent<AudioSource>();
+        _audioData = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -40,17 +40,12 @@ public class CharacterMovement : MonoBehaviour
             }
           
         }
-
-        if(Input.GetKeyDown(KeyCode.F)){
-            if(flashlight_active){
-                flashlight.gameObject.SetActive(false);
-                flashlight_active = false;
-            }else{
-                flashlight.gameObject.SetActive(true);
-                flashlight_active = true;
-            }
+        
+        if (flashlight && Input.GetKeyDown(KeyCode.F)) {
+            // switch flashlight
+            _isFlashlightActive = !_isFlashlightActive;
+            flashlight.gameObject.SetActive(_isFlashlightActive);
         }
-
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
@@ -70,7 +65,7 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             playerIsMoving = false;
-            if (audioData && audioData.isActiveAndEnabled) audioData.Play(0);
+            if (_audioData && _audioData.isActiveAndEnabled) _audioData.Play(0);
         }
 
         _characterController.Move(move);
