@@ -17,7 +17,7 @@ public class DamageScript : MonoBehaviour
     }
 
     // Defines the CharacterTypes for applying damage. 
-    private readonly List<CharacterTypes> _validCharacterTypes;
+    private readonly List<CharacterTypes> _validCharacterTypes = new List<CharacterTypes>();
 
     /** DAMAGE STUFF **/
     public int damage = 1;
@@ -46,11 +46,6 @@ public class DamageScript : MonoBehaviour
     public DamageTypes damageType = DamageTypes.Undefined;
 
     public AudioSource audioData;
-    
-    public DamageScript()
-    {
-        _validCharacterTypes = new List<CharacterTypes>();
-    }
 
     private void Start()
     {
@@ -120,7 +115,7 @@ public class DamageScript : MonoBehaviour
     /// Apply the damage to the target's HealthScript if the targetCharacter is valid.
     /// </summary>
     /// <param name="target"></param>
-    private void ApplyDamage(GameObject target)
+    public void ApplyDamage(GameObject target)
     {
         if (!CanApplyDamage || !target.activeSelf) return;
 

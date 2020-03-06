@@ -5,18 +5,18 @@ namespace Animations.Zombie
     public class ZombieAnimationScript : MonoBehaviour
     {
         private Animator _animator;
-        private ZombieScript _zombieScript;
+        private MoveCharacterToPlayer _moveZombieToPlayer;
         private static readonly int _isWalking = Animator.StringToHash("Zwalk");
 
         private void Start()
         {
-            _zombieScript = transform.parent.GetComponent<ZombieScript>();
+            _moveZombieToPlayer = transform.parent.GetComponent<MoveCharacterToPlayer>();
             _animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            _animator.SetBool(_isWalking, _zombieScript.isMoving != false);
+            if (_moveZombieToPlayer) _animator.SetBool(_isWalking, _moveZombieToPlayer.IsMoving());
         }
     }
 }

@@ -5,18 +5,18 @@ namespace Animations.Clones
     public class CloneAnimationScript : MonoBehaviour
     {
         private Animator _animator;
-        private CloneScript _cloneScript;
+        private MoveCharacterToPlayer _moveCloneToPlayer;
         private static readonly int _isWalking = Animator.StringToHash("isWalking");
 
         private void Start()
         {
-            _cloneScript = transform.parent.GetComponent<CloneScript>();
+            _moveCloneToPlayer = transform.parent.GetComponent<MoveCharacterToPlayer>();
             _animator = GetComponent<Animator>();
         }
 
         private void Update()
         {
-            _animator.SetBool(_isWalking, !_cloneScript.isArrivedAtPlayer && _cloneScript.currentMovementSpeed > 0);
+            if (_moveCloneToPlayer) _animator.SetBool(_isWalking,_moveCloneToPlayer.IsMoving());
         }
     }
 }
