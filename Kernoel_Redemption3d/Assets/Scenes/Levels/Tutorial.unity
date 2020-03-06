@@ -33168,7 +33168,7 @@ MonoBehaviour:
   player: {fileID: 1762088642}
   smooth: 0.3
   height: 15
-  ofSetX: -9
+  ofSetX: -3
 --- !u!4 &1023932989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4302042920928744, guid: c45c41f59dbb9894cb895ef86d325026,
