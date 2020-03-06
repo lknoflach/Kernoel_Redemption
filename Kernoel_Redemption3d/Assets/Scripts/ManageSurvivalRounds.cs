@@ -123,9 +123,9 @@ public class ManageSurvivalRounds : MonoBehaviour
             {
                 var spawnedEnemy = Instantiate(enemy, enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)]);
 
-                /*var position = spawnedEnemy.transform.position;
-                position = new Vector3((position.x + Random.Range(-1f, 1f)), position.y, (position.z + Random.Range(-1f, 1f)));
-                spawnedEnemy.transform.position = position;*/
+                var position = spawnedEnemy.transform.position;
+                position = new Vector3((position.x + Random.Range(-3f, 3f)), position.y, (position.z + Random.Range(-3f, 3f)));
+                spawnedEnemy.transform.position = position;
                 spawnedEnemy.transform.LookAt(_player.transform);
                 
                 spawnedEnemy.SetActive(true);
