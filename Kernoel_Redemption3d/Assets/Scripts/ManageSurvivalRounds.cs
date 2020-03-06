@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ManageSurvivalRounds : MonoBehaviour
 {
@@ -61,6 +60,8 @@ public class ManageSurvivalRounds : MonoBehaviour
         StartCoroutine(RemoveDeadEnemiesFromList());
         // StartCoroutine(removeExplodedBarrelsFromList());
         
+        GameManager.Instance.ResetScore();
+        
         roundNumberText.enabled = false;
         foreach (var barrelSpawnPoint in barrelSpawnPoints)
         {
@@ -75,7 +76,7 @@ public class ManageSurvivalRounds : MonoBehaviour
     {
         if (roundHasStarted && endOfRound)
         {
-            if (roundNumber % amountOfRoundsForUpgrade != 0 || continueGame)
+            if (roundNumber == 0 || roundNumber % amountOfRoundsForUpgrade != 0 || continueGame)
             {
                 StartNextRound();
             }
@@ -221,6 +222,6 @@ public class ManageSurvivalRounds : MonoBehaviour
 
     public void StopGame()
     {
-        SceneManager.LoadScene("Victory");
+        GameManager.Instance.FinishEndless(roundNumber);
     }
 }

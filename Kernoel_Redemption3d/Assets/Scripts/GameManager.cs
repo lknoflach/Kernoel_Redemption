@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public int seedOilAmount;
     public int cloneAmount;
     public int finishedLevelAmount;
+    public int finishedRoundAmount;
     private readonly List<string> _finishedLevelNames = new List<string>();
     
     public static GameManager Instance { get; private set; }
@@ -62,10 +64,9 @@ public class GameManager : MonoBehaviour
         _availableSceneNames.Add(SceneNames.Prototype.ToString());
         _availableSceneNames.Add(SceneNames.Tutorial.ToString());
         
+        
         _finishedLevelNames.Clear();
-        seedOilAmount = 0;
-        cloneAmount = 0;
-        finishedLevelAmount = 0;
+        ResetScore();
     }
 
     private void Update()
@@ -161,6 +162,20 @@ public class GameManager : MonoBehaviour
         {
             LoadVictoryMenu();
         }
+    }
+
+    public void FinishEndless(int roundNumber)
+    {
+        finishedRoundAmount = roundNumber;
+        LoadVictoryMenu();
+    }
+
+    public void ResetScore()
+    {
+        cloneAmount = 0;
+        seedOilAmount = 0;
+        finishedLevelAmount = 0;
+        finishedRoundAmount = 0;
     }
 
     // The coroutine runs on its own at the same time as Update() and takes an integer indicating which scene to load.

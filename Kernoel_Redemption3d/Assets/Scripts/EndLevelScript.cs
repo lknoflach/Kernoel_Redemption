@@ -39,26 +39,56 @@ public class EndLevelScript : MonoBehaviour
         var gameManager = GameManager.Instance;
         if (!gameManager) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
+        var labels = score.transform.GetChild(0);
         var values = score.transform.GetChild(1);
-        
-        // Level Points
-        var levelPoints = 10 * gameManager.finishedLevelAmount;
-        var levelPointsValue = values.Find("LevelPointsValue");
-        if (levelPointsValue) levelPointsValue.GetComponent<Text>().text = $"10P * {gameManager.finishedLevelAmount}";
 
-        // Seed Oil
-        var seedOil = 1 * gameManager.seedOilAmount;
-        var seedOilValue = values.Find("SeedOilValue");
-        if (seedOilValue) seedOilValue.GetComponent<Text>().text = $"{gameManager.seedOilAmount}P";
+        if (gameManager.finishedRoundAmount > 0)
+        {
+            // ENDLESS
+            // Level Points
+            var roundPoints = 10 * gameManager.finishedRoundAmount;
+            var roundPointsLabel = labels.Find("LevelPointsLabel");
+            if (roundPointsLabel) roundPointsLabel.GetComponent<Text>().text = "Round Points:";
+            var roundPointsValue = values.Find("LevelPointsValue");
+            if (roundPointsValue) roundPointsValue.GetComponent<Text>().text = $"10P * {gameManager.finishedRoundAmount}";
+            
+            // Seed Oil
+            var seedOil = 1 * gameManager.seedOilAmount;
+            var seedOilValue = values.Find("SeedOilValue");
+            if (seedOilValue) seedOilValue.GetComponent<Text>().text = $"{gameManager.seedOilAmount}P";
 
-        // Clones
-        var cloneMultiplier = 1 + gameManager.cloneAmount;
-        var cloneMultiplierValue = values.Find("CloneMultiplierValue");
-        if (cloneMultiplierValue) cloneMultiplierValue.GetComponent<Text>().text = $"1 + {gameManager.cloneAmount}";
+            // Clones
+            var cloneMultiplier = 1 + gameManager.cloneAmount;
+            var cloneMultiplierValue = values.Find("CloneMultiplierValue");
+            if (cloneMultiplierValue) cloneMultiplierValue.GetComponent<Text>().text = $"1 + {gameManager.cloneAmount}";
 
-        // End Score
-        var endScore = (levelPoints + seedOil) * cloneMultiplier;
-        var endScoreValue = values.Find("EndScoreValue");
-        if (endScoreValue) endScoreValue.GetComponent<Text>().text = $"({levelPoints}P + {seedOil}P) * {cloneMultiplier} = {endScore}P";
+            // End Score
+            var endScore = (roundPoints + seedOil) * cloneMultiplier;
+            var endScoreValue = values.Find("EndScoreValue");
+            if (endScoreValue) endScoreValue.GetComponent<Text>().text = $"({roundPoints}P + {seedOil}P) * {cloneMultiplier} = {endScore}P";
+        }
+        else
+        {
+            // TUTORIAL or CAMPAIGN
+            // Level Points
+            var levelPoints = 10 * gameManager.finishedLevelAmount;
+            var levelPointsValue = values.Find("LevelPointsValue");
+            if (levelPointsValue) levelPointsValue.GetComponent<Text>().text = $"10P * {gameManager.finishedLevelAmount}";
+            
+            // Seed Oil
+            var seedOil = 1 * gameManager.seedOilAmount;
+            var seedOilValue = values.Find("SeedOilValue");
+            if (seedOilValue) seedOilValue.GetComponent<Text>().text = $"{gameManager.seedOilAmount}P";
+
+            // Clones
+            var cloneMultiplier = 1 + gameManager.cloneAmount;
+            var cloneMultiplierValue = values.Find("CloneMultiplierValue");
+            if (cloneMultiplierValue) cloneMultiplierValue.GetComponent<Text>().text = $"1 + {gameManager.cloneAmount}";
+
+            // End Score
+            var endScore = (levelPoints + seedOil) * cloneMultiplier;
+            var endScoreValue = values.Find("EndScoreValue");
+            if (endScoreValue) endScoreValue.GetComponent<Text>().text = $"({levelPoints}P + {seedOil}P) * {cloneMultiplier} = {endScore}P";
+        }
     }
 }
