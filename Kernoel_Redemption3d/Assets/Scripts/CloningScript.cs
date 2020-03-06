@@ -35,7 +35,7 @@ public class CloningScript : MonoBehaviour
                 GameManager.Instance.UpdateSeedOilAmount(2);
                 var goodSeedOil = other.gameObject;
                 var goodSeedOilAudioData = goodSeedOil.GetComponent<AudioSource>();
-                if (goodSeedOilAudioData) goodSeedOilAudioData.Play();
+                if (goodSeedOilAudioData) AudioSource.PlayClipAtPoint(goodSeedOilAudioData.clip, transform.position);
                 Destroy(goodSeedOil);
                 break;
 
@@ -43,7 +43,7 @@ public class CloningScript : MonoBehaviour
                 GameManager.Instance.UpdateSeedOilAmount(1);
                 var badSeedOil = other.gameObject;
                 var badSeedOilAudioData = badSeedOil.GetComponent<AudioSource>();
-                if (badSeedOilAudioData) badSeedOilAudioData.Play();
+                if (badSeedOilAudioData) AudioSource.PlayClipAtPoint(badSeedOilAudioData.clip, transform.position);
                 Destroy(badSeedOil);
                 break;
 

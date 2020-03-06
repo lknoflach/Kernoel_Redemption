@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DestroyGlassScript : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class DestroyGlassScript : MonoBehaviour
         switch (target.tag)
         {
             case "Bullet":
-                if (_audioData) _audioData.Play();
+                if (_audioData) AudioSource.PlayClipAtPoint(_audioData.clip, transform.position);
                 Destroy(gameObject);
                 break;
         }
