@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
@@ -23,9 +22,11 @@ public class GameManager : MonoBehaviour
     }
     public string currentSceneName;
     
-    [FormerlySerializedAs("KernoilScore")] public float seedOilAmount;
-    [FormerlySerializedAs("CloneAmount")] public float cloneAmount;
-
+    public int seedOilAmount;
+    public int cloneAmount;
+    public int finishedLevelAmount;
+    private readonly List<string> _finishedLevelNames = new List<string>();
+    
     public static GameManager Instance { get; private set; }
 
     private readonly List<string> _availableSceneNames = new List<string>();
@@ -61,8 +62,10 @@ public class GameManager : MonoBehaviour
         _availableSceneNames.Add(SceneNames.Prototype.ToString());
         _availableSceneNames.Add(SceneNames.Tutorial.ToString());
         
+        _finishedLevelNames.Clear();
         seedOilAmount = 0;
         cloneAmount = 0;
+        finishedLevelAmount = 0;
     }
 
     private void Update()
@@ -99,9 +102,13 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         if (!_availableSceneNames.Contains(currentSceneName)) return;
-        
-        // var activeScene = SceneManager.GetActiveScene();
-        // SceneManager.LoadScene(currentSceneName);
+
+        // Remove currentLevel if its already finished
+        if (_finishedLevelNames.Contains(currentSceneName))
+        {
+            _finishedLevelNames.Remove(currentSceneName);
+            finishedLevelAmount = _finishedLevelNames.Count;
+        }
         
         if (loadingScreen) loadingScreen.gameObject.SetActive(true);
         StartCoroutine(LoadCurrentLevel());
@@ -117,7 +124,7 @@ public class GameManager : MonoBehaviour
         seedOilAmount += amount;
         // Update text in UI
         var seedOilText = GameObject.Find("SeedOilAmount");
-        if (seedOilText) seedOilText.GetComponent<Text>().text = "Kernöl: " + seedOilAmount;
+        if (seedOilText) seedOilText.GetComponent<Text>().text = $"Kernöl: {seedOilAmount}";
     }
     
     public void UpdateCloneAmount(int amount)
@@ -125,7 +132,7 @@ public class GameManager : MonoBehaviour
         cloneAmount += amount;
         // Update text in UI
         var cloneAmountText = GameObject.Find("CloneAmount");
-        if (cloneAmountText) cloneAmountText.GetComponent<Text>().text = "Clones: " + cloneAmount;
+        if (cloneAmountText) cloneAmountText.GetComponent<Text>().text = $"Clones: {cloneAmount}";
     }
     
     public void SetAndLoadCurrentLevel(string sceneName)
@@ -136,7 +143,26 @@ public class GameManager : MonoBehaviour
         if (loadingScreen) loadingScreen.gameObject.SetActive(true);
         StartCoroutine(LoadCurrentLevel());
     }
-    
+
+    public void FinishLevel(string nextLevelName)
+    {
+        var finishedLevel = SceneManager.GetActiveScene();
+        if (!_finishedLevelNames.Contains(finishedLevel.name))
+        {
+            _finishedLevelNames.Add(finishedLevel.name);
+            finishedLevelAmount = _finishedLevelNames.Count;
+        }
+        
+        if (!string.IsNullOrEmpty(nextLevelName))
+        {
+            SetAndLoadCurrentLevel(nextLevelName);
+        }
+        else
+        {
+            LoadVictoryMenu();
+        }
+    }
+
     // The coroutine runs on its own at the same time as Update() and takes an integer indicating which scene to load.
     private IEnumerator LoadCurrentLevel() 
     {

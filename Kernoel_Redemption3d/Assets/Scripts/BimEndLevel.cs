@@ -63,20 +63,14 @@ public class BimEndLevel : MonoBehaviour
         CreateBimAndStartMovement();
         
         // Destroy(toDestroy);
+        GameManager.Instance.finishedLevelAmount++;
         StartCoroutine(LoadNextLevel());
     }
 
     private IEnumerator LoadNextLevel()
     {
         yield return new WaitForSeconds(5);
-        if (!string.IsNullOrEmpty(nextLevelName))
-        {
-            GameManager.Instance.SetAndLoadCurrentLevel(nextLevelName);
-        }
-        else
-        {
-            GameManager.Instance.LoadVictoryMenu();
-        }
+        GameManager.Instance.FinishLevel(nextLevelName);
         yield return null;
     }
 

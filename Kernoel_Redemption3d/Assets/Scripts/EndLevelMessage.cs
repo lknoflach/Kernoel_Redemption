@@ -10,14 +10,7 @@ public class EndLevelMessage : MonoBehaviour
         // sets display message to true an displays the message
         if (!other.gameObject.CompareTag("Player")) return;
 
-        if (!string.IsNullOrEmpty(nextLevelName))
-        {
-            GameManager.Instance.SetAndLoadCurrentLevel(nextLevelName);
-        }
-        else
-        {
-            GameManager.Instance.LoadVictoryMenu();
-        }
+        GameManager.Instance.FinishLevel(nextLevelName);
     }
 
     /*private void OnGUI()
