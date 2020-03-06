@@ -8,9 +8,11 @@ public class DestroyTrapsButtonScript : MonoBehaviour
     public bool isActivated = true;
     private bool _isNearButton;
     private List<GameObject> _buttons = new List<GameObject>();
-
+    private GameObject _player;
+    
     private void Start()
     {
+        _player = GameObject.Find("PlayerHans");
         foreach (Transform eachChild in transform) if (eachChild.name == "Button") _buttons.Add(eachChild.gameObject);
 
         SetButtonColor();
@@ -67,5 +69,14 @@ public class DestroyTrapsButtonScript : MonoBehaviour
     {
         if (isActivated) foreach(var trap in traps) trap.SetActive(true);
         if (!isActivated) foreach(var trap in traps) trap.SetActive(false);
+    }
+    
+    private void OnGUI()
+    {
+        if (!_player || !_isNearButton) return;
+        
+        var targetPos = Camera.main.WorldToScreenPoint(_player.transform.position);
+        var text = $"E: {(isActivated ? "Deactivate" : "Activate")}";
+        GUI.Box(new Rect(targetPos.x, Screen.height - targetPos.y, 100, 20), text);
     }
 }
