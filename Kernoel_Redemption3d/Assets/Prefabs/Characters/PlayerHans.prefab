@@ -1036,6 +1036,7 @@ MonoBehaviour:
   playerIsMoving: 0
   playerIsJumping: 0
   move: {x: 0, y: 0, z: 0}
+  flashlight: {fileID: 3072262334303921361}
 --- !u!114 &3072262333714396810
 MonoBehaviour:
   m_ObjectHideFlags: 0
