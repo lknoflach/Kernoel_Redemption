@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,7 +10,6 @@ public class PlayerScript : MonoBehaviour
 
     /** MOVEMENT STUFF **/
     private Camera _mainCamera;
-    public CharacterMovement characterMovement;
     private float _pushPower = 2f;
 
     // the array with all the following clones
@@ -20,11 +17,8 @@ public class PlayerScript : MonoBehaviour
 
     public void Start()
     {
-        characterMovement = GetComponent<CharacterMovement>();
         _mainCamera = FindObjectOfType<Camera>();
         _gunFiringScript = playerGun.GetComponent<GunFiring>();
-
-
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
