@@ -7,16 +7,15 @@ public class CloningScript : MonoBehaviour
     //checks if the player is standing on the cloningPlatform
     private bool _standsOnCloningPlatform;
 
-    // the object which enables the cloning
-    public GameObject cloningCapsule;
-
     // the prototype for new clone objects
     public GameObject clonePrototype;
 
+    private GameObject _player;
+    
     // Start is called before the first frame update
     private void Start()
     {
-        cloningCapsule.GetComponent<Transform>();
+        _player = GameObject.Find("PlayerHans");
     }
 
     // just a random boolean function with a set likeliness that it turns out to be false 
@@ -79,5 +78,14 @@ public class CloningScript : MonoBehaviour
     {
         // cloning Button
         if (Input.GetKeyDown(KeyCode.E) && _standsOnCloningPlatform) CreateClone();
+    }
+    
+    private void OnGUI()
+    {
+        if (!_player || !_standsOnCloningPlatform) return;
+        
+        var targetPos = Camera.main.WorldToScreenPoint(_player.transform.position);
+        const string text = "E: Create Clone";
+        GUI.Box(new Rect(targetPos.x, Screen.height - targetPos.y, 100, 20), text);
     }
 }
