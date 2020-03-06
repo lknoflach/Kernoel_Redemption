@@ -33,12 +33,18 @@ public class CloningScript : MonoBehaviour
         {
             case "goodSeedOil":
                 GameManager.Instance.UpdateSeedOilAmount(2);
-                Destroy(other.gameObject);
+                var goodSeedOil = other.gameObject;
+                var goodSeedOilAudioData = goodSeedOil.GetComponent<AudioSource>();
+                if (goodSeedOilAudioData) goodSeedOilAudioData.Play();
+                Destroy(goodSeedOil);
                 break;
 
             case "badSeedOil":
                 GameManager.Instance.UpdateSeedOilAmount(1);
-                Destroy(other.gameObject);
+                var badSeedOil = other.gameObject;
+                var badSeedOilAudioData = badSeedOil.GetComponent<AudioSource>();
+                if (badSeedOilAudioData) badSeedOilAudioData.Play();
+                Destroy(badSeedOil);
                 break;
 
             case "CloningCapsule":
